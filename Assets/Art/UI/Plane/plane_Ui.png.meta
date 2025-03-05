@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9390540251b850c4099636d159aed970
+guid: f3509bf746b6cc14cba88e612cc6da54
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4161776356097314593
-    second: sideviewfish_Icon_0
+      213: 6259694580590596429
+    second: plane_Ui_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sideviewfish_Icon_0
+      name: plane_Ui_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 15
-        height: 15
+        width: 83
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fd0333444766e36c0800000000000000
-      internalID: -4161776356097314593
+      spriteID: d415a864e07eed650800000000000000
+      internalID: 6259694580590596429
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sideviewfish_Icon_0: -4161776356097314593
+      plane_Ui_0: 6259694580590596429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
