@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3acecbd9f159e764a9c1b86e9f92d4ed
+guid: 401d64b99f7638945a8903f0158f85f3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1925509117703870593
-    second: balltbutton_Pressed_0
+      213: -8583589311682705419
+    second: heartbutton_Pressed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: balltbutton_Pressed_0
+      name: heartbutton_Pressed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 21
-        height: 21
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f772c73c8a73745e0800000000000000
-      internalID: -1925509117703870593
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: balltbutton_Pressed_1
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 0
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b1baeceb41de28f46a1bd812c2df0713
-      internalID: -1886402055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: balltbutton_Pressed_2
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 0
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 94bd38032a4f5884e9f6e1ad4acabd14
-      internalID: 2007161109
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: balltbutton_Pressed_3
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 0
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dbf84b1db4d19a14083ce0928ebf05ac
-      internalID: 1369924938
+      spriteID: 5f70053bff6f0e880800000000000000
+      internalID: -8583589311682705419
       vertices: []
       indices: 
       edges: []
@@ -191,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: db33cc0fec798d642b15a85829b0e8eb
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -201,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      balltbutton_Pressed_0: -1925509117703870593
-      balltbutton_Pressed_1: -1886402055
-      balltbutton_Pressed_2: 2007161109
-      balltbutton_Pressed_3: 1369924938
+      heartbutton_Pressed_0: -8583589311682705419
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

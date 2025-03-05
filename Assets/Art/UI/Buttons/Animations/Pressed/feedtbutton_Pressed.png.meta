@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 32fb54332de58ee4d9a97ae677a78002
+guid: d3401f4ce451b414cb397c3536d374c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8583589311682705419
-    second: heartbutton_Pressed_0
+      213: -8839423255845660567
+    second: feedtbutton_Pressed_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: heartbutton_Pressed_0
+      name: feedtbutton_Pressed_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 21
-        height: 21
+        height: 19
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,74 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5f70053bff6f0e880800000000000000
-      internalID: -8583589311682705419
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heartbutton_Pressed_1
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 0
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 31a46d7abd748274f92cbacf396027a0
-      internalID: 537997524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heartbutton_Pressed_2
-      rect:
-        serializedVersion: 2
-        x: 42
-        y: 0
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 96e189b0efb96b64e83aad2e3456cef1
-      internalID: 1978204270
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: heartbutton_Pressed_3
-      rect:
-        serializedVersion: 2
-        x: 63
-        y: 0
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 90707c4d1c4cf6e43a852c6056585ae6
-      internalID: -921089090
+      spriteID: 9681effc16f045580800000000000000
+      internalID: -8839423255845660567
       vertices: []
       indices: 
       edges: []
@@ -191,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 801a3bbe9d864eb4680a43d1d2f86ead
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -201,10 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      heartbutton_Pressed_0: -8583589311682705419
-      heartbutton_Pressed_1: 537997524
-      heartbutton_Pressed_2: 1978204270
-      heartbutton_Pressed_3: -921089090
+      feedtbutton_Pressed_0: -8839423255845660567
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
