@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7033034394966279163}
   - component: {fileID: 4879582232744989402}
   - component: {fileID: 3487940393023222946}
+  - component: {fileID: 4647479102144937992}
   m_Layer: 0
   m_Name: Seal
   m_TagString: Untagged
@@ -176,3 +177,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
+--- !u!114 &4647479102144937992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644687759899469410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0ed1350ca2f18e4ca6fec7f6aaba998, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  mood: 0
+  hunger: 0
