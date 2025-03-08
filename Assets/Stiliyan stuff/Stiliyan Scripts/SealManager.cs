@@ -37,7 +37,7 @@ public class SealManager : MonoBehaviour
 
     private Vector3 GetRandomSpawnPosition()
     {
-        float x = Random.Range(-7f, 7f); // Adjust based on your screen bounds
+        float x = Random.Range(-7f, 7f); // Adjust based on screen bounds
         float y = Random.Range(-4f, 4f);
         return new Vector3(x, y, 0f);
     }
