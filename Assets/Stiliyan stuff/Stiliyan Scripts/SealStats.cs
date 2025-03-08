@@ -12,8 +12,8 @@ public class SealStats : MonoBehaviour
         this.mood = mood;
         this.hunger = hunger;
     }
-
-
+    ////////////////////////////////////
+    ///Health///
     public void IncreaseHealth(float amount)
     {
         health += amount;
@@ -25,7 +25,8 @@ public class SealStats : MonoBehaviour
         health -= amount;
         if (health < 0f) health = 0f; //Min cap
     }
-
+    ////////////////////////////////////////////////////////
+    //////Food///
     public void FeedSeal(float foodAmount)
     {
         hunger += foodAmount;
@@ -37,7 +38,8 @@ public class SealStats : MonoBehaviour
         hunger -= amount;
         if (hunger < 0f) hunger = 0; // Min cap
     }
-
+    ////////////////////////////////////////////////////////
+    ///Mood///
     public void IncreaseMood(float amount)
     {
         mood += amount;
@@ -49,4 +51,5 @@ public class SealStats : MonoBehaviour
         mood -= amount;
         if (mood < 0f) mood = 0f; // Min cap
     }
+    ////////////////////////////////////////////////////////
 }
