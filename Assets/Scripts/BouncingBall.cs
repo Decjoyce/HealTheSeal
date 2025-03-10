@@ -5,6 +5,7 @@ public class BouncingBall : MonoBehaviour
 
     public Collider2D seal;
     public float thrust = 1f;
+    public GameObject ball_;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,11 +17,12 @@ public class BouncingBall : MonoBehaviour
     {
         if(Input.GetKeyDown("space"))
         {
-            seal.enabled = true;  
+            seal.enabled = true;
+            Debug.Log("w");
         }
         else
         {
-            seal.enabled = false;
+            //seal.enabled = false;
         }
     }
 
@@ -29,7 +31,8 @@ public class BouncingBall : MonoBehaviour
         GameObject ball = col.gameObject;
         if (ball.tag == "Ball")
         {
-            ball.GetComponent<Rigidbody2D>().AddForce(transform.up * thrust, ForceMode2D.Impulse);
+            ball_ = ball;
+            //ball.GetComponent<Rigidbody2D>().AddForce(transform.up * thrust, ForceMode2D.Impulse);
             Debug.Log("h");
         }
     }
