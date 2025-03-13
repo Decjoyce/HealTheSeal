@@ -68,7 +68,7 @@ Material:
     - _newTertiary: {r: 0.49540386, g: 0.30424345, b: 0.6528301, a: 1}
     - _originalPrimary: {r: 0.121568635, g: 0.1764706, b: 0.21176472, a: 1}
     - _originalQuatiary: {r: 0.20000002, g: 0.20000002, b: 0.20000002, a: 1}
-    - _originalSecondary: {r: 0.73333335, g: 0.45882356, b: 0.14901961, a: 1}
+    - _originalSecondary: {r: 1, g: 1, b: 1, a: 1}
     - _originalTertiary: {r: 0.5921569, g: 0.34901962, b: 0.078431375, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
