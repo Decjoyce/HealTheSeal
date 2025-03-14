@@ -7,30 +7,32 @@ public class Fish : MonoBehaviour
     private Vector3 scaleChange;
 
     public float waitTime;
+    private Rigidbody2D rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         scaleChange = new Vector3(-0.05f, -0.05f, -0.05f);
         fishCol = GetComponent<Collider2D>();
         fishCol.enabled = false;
         StartCoroutine(WaitForCol(waitTime));
     }
+    
+    void Update()
+    {
+        if(rb.linearVelocityY <= 0)
+        {
+            fishCol.enabled = true;
+        }
+    }
 
 
     private IEnumerator WaitForCol(float waitTime)
     {
-        for (int i = 0; i < waitTime; i++)
-        {
-            yield return new WaitForSeconds(0.1f);
-            transform.localScale += scaleChange;
-            Debug.Log("w");
-        }
-        fishCol.enabled = true;
         while (true) 
         {
             yield return new WaitForSeconds(0.1f);
             transform.localScale += scaleChange;
-            Debug.Log("w");
         }
     }
 
