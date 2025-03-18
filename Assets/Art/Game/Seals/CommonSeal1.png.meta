@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7804cd7792e6eb543ab8b4b0ec179577
+guid: efc53390e03c5514d8cc5aa3214baeb3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1354888913710095293
-    second: health_Bar5_0
+      213: 2080182553743823387
+    second: CommonSeal1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 320
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: health_Bar5_0
+      name: CommonSeal1_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 80
-        height: 10
+        x: 9
+        y: 89
+        width: 311
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dbb1ecbd9488dc210800000000000000
-      internalID: 1354888913710095293
+      spriteID: b129dd7e20b4edc10800000000000000
+      internalID: 2080182553743823387
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      health_Bar5_0: 1354888913710095293
+      CommonSeal1_0: 2080182553743823387
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
