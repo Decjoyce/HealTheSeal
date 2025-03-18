@@ -1,7 +1,6 @@
-using System;
 using System.IO;
 using UnityEngine;
-
+using TMPro;
 
 /// Temp
 [System.Serializable]
@@ -105,6 +104,8 @@ public class GameData : MonoBehaviour
     const string FILE_NAME_SETTINGS = "settings_save.json";
     const string FILE_NAME_STATISTICS = "statistics_save.json";
 
+    public TextMeshProUGUI seal_text;
+
     public void LoadGameData_SealData()
     {
         if (File.Exists(file_path + "/" + FILE_NAME_SEALDATA))
@@ -126,11 +127,9 @@ public class GameData : MonoBehaviour
     {
         OnSaveGameData_SealData?.Invoke();
 
-        gd_sealdata.beenInit = true;
-
         //TEMP
         SealDude mr_dude = new SealDude();
-        mr_dude.name = "Don Cheadle";
+        mr_dude.name = NewName;
         mr_dude.hunger = 5;
         mr_dude.health = 7;
         mr_dude.mood = 8;
@@ -145,6 +144,8 @@ public class GameData : MonoBehaviour
 
         gd_sealdata.save_seal_data(my_dudes);
         //TEMP
+
+        gd_sealdata.beenInit = true;
 
         string gameStatusJson = JsonUtility.ToJson(gd_sealdata);
 
@@ -266,6 +267,32 @@ public class GameData : MonoBehaviour
         Debug.Log(file_path);
 
         LoadAllData();
+
+        seal_text.text = gd_sealdata.player_seals[0].name;
+    }
+
+    public string NewName;
+
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            int ran_i = Random.Range(0, 3);
+            switch (ran_i)
+            {
+                case 0:
+                    NewName = "Fred";
+                    break;
+                case 1:
+                    NewName = "Garry";
+                    break;
+                case 2:
+                    NewName = "Tom";
+                    break;
+            }
+            gd_sealdata.player_seals[0].name = NewName;
+            seal_text.text = gd_sealdata.player_seals[0].name;
+        }
     }
 
     private void OnApplicationQuit()
