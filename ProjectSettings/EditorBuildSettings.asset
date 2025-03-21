@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Scenes/DecScene.unity
     guid: 289ac970a4493d7439ddec7fabf4a48f
   - enabled: 1
-    path: Assets/Scenes/StiliyanScene.unity
+    path: Assets/Scenes/HabitatScene.unity
     guid: 3535d4c6c98a1a34093057160b2f684a
+  - enabled: 1
+    path: Assets/Stiliyan stuff/SealDetailScene.unity
+    guid: 05d477f6991950042bb89c8d169e617a
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
