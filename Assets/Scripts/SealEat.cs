@@ -13,7 +13,7 @@ public class SealEat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, rotationSpeed, Space.Self);
+        transform.Rotate(0, 0, rotationSpeed*Time.deltaTime, Space.Self);
         rotationAngle = transform.eulerAngles.z;
         if(rotationAngle >= 30 && rotationAngle <= 330 || rotationAngle <= 330 && rotationAngle >= 30)
         {

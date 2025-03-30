@@ -5,10 +5,11 @@ TagManager:
   serializedVersion: 3
   tags:
   - Ball
-  - Fish
+  - End
   - Seal
+  - Fish
   - Wall
-  - Obstacle
+  - Netting
   layers:
   - Default
   - TransparentFX
