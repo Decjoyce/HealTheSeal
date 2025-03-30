@@ -4,6 +4,8 @@ public class SealEat : MonoBehaviour
 {
     public float rotationSpeed;
     public float rotationAngle;
+
+    public GameObject seal;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +20,15 @@ public class SealEat : MonoBehaviour
         if(rotationAngle >= 30 && rotationAngle <= 330 || rotationAngle <= 330 && rotationAngle >= 30)
         {
             rotationSpeed = -rotationSpeed;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Fish")
+        {
+            Destroy(collision.gameObject);
+            seal.GetComponent<SealStats>().FeedSeal(5);
         }
     }
 }

@@ -13,7 +13,7 @@ public class BouncingBall : MonoBehaviour
     public float score_;
     public TMP_Text score2;
 
-
+    public GameObject sealObject;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +29,10 @@ public class BouncingBall : MonoBehaviour
             StartCoroutine(Bounce(waitTime));
         }
         score2.text = new string("Bounces:\n" + score_);
+        if(score_%10 == 0 && score_ > 00)
+        {
+            sealObject.GetComponent<SealStats>().IncreaseMood(5*(score_/10));
+        }
     }
 
     public void ResetScore()

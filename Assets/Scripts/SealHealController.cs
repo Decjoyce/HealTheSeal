@@ -12,6 +12,8 @@ public class SealHealController : MonoBehaviour
     public Vector2 size;
     public int spawnCount;
 
+    public GameObject seal;
+
     public GameObject[] netting;
 
     int cCount;
@@ -47,6 +49,7 @@ public class SealHealController : MonoBehaviour
             if (res >= 12)
             {
                 sealImage.color = tColour;
+                seal.GetComponent<SealStats>().IncreaseHealth(25);
             }
         }
     }

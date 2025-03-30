@@ -38,7 +38,7 @@ public class Fish : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Seal")
+        if (collision.tag == "End")
         {
             Destroy(gameObject);
         }
