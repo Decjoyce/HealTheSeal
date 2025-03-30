@@ -12,6 +12,9 @@ public class SealHealController : MonoBehaviour
     public Vector2 size;
     public int spawnCount;
 
+    bool pettable;
+    bool sprayed;
+
     public GameObject seal;
 
     public GameObject[] netting;
@@ -20,6 +23,7 @@ public class SealHealController : MonoBehaviour
 
     void Start()
     {
+        sprayed = false;
         netting = new GameObject[spawnCount];
         cCount = transform.childCount;
         sealImage = GetComponent<Image>();
@@ -49,8 +53,34 @@ public class SealHealController : MonoBehaviour
             if (res >= 12)
             {
                 sealImage.color = tColour;
-                seal.GetComponent<SealStats>().IncreaseHealth(25);
+                seal.GetComponent<SealStats>().IncreaseHealth(25);//don't know why this sets health to 100
+                sprayed = true;
             }
+        }
+    }
+
+    public void CanPet()
+    {
+        if(sprayed)
+        {
+            pettable = true;
+        }
+    }
+
+    public void CannotPet()
+    {
+        if (sprayed)
+        {
+            pettable = false;
+        }
+    }
+
+    void OnMouseDown()
+    {
+        if(pettable)
+        {
+            seal.GetComponent<SealStats>().IncreaseMood(5);
+            //should probably be an animation here aswell
         }
     }
 
