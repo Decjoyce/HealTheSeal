@@ -1,5 +1,3 @@
-using System.Collections;
-using Unity.Android.Types;
 using UnityEngine;
 
 [System.Serializable]

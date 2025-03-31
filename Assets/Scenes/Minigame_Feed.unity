@@ -505,7 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigame_id: 0
   score: 0
-  win_score: 15
+  win_score: 8
 --- !u!1 &915504900
 GameObject:
   m_ObjectHideFlags: 0

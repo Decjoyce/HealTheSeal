@@ -773,7 +773,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigame_id: 2
   score: 0
-  win_score: 3
+  win_score: 10
 --- !u!4 &616828190
 Transform:
   m_ObjectHideFlags: 0

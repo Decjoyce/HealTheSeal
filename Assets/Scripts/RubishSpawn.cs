@@ -3,6 +3,7 @@ using UnityEngine;
 public class RubishSpawn : MonoBehaviour
 {
     public GameObject rubishPrefab;
+    public Transform spawn_parent;
     public int spawnCount;
 
     Vector2 size;
@@ -19,12 +20,12 @@ public class RubishSpawn : MonoBehaviour
         clean = false;
         cCount = transform.childCount;
         size = GetComponent<RectTransform>().sizeDelta;
-        float x = size.x/2 - 20;
-        float y = size.y/2 - 20;
+        float x = size.x/2;
+        float y = size.y/2;
         for (int i = 0; i < spawnCount; i++)
         {
-            GameObject rubbish = Instantiate(rubishPrefab, transform.position, transform.rotation, transform);
-            spawnPos = new Vector3((Random.Range(-x, x)), (Random.Range(-y, 0)), 0);
+            GameObject rubbish = Instantiate(rubishPrefab, transform.position, transform.rotation, spawn_parent);
+            spawnPos = new Vector3((Random.Range(-x, x)), (Random.Range(-y, y)), 0);
             rubbish.transform.localPosition = spawnPos;
         }
     }
@@ -35,7 +36,7 @@ public class RubishSpawn : MonoBehaviour
         if(cCount == transform.childCount)
         {
             clean = true;
-            cl.SetActive(true);
+            //cl.SetActive(true);
         }
     }
 }
