@@ -5,28 +5,28 @@ using TMPro;
 
 public class SealDetailController : MonoBehaviour
 {
-    public Text healthText;
-    public Text moodText;
-    public Text hungerText;
+    public TextMeshProUGUI healthText;
+    public TextMeshProUGUI moodText;
+    public TextMeshProUGUI hungerText;
     public Button backButton;
-    public Slider healthSlider;
-    public Slider moodSlider;
-    public Slider hungerSlider;
-    public Text moodTrait;
-    public Text hungerTrait;
-    public Text healthTrait;
+    public StatsBar healthSlider;
+    public StatsBar moodSlider;
+    public StatsBar hungerSlider;
+    public TextMeshProUGUI moodTrait;
+    public TextMeshProUGUI hungerTrait;
+    public TextMeshProUGUI healthTrait;
 
 
     void Start()
     {
         Seal seal = SealManager.Instance.selectedSeal;
 
-        healthText.text = $"Health: {seal.health}";
-        moodText.text = $"Mood: {seal.mood}";
-        hungerText.text = $"Hunger: {seal.hunger}";
-        healthSlider.value = seal.health;
-        moodSlider.value = seal.mood;
-        hungerSlider.value = seal.hunger;
+        //healthText.text = $"Health: {seal.health}";
+        //moodText.text = $"Mood: {seal.mood}";
+        //hungerText.text = $"Hunger: {seal.hunger}";
+        healthSlider.SetValue(seal.health);
+        moodSlider.SetValue(seal.mood);
+        hungerSlider.SetValue(seal.hunger);
 
         if (seal.moodTrait == 1)
         {
@@ -66,6 +66,6 @@ public class SealDetailController : MonoBehaviour
             healthTrait.text="Robust";
         }
 
-        backButton.onClick.AddListener(() => SceneManager.LoadScene("HabitatScene"));
+        //backButton.onClick.AddListener(() => SceneManager.LoadScene("HabitatScene"));
     }
 }
