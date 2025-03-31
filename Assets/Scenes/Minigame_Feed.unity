@@ -1012,6 +1012,7 @@ GameObject:
   - component: {fileID: 1771808238}
   - component: {fileID: 1771808240}
   - component: {fileID: 1771808241}
+  - component: {fileID: 1771808242}
   m_Layer: 5
   m_Name: Seal
   m_TagString: Seal
@@ -1058,7 +1059,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 2080182553743823387, guid: efc53390e03c5514d8cc5aa3214baeb3, type: 3}
+  m_Sprite: {fileID: -6058216323320851003, guid: d51a20c53fe11c44ea4543543b28d2a2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1129,6 +1130,28 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: -20, y: 340}
   m_Radius: 50
+--- !u!95 &1771808242
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771808234}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 566bbe68a4112c24d9e6ad2a72e81d89, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

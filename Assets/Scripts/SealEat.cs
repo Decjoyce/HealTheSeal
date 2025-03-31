@@ -11,10 +11,13 @@ public class SealEat : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI score;
 
+    Animator anim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score);
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -35,6 +38,7 @@ public class SealEat : MonoBehaviour
             Destroy(collision.gameObject);
             mg_manager.IncreaseScore(1);
             score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score);
+            anim.Play("animer");
             // seal.GetComponent<SealStats>().FeedSeal(5);
         }
     }
