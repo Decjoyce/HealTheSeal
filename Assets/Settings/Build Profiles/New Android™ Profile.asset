@@ -18,15 +18,11 @@ MonoBehaviour:
   m_PlatformId: b9b35072a6f44c2e863f17467ea3dc13
   m_PlatformBuildProfile:
     rid: 8127470283462803456
-  m_OverrideGlobalSceneList: 1
+  m_OverrideGlobalSceneList: 0
   m_Scenes:
   - m_enabled: 0
     m_path: Assets/Scenes/DecScene.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/HabitatScene.unity
-  - m_enabled: 1
-    m_path: Assets/Stiliyan stuff/SealDetailScene.unity
-  - m_enabled: 0
     m_path: Assets/Scenes/MainScene.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
