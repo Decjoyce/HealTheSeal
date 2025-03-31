@@ -11,9 +11,13 @@ public class BouncingBall : MonoBehaviour
     public float waitTime;
     
     public float score_;
-    public TMP_Text score2;
+    public TextMeshProUGUI score2;
+
+    bool tapped;
 
     public GameObject sealObject;
+
+    public MinigameManager mg_manager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,11 +32,8 @@ public class BouncingBall : MonoBehaviour
         {
             StartCoroutine(Bounce(waitTime));
         }
-        score2.text = new string("Bounces:\n" + score_);
-        if(score_%10 == 0 && score_ > 00)
-        {
-            sealObject.GetComponent<SealStats>().IncreaseMood(5*(score_/10));
-        }
+        score2.text = new string("Bounces:\n" + score_ + " / " + mg_manager.win_score);
+        
     }
 
     public void ResetScore()
@@ -43,20 +44,21 @@ public class BouncingBall : MonoBehaviour
     private IEnumerator Bounce(float waitTime)
     {
         yield return new WaitForSeconds(waitTime/2);
-        seal.enabled = true;
+        tapped = true;
         yield return new WaitForSeconds(waitTime);
-        seal.enabled = false;
+        tapped = false;
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         GameObject ball = col.gameObject;
-        if (ball.tag == "Ball")
+        if (ball.tag == "Ball" && tapped)
         {
             score_++;
             ball_ = ball;
             ball.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
             ball.GetComponent<Rigidbody2D>().AddForce(transform.up * thrust, ForceMode2D.Impulse);
+            mg_manager.IncreaseScore(1);
         }
     }
 }

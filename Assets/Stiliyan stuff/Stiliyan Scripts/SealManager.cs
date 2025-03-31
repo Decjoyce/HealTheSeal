@@ -28,7 +28,6 @@ public class SealManager : MonoBehaviour
         seals.Add(newSeal);
     }
 
-
     public Seal GetSealById(string id)
     {
         return seals.Find(s => s.id == id);

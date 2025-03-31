@@ -6,6 +6,8 @@ public class SealEat : MonoBehaviour
     public float rotationAngle;
 
     public GameObject seal;
+    [SerializeField] MinigameManager mg_manager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,7 +30,8 @@ public class SealEat : MonoBehaviour
         if (collision.tag == "Fish")
         {
             Destroy(collision.gameObject);
-            seal.GetComponent<SealStats>().FeedSeal(5);
+            mg_manager.IncreaseScore(1); 
+           // seal.GetComponent<SealStats>().FeedSeal(5);
         }
     }
 }

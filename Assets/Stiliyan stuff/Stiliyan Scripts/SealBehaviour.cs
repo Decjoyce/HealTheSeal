@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class SealBehaviour : MonoBehaviour
 {
-    [System.NonSerialized]
     public Seal sealData;
 
     public void SetSealData(Seal seal)
