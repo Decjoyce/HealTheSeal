@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainSceneController : MonoBehaviour
@@ -8,7 +9,7 @@ public class MainSceneController : MonoBehaviour
 
     void Start()
     {
-        spawnButton.onClick.AddListener(SpawnSeal);
+        spawnButton.onClick.AddListener(() => SceneManager.LoadScene("Beach_Scene"));
 
         // Recreate previously existing seals
         foreach (Seal seal in SealManager.Instance.seals)
