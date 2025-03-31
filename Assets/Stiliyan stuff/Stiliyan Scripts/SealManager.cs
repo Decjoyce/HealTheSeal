@@ -8,6 +8,7 @@ public class SealManager : MonoBehaviour
     public List<Seal> seals = new List<Seal>();
     public Seal selectedSeal;
 
+
     void Awake()
     {
         if (Instance == null)

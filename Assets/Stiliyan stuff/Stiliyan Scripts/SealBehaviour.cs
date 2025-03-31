@@ -1,9 +1,17 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SealBehaviour : MonoBehaviour
 {
     public Seal sealData;
+    TextMeshPro text_name;
+
+    private void Start()
+    {
+        text_name = GetComponentInChildren<TextMeshPro>();
+        text_name.text = sealData.seal_name;
+    }
 
     public void SetSealData(Seal seal)
     {
