@@ -26,13 +26,13 @@ public class Seal
     }
     public void RandomizeAttributes()
     {
-        health = Random.Range(50, 100);
-        mood = Random.Range(0, 100);
-        hunger = Random.Range(0, 100);
+        health = Random.Range(0, 50);
+        mood = Random.Range(0, 50);
+        hunger = Random.Range(0, 25);
         position = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
-        hungerTrait = Random.Range(1, 3);
-        moodTrait = Random.Range(1, 3);
-        healthTrait = Random.Range(1, 3);
+        healthTrait = Random.Range(1, 4);
+        moodTrait = Random.Range(1, 4);
+        hungerTrait = Random.Range(1, 4);
 
     }
 }
