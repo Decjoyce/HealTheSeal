@@ -9,6 +9,8 @@ public class MinigameManager : MonoBehaviour
     public int score;
     public int win_score;
 
+    bool gameover;
+
     private void Start()
     {
         current_seal = SealManager.Instance.selectedSeal;
@@ -23,14 +25,20 @@ public class MinigameManager : MonoBehaviour
     public void IncreaseScore(int amount)
     {
         score += amount;
-        if(score >= win_score)
+        if(score >= win_score && !gameover)
         {
             Win();
         }
     }
 
+    public void ResetScore()
+    {
+        score = 0;
+    }
+
     void Win()
     {
+        gameover = true;
         switch (minigame_id)
         {
             case 0:
