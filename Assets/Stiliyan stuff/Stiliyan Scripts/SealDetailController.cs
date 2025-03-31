@@ -66,6 +66,11 @@ public class SealDetailController : MonoBehaviour
             healthTrait.text="Robust";
         }
 
-        //backButton.onClick.AddListener(() => SceneManager.LoadScene("HabitatScene"));
+        backButton.onClick.AddListener(() => GameManagement.instance.LoadScene(1));
+    }
+
+    public void LoadScene(string scenename)
+    {
+        SceneManager.LoadScene(scenename);
     }
 }
