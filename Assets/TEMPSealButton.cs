@@ -10,14 +10,14 @@ public class TEMPSealButton : MonoBehaviour
     void Start()
     {
         if (!f)
-            GetComponent<Button>().onClick.AddListener(() => SealManager.Instance.SpawnSeal());
+            GetComponent<Button>().onClick.AddListener(() => GiveMeDaSeal());
         else
             GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene(1));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void GiveMeDaSeal()
     {
-        
+        SealManager.Instance.SpawnSeal();
+        gameObject.SetActive(false);
     }
 }

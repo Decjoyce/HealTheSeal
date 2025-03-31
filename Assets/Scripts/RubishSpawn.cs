@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RubishSpawn : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class RubishSpawn : MonoBehaviour
     int cCount;
 
     public bool clean;
+
+    public Sprite[] randomRubbishSprites; // temp
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,7 +28,9 @@ public class RubishSpawn : MonoBehaviour
         for (int i = 0; i < spawnCount; i++)
         {
             GameObject rubbish = Instantiate(rubishPrefab, transform.position, transform.rotation, spawn_parent);
+            rubbish.GetComponent<Image>().sprite = randomRubbishSprites[Random.Range(0, randomRubbishSprites.Length)];
             spawnPos = new Vector3((Random.Range(-x, x)), (Random.Range(-y, y)), 0);
+            rubbish.transform.eulerAngles = Vector3.forward * Random.Range(-180, 180);
             rubbish.transform.localPosition = spawnPos;
         }
     }

@@ -1089,6 +1089,15 @@ MonoBehaviour:
   spawnCount: 5
   cl: {fileID: 1023103506}
   clean: 0
+  randomRubbishSprites:
+  - {fileID: 4801077177041209951, guid: 74430700033de844f8176856be147b12, type: 3}
+  - {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
+  - {fileID: 21300000, guid: 5b7f664b515582d458717c354f6be292, type: 3}
+  - {fileID: 21300000, guid: 603d01d730be24147adda7897e463598, type: 3}
+  - {fileID: 21300000, guid: 00b8ce4a201871b498992f536279acf7, type: 3}
+  - {fileID: 21300000, guid: 3cf8ae89579fd29479f4269d09600e16, type: 3}
+  - {fileID: 21300000, guid: c34cd61ed96ff9a40a54e159467c5155, type: 3}
+  - {fileID: 21300000, guid: ffdf80dc342e69344b2dccafe04c30ee, type: 3}
 --- !u!1 &2047247591
 GameObject:
   m_ObjectHideFlags: 0
