@@ -9,7 +9,7 @@ public class MainSceneController : MonoBehaviour
 
     void Start()
     {
-        spawnButton.onClick.AddListener(() => SceneManager.LoadScene("Beach_Scene"));
+        spawnButton.onClick.AddListener(() => SceneManager.LoadScene("Beach_Scene")); //Prototype - changed from just spawning to moving to beach sceneM
 
         // Recreate previously existing seals
         foreach (Seal seal in SealManager.Instance.seals)

@@ -47,10 +47,10 @@ public class SealHealController : MonoBehaviour
 
     void Update()
     {
-        if (cCount == transform.childCount && !sprayable)
+        if (cCount == transform.childCount && !sprayable) //Prototype
         {
             sealImage.sprite = no_net_seal;
-            mg_minigame.IncreaseScore(1);
+            mg_minigame.IncreaseScore(1); //Prototype
             sprayable = true;
         }
         if (sprayable)
@@ -85,10 +85,10 @@ public class SealHealController : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (pettable && !seal_healed)
+        if (pettable && !seal_healed) //Prototype
         {
-            mg_minigame.IncreaseScore(1);
-            seal_healed = true;
+            mg_minigame.IncreaseScore(1); //Prototype
+            seal_healed = true; //Prototype
             //should probably be an animation here aswell
         }
     }

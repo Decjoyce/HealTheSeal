@@ -16,8 +16,8 @@ public class SealEat : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score);
-        anim = GetComponent<Animator>();
+        score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score); //Prototype
+        anim = GetComponent<Animator>(); //Prototype
     }
 
     // Update is called once per frame
@@ -36,9 +36,9 @@ public class SealEat : MonoBehaviour
         if (collision.tag == "Fish")
         {
             Destroy(collision.gameObject);
-            mg_manager.IncreaseScore(1);
-            score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score);
-            anim.Play("animer");
+            mg_manager.IncreaseScore(1); //Prototype
+            score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score); //Prototype
+            anim.Play("animer"); //Prototype
             // seal.GetComponent<SealStats>().FeedSeal(5);
         }
     }

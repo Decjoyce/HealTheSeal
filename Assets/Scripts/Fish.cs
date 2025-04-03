@@ -40,7 +40,7 @@ public class Fish : MonoBehaviour
     {
         if (collision.tag == "End")
         {
-            StopAllCoroutines();
+            StopAllCoroutines(); //Prototype
             Destroy(gameObject);
         }
     }

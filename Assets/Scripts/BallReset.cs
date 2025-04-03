@@ -14,8 +14,8 @@ public class BallReset : MonoBehaviour
         {
             ball.transform.position = bReset.position;
             ball.GetComponent<Rigidbody2D>().linearVelocity = new Vector3(0, 0, 0);
-            ball.GetComponent<Rigidbody2D>().gravityScale = 0.8f;
-            mg_manager.ResetScore();
+            ball.GetComponent<Rigidbody2D>().gravityScale = 0.8f; //Prototype
+            mg_manager.ResetScore(); //Prototype
         }
     }
 }

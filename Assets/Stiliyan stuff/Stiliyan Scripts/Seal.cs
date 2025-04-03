@@ -3,6 +3,7 @@ using UnityEngine;
 [System.Serializable]
 public class Seal
 {
+
     public string id;
     public float health;
     public float mood;
@@ -14,9 +15,9 @@ public class Seal
     //Health trait
     public int healthTrait;//1-Brittle, 2- normal, 3-resilient
 
-    //public SealStats stats;
+    //public SealStats stats; //Prototype
 
-    public string seal_name;
+    public string seal_name; //Prototype
 
     public Vector2 position;
 
@@ -35,9 +36,10 @@ public class Seal
         healthTrait = Random.Range(1, 4);
         moodTrait = Random.Range(1, 4);
         hungerTrait = Random.Range(1, 4);
-        NameDaSeal(); //temp
+        NameDaSeal(); //Prototype - temp
     }
 
+    //Prototype - Moved from SealStats script to here 
     public void IncreaseHealth(float amount)
     {
         health += amount;
@@ -77,7 +79,7 @@ public class Seal
     }
 
 
-    //temp
+    //Prototype temp
     void NameDaSeal()
     {
         int ranName = Random.Range(0, 26);

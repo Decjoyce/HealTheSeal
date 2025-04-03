@@ -5,12 +5,12 @@ using UnityEngine.SceneManagement;
 public class SealBehaviour : MonoBehaviour
 {
     public Seal sealData;
-    TextMeshPro text_name;
+    TextMeshPro text_name; //Prototype
 
     private void Start()
     {
-        text_name = GetComponentInChildren<TextMeshPro>();
-        text_name.text = sealData.seal_name;
+        text_name = GetComponentInChildren<TextMeshPro>(); //Prototype
+        text_name.text = sealData.seal_name; //Prototype
     }
 
     public void SetSealData(Seal seal)

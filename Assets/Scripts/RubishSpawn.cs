@@ -16,7 +16,7 @@ public class RubishSpawn : MonoBehaviour
 
     public bool clean;
 
-    public Sprite[] randomRubbishSprites; // temp
+    public Sprite[] randomRubbishSprites; //Prototype - temp
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,7 +41,7 @@ public class RubishSpawn : MonoBehaviour
         if(cCount == transform.childCount)
         {
             clean = true;
-            //cl.SetActive(true);
+            //cl.SetActive(true); //Prototype
         }
     }
 }
