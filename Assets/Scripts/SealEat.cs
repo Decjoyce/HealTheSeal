@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class SealEat : MonoBehaviour
@@ -6,10 +7,17 @@ public class SealEat : MonoBehaviour
     public float rotationAngle;
 
     public GameObject seal;
+    [SerializeField] MinigameManager mg_manager;
+
+    [SerializeField] TextMeshProUGUI score;
+
+    Animator anim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score); //Prototype
+        anim = GetComponent<Animator>(); //Prototype
     }
 
     // Update is called once per frame
@@ -28,7 +36,10 @@ public class SealEat : MonoBehaviour
         if (collision.tag == "Fish")
         {
             Destroy(collision.gameObject);
-            seal.GetComponent<SealStats>().FeedSeal(5);
+            mg_manager.IncreaseScore(1); //Prototype
+            score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score); //Prototype
+            anim.Play("animer"); //Prototype
+            // seal.GetComponent<SealStats>().FeedSeal(5);
         }
     }
 }

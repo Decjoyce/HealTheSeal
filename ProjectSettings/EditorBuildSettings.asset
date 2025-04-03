@@ -9,17 +9,32 @@ EditorBuildSettings:
     path: Assets/Stiliyan stuff/BootstrapScene.unity
     guid: f023f5d9ba152da48bca3b1e22bcc5d6
   - enabled: 0
-    path: Assets/Stiliyan stuff/HabitatScene.unity
+    path: Assets/Scenes/HabitatScene.unity
     guid: 3535d4c6c98a1a34093057160b2f684a
   - enabled: 0
     path: Assets/Stiliyan stuff/SealDetailScene.unity
     guid: 5ebf20a3fb93ee94bbe62c5601bca0da
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: d238a07d70151014292f67d1f95be115
   - enabled: 1
     path: Assets/Stiliyan stuff/HabitatScene.unity
     guid: 1420717ad219f644f9e316819b8da1bd
   - enabled: 1
     path: Assets/Stiliyan stuff/SealDetailScene.unity
     guid: 5a9b4bc2a01e34e45862de38cf4fe1cc
+  - enabled: 1
+    path: Assets/Scenes/Minigame_Feed.unity
+    guid: fd1ffe252c8a2684f89558d38e8f5c84
+  - enabled: 1
+    path: Assets/Scenes/Minigame_Heal.unity
+    guid: e0b3b13c7c3aba44b9ba3ebc5c8e6e2a
+  - enabled: 1
+    path: Assets/Scenes/Minigame_Play.unity
+    guid: eef82ce66914c8843bb84fb4aab96208
+  - enabled: 1
+    path: Assets/Scenes/Beach_Scene.unity
+    guid: 9420285df78f4db49804b93be1688f49
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 5e2f43a92df68c84ca1d525e169615af, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 4b87b8fbf6be6914d957042bfd3301a1, type: 2}

@@ -9,9 +9,9 @@ public class SealDetailController : MonoBehaviour
     public TextMeshProUGUI moodText;
     public TextMeshProUGUI hungerText;
     public Button backButton;
-    public StatsBar healthSlider;
-    public StatsBar moodSlider;
-    public StatsBar hungerSlider;
+    public StatsBar healthSlider; //Prototype - Changed from slider to custom script
+    public StatsBar moodSlider; //Prototype - Changed from slider to custom script
+    public StatsBar hungerSlider;//Prototype - Changed from slider to custom script
     public TextMeshProUGUI moodTrait;
     public TextMeshProUGUI hungerTrait;
     public TextMeshProUGUI healthTrait;
@@ -66,6 +66,11 @@ public class SealDetailController : MonoBehaviour
             healthTrait.text="Robust";
         }
 
-        //backButton.onClick.AddListener(() => SceneManager.LoadScene("HabitatScene"));
+        backButton.onClick.AddListener(() => GameManagement.instance.LoadScene(1)); //Prototype - 
+    }
+
+    public void LoadScene(string scenename)
+    {
+        SceneManager.LoadScene(scenename);
     }
 }

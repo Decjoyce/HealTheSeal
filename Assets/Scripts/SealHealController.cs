@@ -14,12 +14,17 @@ public class SealHealController : MonoBehaviour
 
     bool pettable;
     bool sprayed;
+    bool seal_healed;
 
     public GameObject seal;
 
     public GameObject[] netting;
 
     int cCount;
+
+    [SerializeField] MinigameManager mg_minigame;
+
+    [SerializeField] Sprite no_net_seal;
 
     void Start()
     {
@@ -42,18 +47,21 @@ public class SealHealController : MonoBehaviour
 
     void Update()
     {
-        if (cCount == transform.childCount)
+        if (cCount == transform.childCount && !sprayable) //Prototype
         {
+            sealImage.sprite = no_net_seal;
+            mg_minigame.IncreaseScore(1); //Prototype
             sprayable = true;
         }
         if (sprayable)
         {
             Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, 1f);
             res = cols.Length;
-            if (res >= 12)
+            if (res >= 12 && !sprayed)
             {
                 sealImage.color = tColour;
-                seal.GetComponent<SealStats>().IncreaseHealth(25);//don't know why this sets health to 100
+                //seal.GetComponent<SealStats>().IncreaseHealth(25);//don't know why this sets health to 100 // there was nothing to tell it to stop once its reached 12 -> && !sprayed
+                mg_minigame.IncreaseScore(1);
                 sprayed = true;
             }
         }
@@ -77,9 +85,10 @@ public class SealHealController : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(pettable)
+        if (pettable && !seal_healed) //Prototype
         {
-            seal.GetComponent<SealStats>().IncreaseMood(5);
+            mg_minigame.IncreaseScore(1); //Prototype
+            seal_healed = true; //Prototype
             //should probably be an animation here aswell
         }
     }

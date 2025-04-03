@@ -8,6 +8,7 @@ public class SealManager : MonoBehaviour
     public List<Seal> seals = new List<Seal>();
     public Seal selectedSeal;
 
+
     void Awake()
     {
         if (Instance == null)
@@ -27,7 +28,6 @@ public class SealManager : MonoBehaviour
         newSeal.RandomizeAttributes();  // Call this after construction
         seals.Add(newSeal);
     }
-
 
     public Seal GetSealById(string id)
     {
