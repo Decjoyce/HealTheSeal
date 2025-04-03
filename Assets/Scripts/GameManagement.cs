@@ -30,9 +30,17 @@ public class GameManagement : MonoBehaviour
         
     }
 
-    public void LoadScene(int index)
+    public void LoadScene(int index = -1, string scene_name = "")
     {
-        SceneManager.LoadScene(index);
+        if (index != -1)
+            SceneManager.LoadScene(index);
+        else if(scene_name != "")
+            SceneManager.LoadScene(index);
+        else
+        {
+            Debug.LogWarning("Scene Name: " + scene_name + " | Scene Index: " + index + " does not exist");
+            return;
+        }
     }
 
 }
