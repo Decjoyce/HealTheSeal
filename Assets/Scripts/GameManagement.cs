@@ -32,9 +32,9 @@ public class GameManagement : MonoBehaviour
 
     public void LoadScene(int index = -1, string scene_name = "")
     {
-        if (index != -1)
-            SceneManager.LoadScene(index);
-        else if(scene_name != "")
+        if (scene_name != "")
+            SceneManager.LoadScene(scene_name);
+        else if(index != -1)
             SceneManager.LoadScene(index);
         else
         {
