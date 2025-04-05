@@ -4,20 +4,42 @@ using UnityEngine.UI;
 
 public class TEMPSealButton : MonoBehaviour
 {
-    public bool f;
+    public bool isBackButton = false;
+    public bool needsRescue = true; // NEW bool to indicate rescuable seals clearly.
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (!f)
-            GetComponent<Button>().onClick.AddListener(() => GiveMeDaSeal());
+        if (!isBackButton)
+            GetComponent<Button>().onClick.AddListener(GiveMeDaSeal);
         else
-            GetComponent<Button>().onClick.AddListener(() => SceneManager.LoadScene(1));
+            GetComponent<Button>().onClick.AddListener(GoBack);
     }
 
-    public void GiveMeDaSeal()
+    void GiveMeDaSeal()
     {
-        SealManager.Instance.SpawnSeal();
+        if (needsRescue)
+        {
+            Seal newSeal = new Seal();
+            newSeal.RandomizeAttributes();
+            SealManager.Instance.seals.Add(newSeal);
+            SealManager.Instance.selectedSeal = newSeal;
+            SealManager.Instance.justRescuedSeal = true;
+        }
+
+        // Hide seal visually
         gameObject.SetActive(false);
+    }
+
+    void GoBack()
+    {
+        if (SealManager.Instance.justRescuedSeal)
+        {
+            SealManager.Instance.justRescuedSeal = false;
+            SceneManager.LoadScene("PostRescueMinigame"); // NEW Scene after rescue
+        }
+        else
+        {
+            SceneManager.LoadScene("HabitatScene");
+        }
     }
 }
