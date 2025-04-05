@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class TEMPSealButton : MonoBehaviour
 {
+    //Using 2 bools to differentiate between button and seal
     public bool isBackButton = false;
     public bool needsRescue = true; // NEW bool to indicate rescuable seals clearly.
 
