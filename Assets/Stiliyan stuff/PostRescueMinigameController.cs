@@ -1,8 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PostRescueMinigameController : MonoBehaviour
 {
+
+    public void Update()
+    {
+        GetComponent<Button>().onClick.AddListener(OnMinigameCompleted);
+    }
     // Call this method when the minigame is complete:
     public void OnMinigameCompleted()
     {
@@ -12,5 +18,9 @@ public class PostRescueMinigameController : MonoBehaviour
 
         // Load seal detailed view after minigame
         SceneManager.LoadScene("SealDetailScene");
+
+
+
+       
     }
 }
