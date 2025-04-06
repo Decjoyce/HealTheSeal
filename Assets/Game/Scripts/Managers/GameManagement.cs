@@ -6,6 +6,8 @@ public class GameManagement : MonoBehaviour
 
     public static GameManagement instance;
 
+    public bool dev_mode { get; private set; }
+
     private void Awake()
     {
         if(instance != null)
@@ -15,7 +17,6 @@ public class GameManagement : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -40,6 +41,12 @@ public class GameManagement : MonoBehaviour
             Debug.LogWarning("Scene Name: " + scene_name + " | Scene Index: " + index + " does not exist");
             return;
         }
+        GameData.instance.SaveAllData();
     }
 
+
+    public void EnterDebugMode()
+    {
+        dev_mode = true;
+    }
 }

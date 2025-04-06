@@ -104,7 +104,8 @@ public class GameData : MonoBehaviour
     const string FILE_NAME_SETTINGS = "settings_save.json";
     const string FILE_NAME_STATISTICS = "statistics_save.json";
 
-    public TextMeshProUGUI seal_text;
+    [Header("Debugging")]
+    [SerializeField] bool rest_data_on_load;
 
     public void LoadGameData_SealData()
     {
@@ -126,24 +127,6 @@ public class GameData : MonoBehaviour
     public void SaveGameData_SealData()
     {
         OnSaveGameData_SealData?.Invoke();
-
-        //TEMP
-        SealDude mr_dude = new SealDude();
-        mr_dude.name = NewName;
-        mr_dude.hunger = 5;
-        mr_dude.health = 7;
-        mr_dude.mood = 8;
-        SealDude mrs_dude = new SealDude();
-        mrs_dude.name = "Tony";
-        mrs_dude.hunger = 69;
-        mrs_dude.health = 8;
-        mrs_dude.mood = 55;
-        SealDude[] my_dudes = new SealDude[2];
-        my_dudes[0] = mr_dude;
-        my_dudes[1] = mr_dude;
-
-        gd_sealdata.save_seal_data(my_dudes);
-        //TEMP
 
         gd_sealdata.beenInit = true;
 
@@ -249,6 +232,13 @@ public class GameData : MonoBehaviour
         LoadGameData_Statistics();
     }
 
+    void ResetAllData()
+    {
+        ResetGameData_SealData();
+        ResetGameData_Settings();
+        ResetGameData_Statistics();
+    }
+
     private void Awake()
     {
         if (instance != null)
@@ -259,7 +249,11 @@ public class GameData : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        //Data Stuff
+        //Resets data
+        if (GameManagement.instance.dev_mode && rest_data_on_load)
+            ResetAllData();
+
+        //Initial Loading of Data
         file_path = Application.persistentDataPath;
         gd_sealdata = new GameData_SealData();
         gd_settings = new GameData_Settings();
@@ -267,32 +261,6 @@ public class GameData : MonoBehaviour
         Debug.Log(file_path);
 
         LoadAllData();
-
-        seal_text.text = gd_sealdata.player_seals[0].name;
-    }
-
-    public string NewName;
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            int ran_i = Random.Range(0, 3);
-            switch (ran_i)
-            {
-                case 0:
-                    NewName = "Fred";
-                    break;
-                case 1:
-                    NewName = "Garry";
-                    break;
-                case 2:
-                    NewName = "Tom";
-                    break;
-            }
-            gd_sealdata.player_seals[0].name = NewName;
-            seal_text.text = gd_sealdata.player_seals[0].name;
-        }
     }
 
     private void OnApplicationQuit()
