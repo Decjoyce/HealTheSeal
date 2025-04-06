@@ -5,7 +5,7 @@ public class Main : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     public static void LoadMain()
     {
-        GameObject Main = GameObject.Instantiate(Resources.Load("Main") as GameObject);
-        GameObject.DontDestroyOnLoad(Main);
+        GameObject Main = Instantiate(Resources.Load("Main") as GameObject);
+        DontDestroyOnLoad(Main);
     }
 }
