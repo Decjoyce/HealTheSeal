@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class LoadingScreenQuick : MonoBehaviour
 {
+    [SerializeField] float delay;
+    public string scene_to_switch_to;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -11,7 +14,7 @@ public class LoadingScreenQuick : MonoBehaviour
 
     IEnumerator LoadingScreen()
     {
-        yield return new WaitForSecondsRealtime(3f);
-        GameManagement.instance.LoadScene(1);
+        yield return new WaitForSecondsRealtime(delay);
+        GameManagement.instance.LoadScene(scene_to_switch_to);
     }
 }

@@ -51,6 +51,6 @@ public class MinigameManager : MonoBehaviour
                 current_seal.IncreaseMood(10);
                 break;
         }
-        GameManagement.instance.LoadScene(2);
+        GameManagement.instance.LoadScene("SealDetailScene");
     }
 }

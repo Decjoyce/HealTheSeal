@@ -317,6 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bd43298093da27459f08f5fa9356c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay: 2
+  scene_to_switch_to: HabitatScene
 --- !u!1 &1319579292
 GameObject:
   m_ObjectHideFlags: 0

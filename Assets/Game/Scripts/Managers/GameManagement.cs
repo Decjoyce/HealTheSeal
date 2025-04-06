@@ -21,7 +21,6 @@ public class GameManagement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        LoadScene(1);
     }
 
     // Update is called once per frame
@@ -30,7 +29,7 @@ public class GameManagement : MonoBehaviour
         
     }
 
-    public void LoadScene(int index = -1, string scene_name = "")
+    public void LoadScene(string scene_name = "", int index = -1)
     {
         if (scene_name != "")
             SceneManager.LoadScene(scene_name);
