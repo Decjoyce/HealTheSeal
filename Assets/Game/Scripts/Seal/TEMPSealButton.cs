@@ -36,7 +36,7 @@ public class TEMPSealButton : MonoBehaviour
         if (SealManager.Instance.justRescuedSeal)
         {
             SealManager.Instance.justRescuedSeal = false;
-            SceneManager.LoadScene("PostRescueMinigame"); // NEW Scene after rescue
+            SceneManager.LoadScene("Minigame_Heal"); // NEW Scene after rescue
         }
         else
         {
