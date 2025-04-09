@@ -1,6 +1,7 @@
 using System.IO;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 /// Temp
 [System.Serializable]
@@ -28,9 +29,9 @@ public struct GameData_SealData
 {
     public bool beenInit;
 
-    public SealDude[] player_seals;
+    public Seal[] player_seals;
 
-    public void save_seal_data(SealDude[] seals_to_save)
+    public void save_seal_data(Seal[] seals_to_save)
     {
         player_seals = seals_to_save;
     }
@@ -113,6 +114,10 @@ public class GameData : MonoBehaviour
         {
             string loadedJson = File.ReadAllText(file_path + "/" + FILE_NAME_SEALDATA);
             gd_sealdata = JsonUtility.FromJson<GameData_SealData>(loadedJson);
+
+            if(gd_sealdata.beenInit)
+             SealManager.Instance.seals = gd_sealdata.player_seals.ToList();
+
             Debug.Log("SEAL DATA LOADED SUCCESSFULLY");
         }
         else
@@ -129,6 +134,8 @@ public class GameData : MonoBehaviour
         OnSaveGameData_SealData?.Invoke();
 
         gd_sealdata.beenInit = true;
+
+        gd_sealdata.save_seal_data(SealManager.Instance.seals.ToArray());
 
         string gameStatusJson = JsonUtility.ToJson(gd_sealdata);
 
@@ -234,6 +241,7 @@ public class GameData : MonoBehaviour
 
     void ResetAllData()
     {
+        Debug.Log("hello its me");
         ResetGameData_SealData();
         ResetGameData_Settings();
         ResetGameData_Statistics();
@@ -249,10 +257,6 @@ public class GameData : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        //Resets data
-        if (GameManagement.instance.dev_mode && rest_data_on_load)
-            ResetAllData();
-
         //Initial Loading of Data
         file_path = Application.persistentDataPath;
         gd_sealdata = new GameData_SealData();
@@ -260,7 +264,11 @@ public class GameData : MonoBehaviour
         gd_statistics = new GameData_Statistics();
         Debug.Log(file_path);
 
-        LoadAllData();
+        //Resets data
+        if (GameManagement.instance.dev_mode && rest_data_on_load)
+            ResetAllData();
+        else
+            LoadAllData();
     }
 
     private void OnApplicationQuit()

@@ -6,7 +6,7 @@ public class GameManagement : MonoBehaviour
 
     public static GameManagement instance;
 
-    public bool dev_mode { get; private set; }
+    public bool dev_mode; //{ get; private set; }
 
     private void Awake()
     {
