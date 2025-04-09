@@ -417,6 +417,7 @@ MonoBehaviour:
     healthTrait: 0
     seal_name: 
     position: {x: 0.5191498, y: -1.9907231}
+  justRescuedSeal: 0
 --- !u!1 &276634505
 GameObject:
   m_ObjectHideFlags: 0
@@ -461,6 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61433dca0995cf44a40d2a2c01c8e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dev_mode: 0
 --- !u!1 &357361785
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,7 +684,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 110.36, y: 45.19}
+  m_AnchoredPosition: {x: 110.36, y: 45.18994}
   m_SizeDelta: {x: 394.63, y: 150}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &405903399
