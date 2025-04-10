@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Unity.Notifications.Android;
 using UnityEngine;
@@ -17,7 +16,9 @@ public class AndroidService : MonoBehaviour
         {
             yield return debug_delay;
             ranNotif = UnityEngine.Random.Range(0, 5);
-            QueueBasicNotification(ConvertIndex_Notification(ranNotif), 0.1f);
+            //QueueBasicNotification(ConvertIndex_Notification(ranNotif), 0.1f);
+            QueueNotification_Seal(SealManager.Instance.seals[Random.Range(0, SealManager.Instance.seals.Count)], ConvertIndex_Notification(ranNotif), 0.1f);
+            //QueueNotification_BigPicture(SealManager.Instance.seals[Random.Range(0, SealManager.Instance.seals.Count)], ConvertIndex_Notification(ranNotif), 0.1f);
         }
     }
     //TEMPPPPPPP
@@ -26,6 +27,7 @@ public class AndroidService : MonoBehaviour
     void Start()
     {
         StartCoroutine(RequestNotificationPermission());
+
         var group = new AndroidNotificationChannelGroup()
         {
             Id = "Main",
@@ -42,7 +44,9 @@ public class AndroidService : MonoBehaviour
         };
         AndroidNotificationCenter.RegisterNotificationChannel(channel);
 
-        StartCoroutine(DEBUGGINGNOTIFICATIONS());
+        if (GameManagement.instance.dev_mode)
+            StartCoroutine(DEBUGGINGNOTIFICATIONS());
+
     }
 
     IEnumerator RequestNotificationPermission()
@@ -69,7 +73,12 @@ public class AndroidService : MonoBehaviour
     public void QueueNotification_Seal(Seal seal, notif_types notification_type, float delay)
     {
         var notification = new AndroidNotification();
-        notification.Title = seal.seal_name;
+
+        if (notification_type == notif_types.heal)
+            notification.Title = ConvertNotification_Title(notification_type);
+        else
+            notification.Title = seal.seal_name + ":";
+
         notification.Text = ConvertNotification_Text(notification_type);
         notification.SmallIcon = ConvertNotification_Icon(notification_type);
         notification.FireTime = System.DateTime.Now.AddMinutes(delay);
@@ -78,19 +87,33 @@ public class AndroidService : MonoBehaviour
         AndroidNotificationCenter.SendNotification(notification, "channel_id");
     }
 
+    public void QueueNotification_BigPicture(Seal seal, notif_types notification_type, float delay)
+    {
+        var notification = new AndroidNotification();
+        notification.Title = seal.seal_name + ":";
+        notification.Text = ConvertNotification_Text(notification_type);
+        notification.BigPicture = new BigPictureStyle()
+        {
+            Picture = ConvertNotification_Icon(notification_type),
+        };
+        notification.FireTime = System.DateTime.Now.AddMinutes(delay);
+        notification.Color = ConvertNotification_Color(notification_type);
+
+        AndroidNotificationCenter.SendNotification(notification, "channel_id");
+    }
 
     string ConvertNotification_Title(notif_types notification_type)
     {
         switch (notification_type)
         {
             case notif_types.feed:
-                return "Feed Seal";
+                return ":";
             case notif_types.heal:
-                return "Heal Seal";
+                return ":";
             case notif_types.rescue:
-                return "ALERT!";
+                return "ALERT:";
             case notif_types.release:
-                return "Me";
+                return ":";
             default:
                 return "INVALID NOTIFICATION TYPE: notify Declan";
         }
