@@ -10,6 +10,7 @@ public class SealManager : MonoBehaviour
 
     public bool justRescuedSeal = false;
 
+    public bool isSealAvailableForRescue = false;
 
     void Awake()
     {
@@ -34,5 +35,9 @@ public class SealManager : MonoBehaviour
     public Seal GetSealById(string id)
     {
         return seals.Find(s => s.id == id);
+    }
+    public void SetSealAvailable(bool status)
+    {
+        isSealAvailableForRescue = status;
     }
 }

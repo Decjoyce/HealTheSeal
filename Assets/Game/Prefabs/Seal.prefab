@@ -355,10 +355,11 @@ MonoBehaviour:
   sealData:
     id: 866f9c19-7b28-41e0-8221-87af3ed15832
     health: 0
-    mood: 0
+    weight: 0
     hunger: 0
     hungerTrait: 0
     moodTrait: 0
     healthTrait: 0
+    injury: 0
     seal_name: 
     position: {x: 0, y: 0}

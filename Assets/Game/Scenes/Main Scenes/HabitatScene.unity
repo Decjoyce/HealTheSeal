@@ -410,13 +410,15 @@ MonoBehaviour:
   selectedSeal:
     id: 30a332ea-871c-4a7a-b00b-3e875851bde2
     health: 68
-    mood: 7
+    weight: 0
     hunger: 54
     hungerTrait: 0
     moodTrait: 0
     healthTrait: 0
+    injury: 0
     seal_name: 
     position: {x: 0.5191498, y: -1.9907231}
+  justRescuedSeal: 0
 --- !u!1 &276634505
 GameObject:
   m_ObjectHideFlags: 0

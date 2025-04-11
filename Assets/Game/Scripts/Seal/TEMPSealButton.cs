@@ -11,15 +11,26 @@ public class TEMPSealButton : MonoBehaviour
     void Start()
     {
         if (!isBackButton)
-            GetComponent<Button>().onClick.AddListener(GiveMeDaSeal);
+        {
+            bool available = SealManager.Instance.isSealAvailableForRescue;
+            gameObject.SetActive(available);
+
+            if (available)
+                GetComponent<Button>().onClick.AddListener(GiveMeDaSeal);
+        }
         else
+        {
             GetComponent<Button>().onClick.AddListener(GoBack);
+        }
     }
 
     void GiveMeDaSeal()
     {
         if (needsRescue)
         {
+            SealManager.Instance.isSealAvailableForRescue = false;
+
+            //Instantiate seal
             Seal newSeal = new Seal();
             newSeal.RandomizeAttributes();
             SealManager.Instance.seals.Add(newSeal);
