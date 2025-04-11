@@ -19,11 +19,7 @@ MonoBehaviour:
   m_PlatformBuildProfile:
     rid: 8127470283462803456
   m_OverrideGlobalSceneList: 0
-  m_Scenes:
-  - m_enabled: 0
-    m_path: Assets/Scenes/DecScene.unity
-  - m_enabled: 1
-    m_path: Assets/Scenes/MainScene.unity
+  m_Scenes: []
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings:
