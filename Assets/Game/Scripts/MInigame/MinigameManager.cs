@@ -48,7 +48,7 @@ public class MinigameManager : MonoBehaviour
                 current_seal.IncreaseHealth(10);
                 break;
             case 2:
-                current_seal.IncreaseMood(10);
+                //current_seal.IncreaseMood(10);
                 break;
         }
         GameManagement.instance.LoadScene("SealDetailScene");

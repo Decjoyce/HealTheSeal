@@ -8,7 +8,7 @@ public class PostRescueMinigameController : MonoBehaviour
     {
         // Optionally increase stats automatically for rescue
         Seal seal = SealManager.Instance.selectedSeal;
-        seal.mood += 10; // or health/hunger based on your desired logic
+        //seal.mood += 10; // or health/hunger based on your desired logic
 
         // Load seal detailed view after minigame
         SceneManager.LoadScene("SealDetailScene");

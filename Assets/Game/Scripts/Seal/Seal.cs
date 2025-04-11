@@ -6,7 +6,8 @@ public class Seal
 
     public string id;
     public float health;
-    public float mood;
+    //public float mood;
+    public float weight;
     public float hunger;
     //Hunger trait
     public int hungerTrait;//1-fussy, 2- normal, 3- foodie
@@ -30,7 +31,8 @@ public class Seal
     public void RandomizeAttributes()
     {
         health = Random.Range(0, 50);
-        mood = Random.Range(0, 50);
+        //mood = Random.Range(0, 50);
+        weight = Random.Range(10,20);
         hunger = Random.Range(0, 25);
         position = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
         healthTrait = Random.Range(1, 4);
@@ -59,26 +61,30 @@ public class Seal
     {
         hunger += foodAmount;
         if (hunger > 100f) hunger = 100f; // Max cap
+        weight++;
+        if (weight >= 70) weight = 70;
     }
 
     public void LoseHungerSeal(float amount)
     {
         hunger -= amount;
         if (hunger < 0f) hunger = 0; // Min cap
+        weight++;
+        if (weight >= 70) weight = 70;
     }
     ////////////////////////////////////////////////////////
     ///Mood///
-    public void IncreaseMood(float amount)
-    {
-        mood += amount;
-        if (mood > 100f) mood = 100f; //Max cap
-    }
+    //public void IncreaseMood(float amount)
+    //{
+    //    mood += amount;
+    //    if (mood > 100f) mood = 100f; //Max cap
+    //}
 
-    public void ReduceMood(float amount)
-    {
-        mood -= amount;
-        if (mood < 0f) mood = 0f; // Min cap
-    }
+    //public void ReduceMood(float amount)
+    //{
+    //    mood -= amount;
+    //    if (mood < 0f) mood = 0f; // Min cap
+    //}
 
 
     //Prototype temp
