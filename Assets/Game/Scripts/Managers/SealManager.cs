@@ -9,8 +9,11 @@ public class SealManager : MonoBehaviour
     public Seal selectedSeal;
 
     public bool justRescuedSeal = false;
-
     public bool isSealAvailableForRescue = false;
+
+    public bool currentSealNeedsRescue = false;
+    public int currentSealInjury = 0; // 0 - no injury (healthy), 1 - net, 2 - hook, 3 - antibiotics
+
 
     void Awake()
     {
@@ -24,7 +27,29 @@ public class SealManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    public void SetSealAvailable(bool status)
+    {
+        isSealAvailableForRescue = status;
+        if (status)
+        {
+            DetermineSealCondition(); // randomize condition when timer reaches 0
+        }
+    }
+    void DetermineSealCondition()//determines if the seal is healthy and if it need rescuing
+    {
+        // 30% chance the seal is healthy (no rescue needed)
+        currentSealNeedsRescue = Random.value > 0.9f;
 
+        if (currentSealNeedsRescue)
+        {
+            // assing injury clearly (1-net, 2-hook, 3-antibiotics)
+            currentSealInjury = Random.Range(1, 4);
+        }
+        else
+        {
+            currentSealInjury = 0; // no injury
+        }
+    }
     public void SpawnSeal()
     {
         Seal newSeal = new Seal();
@@ -35,9 +60,5 @@ public class SealManager : MonoBehaviour
     public Seal GetSealById(string id)
     {
         return seals.Find(s => s.id == id);
-    }
-    public void SetSealAvailable(bool status)
-    {
-        isSealAvailableForRescue = status;
     }
 }

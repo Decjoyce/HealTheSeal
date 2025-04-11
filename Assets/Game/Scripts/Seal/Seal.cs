@@ -40,7 +40,7 @@ public class Seal
         healthTrait = Random.Range(1, 4);
         moodTrait = Random.Range(1, 4);
         hungerTrait = Random.Range(1, 4);
-        injury= Random.Range(1, 5); // 
+        //injury= Random.Range(1, 5); // 
 
 
         NameDaSeal(); //Prototype - temp
