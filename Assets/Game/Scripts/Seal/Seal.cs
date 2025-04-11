@@ -16,6 +16,8 @@ public class Seal
     //Health trait
     public int healthTrait;//1-Brittle, 2- normal, 3-resilient
 
+    public int injury;//1-Net entanglement,2- Hook in mouth, 3- Desinfect
+
     //public SealStats stats; //Prototype
 
     public string seal_name; //Prototype
@@ -38,6 +40,7 @@ public class Seal
         healthTrait = Random.Range(1, 4);
         moodTrait = Random.Range(1, 4);
         hungerTrait = Random.Range(1, 4);
+        injury= Random.Range(1, 4);
 
 
         NameDaSeal(); //Prototype - temp
