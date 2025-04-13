@@ -32,9 +32,9 @@ public class Seal
     }
     public void RandomizeAttributes()
     {
-        health = Random.Range(0, 50);
+        health = Random.Range(80, 80); //TESTING
         //mood = Random.Range(0, 50);
-        weight = Random.Range(10,20);
+        weight = Random.Range(20, 20); //TESTING
         hunger = Random.Range(0, 25);
         position = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
         healthTrait = Random.Range(1, 4);
@@ -49,8 +49,25 @@ public class Seal
     //Prototype - Moved from SealStats script to here 
     public void IncreaseHealth(float amount)
     {
-        health += amount;
-        if (health > 100f) health = 100f; //Max cap
+
+        if (injury == 1)
+        {
+            health += amount / 1.5f;//net
+        }
+        else if (injury == 2)
+        {
+            health += amount / 1.2f;//hook
+        }
+        else if (injury == 3)
+        {
+            health += amount / 2;//wound desinfection needed
+        }
+        else if (injury == 4)
+        {
+            health += amount;
+        }
+
+        if (health > 100f) health = 100f;
     }
 
     public void DecreaseHealth(float amount)
@@ -62,8 +79,9 @@ public class Seal
     //////Food///
     public void FeedSeal(float foodAmount)
     {
+
         hunger += foodAmount;
-        if (hunger > 100f) hunger = 100f; // Max cap
+        if (hunger > 100f) hunger = 100f;
         weight++;
         if (weight >= 70) weight = 70;
     }

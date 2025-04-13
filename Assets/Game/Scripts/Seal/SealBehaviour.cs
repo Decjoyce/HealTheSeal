@@ -21,7 +21,7 @@ public class SealBehaviour : MonoBehaviour
 
     void OnMouseDown()
     {
-       if (sealData.health >= 100f && sealData.hunger >= 100f)
+       if (sealData.health >= 90f && sealData.weight >= 20f)
         {
             // Seal ready to release!
             SealManager.Instance.selectedSeal = sealData;

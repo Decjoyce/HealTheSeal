@@ -93,13 +93,17 @@ public class TEMPSealButton : MonoBehaviour
             SealManager.Instance.justRescuedSeal = false;
 
             // Load minigame based on injury type
-            switch (SealManager.Instance.selectedSeal.injury)
-            {
-                case 1: SceneManager.LoadScene("NetRemovalMinigame"); break;
-                case 2: SceneManager.LoadScene("HookRemovalMinigame"); break;
-                case 3: SceneManager.LoadScene("DisinfectionMinigame"); break;
-                default: SceneManager.LoadScene("HabitatScene"); break;
-            }
+
+            //switch (SealManager.Instance.selectedSeal.injury)
+            //{
+            //    case 1: SceneManager.LoadScene("NetRemovalMinigame"); break;
+            //    case 2: SceneManager.LoadScene("HookRemovalMinigame"); break;
+            //    case 3: SceneManager.LoadScene("DisinfectionMinigame"); break;
+            //    default: SceneManager.LoadScene("HabitatScene"); break;
+            //}
+
+            SceneManager.LoadScene("PostRescueMinigame");
+
         }
         else
         {

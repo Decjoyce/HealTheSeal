@@ -38,7 +38,7 @@ public class SealManager : MonoBehaviour
     void DetermineSealCondition()//determines if the seal is healthy and if it need rescuing
     {
         // 30% chance the seal is healthy (no rescue needed)
-        currentSealNeedsRescue = Random.value > 0.9f;
+        currentSealNeedsRescue = Random.value > 0.3f;
 
         if (currentSealNeedsRescue)
         {
