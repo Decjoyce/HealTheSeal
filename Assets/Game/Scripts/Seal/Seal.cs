@@ -34,7 +34,7 @@ public class Seal
     {
         health = Random.Range(80, 80); //TESTING
         //mood = Random.Range(0, 50);
-        weight = Random.Range(20, 20); //TESTING
+        weight = Random.Range(40, 40); //TESTING
         hunger = Random.Range(0, 25);
         position = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
         healthTrait = Random.Range(1, 4);
