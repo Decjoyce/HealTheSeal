@@ -24,13 +24,13 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Main Scenes/SealDetailScene.unity
     guid: 5a9b4bc2a01e34e45862de38cf4fe1cc
   - enabled: 1
-    path: Assets/Game/Scenes/Minigames/Minigame_Feed.unity
+    path: Assets/Game/Scenes/Minigames/Feed/MG_F_FlickFish.unity
     guid: fd1ffe252c8a2684f89558d38e8f5c84
   - enabled: 1
-    path: Assets/Game/Scenes/Minigames/Minigame_Heal.unity
+    path: Assets/Game/Scenes/Minigames/MG_Treatment.unity
     guid: e0b3b13c7c3aba44b9ba3ebc5c8e6e2a
   - enabled: 1
-    path: Assets/Game/Scenes/Minigames/Minigame_Play.unity
+    path: Assets/Game/Scenes/Minigames/Play (Obselete)/Minigame_Play.unity
     guid: eef82ce66914c8843bb84fb4aab96208
   - enabled: 1
     path: Assets/Game/Scenes/Main Scenes/Beach_Scene.unity

@@ -36,13 +36,7 @@ public class TEMPSealButton : MonoBehaviour
     {
         Image img = GetComponent<Image>();
 
-        switch (SealManager.Instance.currentSealInjury)
-        {
-            case 1: img.sprite = netSprite; break;
-            case 2: img.sprite = hookSprite; break;
-            case 3: img.sprite = antibioticsSprite; break;
-            case 0: img.sprite = healthySprite; break;
-        }
+        img.sprite = SealManager.Instance.GetSealInjuryGraphics();
     }
 
     void GiveMeDaSeal()
@@ -101,13 +95,11 @@ public class TEMPSealButton : MonoBehaviour
             //    case 3: SceneManager.LoadScene("DisinfectionMinigame"); break;
             //    default: SceneManager.LoadScene("HabitatScene"); break;
             //}
-
-            SceneManager.LoadScene("PostRescueMinigame");
-
+            GameManagement.instance.LoadScene("MG_Treatment");
         }
         else
         {
-            SceneManager.LoadScene("HabitatScene");
+            GameManagement.instance.LoadHabitatScene();
         }
     }
 }

@@ -14,6 +14,9 @@ public class SealManager : MonoBehaviour
     public bool currentSealNeedsRescue = false;
     public int currentSealInjury = 0; // 0 - no injury (healthy), 1 - net, 2 - hook, 3 - antibiotics
 
+    [Header("Seal Stuff")]
+    // Contains all graphics relating to seals
+    public SO_SealStuff seal_stuff;
 
     void Awake()
     {
@@ -60,5 +63,10 @@ public class SealManager : MonoBehaviour
     public Seal GetSealById(string id)
     {
         return seals.Find(s => s.id == id);
+    }
+
+    public Sprite GetSealInjuryGraphics()
+    {
+        return seal_stuff.GetInjuryGraphics(currentSealInjury);
     }
 }

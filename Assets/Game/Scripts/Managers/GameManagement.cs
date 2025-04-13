@@ -44,6 +44,10 @@ public class GameManagement : MonoBehaviour
         GameData.instance.SaveAllData();
     }
 
+    public void LoadHabitatScene()
+    {
+        LoadScene("HabitatScene");
+    }
 
     public void EnterDebugMode()
     {

@@ -165,6 +165,7 @@ MonoBehaviour:
   isSealAvailableForRescue: 0
   currentSealNeedsRescue: 0
   currentSealInjury: 0
+  seal_stuff: {fileID: 11400000, guid: 2f09d7f2f4bff9b45ac642c6529b9a31, type: 2}
 --- !u!1 &6443832690852052985
 GameObject:
   m_ObjectHideFlags: 0
