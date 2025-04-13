@@ -410,14 +410,18 @@ MonoBehaviour:
   selectedSeal:
     id: 30a332ea-871c-4a7a-b00b-3e875851bde2
     health: 68
-    mood: 7
+    weight: 0
     hunger: 54
     hungerTrait: 0
     moodTrait: 0
     healthTrait: 0
+    injury: 0
     seal_name: 
     position: {x: 0.5191498, y: -1.9907231}
   justRescuedSeal: 0
+  isSealAvailableForRescue: 0
+  currentSealNeedsRescue: 0
+  currentSealInjury: 0
 --- !u!1 &276634505
 GameObject:
   m_ObjectHideFlags: 0
@@ -462,7 +466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61433dca0995cf44a40d2a2c01c8e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dev_mode: 0
 --- !u!1 &357361785
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +687,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 110.36, y: 45.18994}
+  m_AnchoredPosition: {x: 110.36, y: 45.19}
   m_SizeDelta: {x: 394.63, y: 150}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &405903399
@@ -1479,6 +1482,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sealPrefab: {fileID: 7644687759899469410, guid: 11c472bfff4c42249a7d880a616a06ed, type: 3}
   spawnButton: {fileID: 394439169}
+  normalSprite: {fileID: -3357268176755089110, guid: 0b2ab29b0eff2994195ba5485622b496, type: 3}
+  alertSprite: {fileID: 8065632747499422047, guid: b7003b8f7332ddb4a95e6e9ce955b0f7, type: 3}
 --- !u!4 &1916827927
 Transform:
   m_ObjectHideFlags: 0

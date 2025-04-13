@@ -25,7 +25,7 @@ public class SealDetailController : MonoBehaviour
         //moodText.text = $"Mood: {seal.mood}";
         //hungerText.text = $"Hunger: {seal.hunger}";
         healthSlider.SetValue(seal.health);
-        moodSlider.SetValue(seal.mood);
+        //moodSlider.SetValue(seal.mood);
         hungerSlider.SetValue(seal.hunger);
 
         if (seal.moodTrait == 1)

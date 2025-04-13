@@ -21,8 +21,18 @@ public class SealBehaviour : MonoBehaviour
 
     void OnMouseDown()
     {
-        SealManager.Instance.selectedSeal = sealData;
-        SceneManager.LoadScene("SealDetailScene");
+       if (sealData.health >= 90f && sealData.weight >= 40f)
+        {
+            // Seal ready to release!
+            SealManager.Instance.selectedSeal = sealData;
+            SceneManager.LoadScene("Release Scene");
+        }
+        else
+        {
+            // Normal flow to detailed view
+            SealManager.Instance.selectedSeal = sealData;
+            SceneManager.LoadScene("SealDetailScene");
+        }
     }
 
     void Update()

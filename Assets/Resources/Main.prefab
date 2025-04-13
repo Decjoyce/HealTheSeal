@@ -56,7 +56,7 @@ MonoBehaviour:
     minigame_play_amount: 0
     minigame_feed_amount: 0
     minigame_heal_amount: 0
-  rest_data_on_load: 0
+  rest_data_on_load: 1
 --- !u!1 &3481499531958077733
 GameObject:
   m_ObjectHideFlags: 0
@@ -153,14 +153,18 @@ MonoBehaviour:
   selectedSeal:
     id: 
     health: 0
-    mood: 0
+    weight: 0
     hunger: 0
     hungerTrait: 0
     moodTrait: 0
     healthTrait: 0
+    injury: 0
     seal_name: 
     position: {x: 0, y: 0}
   justRescuedSeal: 0
+  isSealAvailableForRescue: 0
+  currentSealNeedsRescue: 0
+  currentSealInjury: 0
 --- !u!1 &6443832690852052985
 GameObject:
   m_ObjectHideFlags: 0
