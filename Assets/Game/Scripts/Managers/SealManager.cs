@@ -30,6 +30,29 @@ public class SealManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    //Makes all seals available to feed
+    public void a_SetAllCanFeed(int a_current_schedule, bool y = true)
+    {
+        Debug.Log(a_current_schedule);
+        foreach (Seal s in seals)
+        {
+            if(s.a_times_fed == a_current_schedule)
+            s.can_feed = y;
+        }
+    }
+
+    //Makes all seals available to heal
+    public void a_SetAllCanHeal(int a_current_schedule, bool y = true)
+    {
+        Debug.Log(a_current_schedule);
+        foreach (Seal s in seals)
+        {
+            if(s.a_times_healed == a_current_schedule)
+                s.can_heal = y;
+        }
+    }
+
     public void SetSealAvailable(bool status)
     {
         isSealAvailableForRescue = status;

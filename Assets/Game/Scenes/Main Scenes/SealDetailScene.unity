@@ -886,7 +886,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: -547388380619949052, guid: 88cfdd628e967d0459e05cb36e326c9d, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -547388380619949052, guid: 88cfdd628e967d0459e05cb36e326c9d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1249,7 +1249,7 @@ SpriteRenderer:
   m_Size: {x: 3.99, y: 7.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1329360860
@@ -1360,7 +1360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1479373782
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1376,10 +1376,10 @@ RectTransform:
   - {fileID: 1845096066}
   m_Father: {fileID: 70742725}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 110}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 390, y: -210}
+  m_SizeDelta: {x: 780, y: 110}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1479373783
 MonoBehaviour:
@@ -1426,7 +1426,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479373781}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb7aa106625ddb94cbdd83b1c98aef75, type: 3}
   m_Name: 
@@ -1609,7 +1609,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1515388210
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1625,9 +1625,9 @@ RectTransform:
   - {fileID: 1482388094}
   m_Father: {fileID: 394246554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 633.3333, y: -125}
   m_SizeDelta: {x: 210, y: 210}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1515388211
@@ -2030,7 +2030,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: -547388380619949052, guid: 88cfdd628e967d0459e05cb36e326c9d, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: -547388380619949052, guid: 88cfdd628e967d0459e05cb36e326c9d, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -2051,7 +2051,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Minigame_Feed
+          m_StringArgument: MG_F_FlickFish
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1784010864
@@ -2581,6 +2581,8 @@ MonoBehaviour:
   moodTrait: {fileID: 1845096067}
   hungerTrait: {fileID: 126651385}
   healthTrait: {fileID: 1558614418}
+  feedButton: {fileID: 1784010863}
+  healButton: {fileID: 619205801}
 --- !u!4 &2054067408
 Transform:
   m_ObjectHideFlags: 0

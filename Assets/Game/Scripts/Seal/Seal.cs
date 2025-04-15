@@ -22,6 +22,17 @@ public class Seal
 
     public string seal_name; //Prototype
 
+    public int a_times_fed = 0;
+    public int a_times_healed = 0;
+
+    public bool can_feed = true; // For the delay
+    public bool can_heal = true; // For the delay
+
+    public string next_time_feed;
+    public string next_time_heal;
+    public string last_time_fed;
+    public string last_time_healed;
+
     public Vector2 position;
 
     public Seal()
@@ -40,6 +51,8 @@ public class Seal
         healthTrait = Random.Range(1, 4);
         moodTrait = Random.Range(1, 4);
         hungerTrait = Random.Range(1, 4);
+        can_heal = true;
+        can_feed = true;
         //injury= Random.Range(1, 5); // 
 
 
@@ -49,6 +62,8 @@ public class Seal
     //Prototype - Moved from SealStats script to here 
     public void IncreaseHealth(float amount)
     {
+
+        a_times_healed++;
 
         if (injury == 1)
         {
@@ -84,6 +99,8 @@ public class Seal
         if (hunger > 100f) hunger = 100f;
         weight++;
         if (weight >= 70) weight = 70;
+
+        a_times_fed++;
     }
 
     public void LoseHungerSeal(float amount)

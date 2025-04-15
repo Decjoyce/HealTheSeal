@@ -4,24 +4,20 @@ using UnityEngine;
 
 public class AndroidService : MonoBehaviour
 {
-    //TEMPP
 
-    WaitForSecondsRealtime debug_delay = new WaitForSecondsRealtime(10f);
 
-    IEnumerator DEBUGGINGNOTIFICATIONS()
+    public static AndroidService instance;
+
+    private void Awake()
     {
-        bool tom = true;
-        int ranNotif;
-        while (tom)
+        if (instance != null)
         {
-            yield return debug_delay;
-            ranNotif = UnityEngine.Random.Range(0, 5);
-            //QueueBasicNotification(ConvertIndex_Notification(ranNotif), 0.1f);
-            QueueNotification_Seal(SealManager.Instance.seals[Random.Range(0, SealManager.Instance.seals.Count)], ConvertIndex_Notification(ranNotif), 0.1f);
-            //QueueNotification_BigPicture(SealManager.Instance.seals[Random.Range(0, SealManager.Instance.seals.Count)], ConvertIndex_Notification(ranNotif), 0.1f);
+            Debug.LogError("More than one instance of ANDROIDSERVICE found");
+            Destroy(gameObject);
+            return;
         }
+        instance = this;
     }
-    //TEMPPPPPPP
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,9 +39,6 @@ public class AndroidService : MonoBehaviour
             Group = "Main",  // must be same as Id of previously registered group
         };
         AndroidNotificationCenter.RegisterNotificationChannel(channel);
-
-        if (GameManagement.instance.dev_mode)
-            StartCoroutine(DEBUGGINGNOTIFICATIONS());
 
     }
 
@@ -70,7 +63,7 @@ public class AndroidService : MonoBehaviour
         AndroidNotificationCenter.SendNotification(notification, "channel_id");
     }
 
-    public void QueueNotification_Seal(Seal seal, notif_types notification_type, float delay)
+    public void QueueNotification_Seal(Seal seal, notif_types notification_type, System.DateTime delay)
     {
         var notification = new AndroidNotification();
 
@@ -81,7 +74,7 @@ public class AndroidService : MonoBehaviour
 
         notification.Text = ConvertNotification_Text(notification_type);
         notification.SmallIcon = ConvertNotification_Icon(notification_type);
-        notification.FireTime = System.DateTime.Now.AddMinutes(delay);
+        notification.FireTime = delay;
         notification.Color = ConvertNotification_Color(notification_type);
 
         AndroidNotificationCenter.SendNotification(notification, "channel_id");

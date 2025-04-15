@@ -2,6 +2,7 @@ using System.IO;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using System;
 
 /// Temp
 [System.Serializable]
@@ -30,6 +31,9 @@ public struct GameData_SealData
     public bool beenInit;
 
     public Seal[] player_seals;
+
+    public int a_current_feed_schedule;
+    public int a_current_heal_schedule;
 
     public void save_seal_data(Seal[] seals_to_save)
     {
@@ -115,8 +119,13 @@ public class GameData : MonoBehaviour
             string loadedJson = File.ReadAllText(file_path + "/" + FILE_NAME_SEALDATA);
             gd_sealdata = JsonUtility.FromJson<GameData_SealData>(loadedJson);
 
-            if(gd_sealdata.beenInit)
-             SealManager.Instance.seals = gd_sealdata.player_seals.ToList();
+            if (gd_sealdata.beenInit)
+            {
+                SealManager.Instance.seals = gd_sealdata.player_seals.ToList();
+                GameManagement.instance.b_SetupSchedule();
+                Debug.Log("T - yo");
+            }
+             
 
             Debug.Log("SEAL DATA LOADED SUCCESSFULLY");
         }

@@ -16,10 +16,13 @@ public class SealDetailController : MonoBehaviour
     public TextMeshProUGUI hungerTrait;
     public TextMeshProUGUI healthTrait;
 
+    public Button feedButton, healButton;
+
+    Seal seal;
 
     void Start()
     {
-        Seal seal = SealManager.Instance.selectedSeal;
+        seal = SealManager.Instance.selectedSeal;
 
         //healthText.text = $"Health: {seal.health}";
         //moodText.text = $"Mood: {seal.mood}";
@@ -27,6 +30,16 @@ public class SealDetailController : MonoBehaviour
         healthSlider.SetValue(seal.health);
         //moodSlider.SetValue(seal.mood);
         hungerSlider.SetValue(seal.hunger);
+
+        if (!seal.can_feed)
+            feedButton.interactable = false;
+        else
+            feedButton.interactable = true;
+
+        if (!seal.can_heal)
+            healButton.interactable = false;
+        else
+            healButton.interactable = true;
 
         if (seal.moodTrait == 1)
         {
@@ -67,6 +80,19 @@ public class SealDetailController : MonoBehaviour
         }
 
         backButton.onClick.AddListener(() => GameManagement.instance.LoadScene("HabitatScene")); //Prototype - 
+    }
+
+    private void Update()
+    {
+        if (!seal.can_feed)
+            feedButton.interactable = false;
+        else
+            feedButton.interactable = true;
+
+        if (!seal.can_heal)
+            healButton.interactable = false;
+        else
+            healButton.interactable = true;
     }
 
     public void LoadScene(string scenename)
