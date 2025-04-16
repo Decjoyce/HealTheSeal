@@ -18,6 +18,9 @@ public class GameManagement : MonoBehaviour
 
     public float feed_delay = 4, heal_delay = 6;
 
+    [SerializeField] SO_WeeklyActivity[] all_weekly_activities;
+    public SO_WeeklyActivity current_weekly_activity { get; private set; }
+
     private void Awake()
     {
         if (instance != null)
@@ -32,8 +35,8 @@ public class GameManagement : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Debug.Log(System.DateTime.Now + " / " + System.DateTime.Today);
-        //SetupSchedule();
+        PickWeeklyActivity();
+
     }
 
     // Update is called once per frame
@@ -41,6 +44,16 @@ public class GameManagement : MonoBehaviour
     {
         CheckTimeSchedule();
     }
+
+    #region Weekly Activity Stuff
+
+    void PickWeeklyActivity()
+    {
+        int ran_activity = Random.Range(0, all_weekly_activities.Length);
+        current_weekly_activity = all_weekly_activities[ran_activity];
+    }
+
+    #endregion
 
     #region Time Stuff
 
@@ -95,7 +108,7 @@ public class GameManagement : MonoBehaviour
 
     #endregion
 
-    #region SceneStuff
+    #region Scene Stuff
     public void LoadScene(string scene_name = "", int index = -1)
     {
         if (scene_name != "")

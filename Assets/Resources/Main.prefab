@@ -47,8 +47,6 @@ MonoBehaviour:
   gd_sealdata:
     beenInit: 0
     player_seals: []
-    a_current_feed_schedule: 0
-    a_current_heal_schedule: 0
   gd_settings:
     beenInit: 0
     volume: 0
@@ -162,8 +160,6 @@ MonoBehaviour:
     healthTrait: 0
     injury: 0
     seal_name: 
-    a_times_fed: 0
-    a_times_healed: 0
     can_feed: 0
     can_heal: 0
     next_time_feed: 
@@ -224,11 +220,12 @@ MonoBehaviour:
   sm: {fileID: 1793158629754009710}
   gd: {fileID: 8929445321135946657}
   dev_mode: 1
-  universal_time_schedule: 0
-  b_seal_feed_schedules: []
-  b_seal_heal_schedules: []
+  seal_feed_schedules: []
+  seal_heal_schedules: []
   feed_delay: 0.06
   heal_delay: 0.06
+  all_weekly_activities:
+  - {fileID: 11400000, guid: a854c9d30997ef441b99dc48836b8430, type: 2}
 --- !u!1 &8739214375936525514
 GameObject:
   m_ObjectHideFlags: 0

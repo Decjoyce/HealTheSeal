@@ -362,8 +362,10 @@ MonoBehaviour:
     healthTrait: 0
     injury: 0
     seal_name: 
-    a_times_fed: 0
-    a_times_healed: 0
     can_feed: 1
     can_heal: 1
+    next_time_feed: 
+    next_time_heal: 
+    last_time_fed: 
+    last_time_healed: 
     position: {x: 0, y: 0}
