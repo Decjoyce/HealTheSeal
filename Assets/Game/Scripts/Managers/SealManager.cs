@@ -31,28 +31,6 @@ public class SealManager : MonoBehaviour
         }
     }
 
-    //Makes all seals available to feed
-    public void a_SetAllCanFeed(int a_current_schedule, bool y = true)
-    {
-        Debug.Log(a_current_schedule);
-        foreach (Seal s in seals)
-        {
-            if(s.a_times_fed == a_current_schedule)
-            s.can_feed = y;
-        }
-    }
-
-    //Makes all seals available to heal
-    public void a_SetAllCanHeal(int a_current_schedule, bool y = true)
-    {
-        Debug.Log(a_current_schedule);
-        foreach (Seal s in seals)
-        {
-            if(s.a_times_healed == a_current_schedule)
-                s.can_heal = y;
-        }
-    }
-
     public void SetSealAvailable(bool status)
     {
         isSealAvailableForRescue = status;
@@ -91,5 +69,22 @@ public class SealManager : MonoBehaviour
     public Sprite GetSealInjuryGraphics()
     {
         return seal_stuff.GetInjuryGraphics(currentSealInjury);
+    }
+
+    public int CheckNameAvailability(string _name)
+    {
+        int i = 0;
+        string parsed_name = _name.Trim('I');
+        parsed_name = parsed_name.Trim();
+        Debug.LogWarning(parsed_name);
+        foreach (Seal s in seals)
+        {
+            string parsed_seal_name = s.seal_name;
+            parsed_seal_name = parsed_seal_name.Trim('I');
+            parsed_seal_name = parsed_seal_name.Trim();
+            if (parsed_name == parsed_seal_name) i++;
+        }
+        
+        return i;
     }
 }

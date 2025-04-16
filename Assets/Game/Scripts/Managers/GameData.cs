@@ -32,9 +32,6 @@ public struct GameData_SealData
 
     public Seal[] player_seals;
 
-    public int a_current_feed_schedule;
-    public int a_current_heal_schedule;
-
     public void save_seal_data(Seal[] seals_to_save)
     {
         player_seals = seals_to_save;
@@ -122,8 +119,7 @@ public class GameData : MonoBehaviour
             if (gd_sealdata.beenInit)
             {
                 SealManager.Instance.seals = gd_sealdata.player_seals.ToList();
-                GameManagement.instance.b_SetupSchedule();
-                Debug.Log("T - yo");
+                GameManagement.instance.SetupSchedule();
             }
              
 

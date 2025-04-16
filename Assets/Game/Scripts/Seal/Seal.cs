@@ -22,9 +22,6 @@ public class Seal
 
     public string seal_name; //Prototype
 
-    public int a_times_fed = 0;
-    public int a_times_healed = 0;
-
     public bool can_feed = true; // For the delay
     public bool can_heal = true; // For the delay
 
@@ -63,8 +60,6 @@ public class Seal
     public void IncreaseHealth(float amount)
     {
 
-        a_times_healed++;
-
         if (injury == 1)
         {
             health += amount / 1.5f;//net
@@ -99,8 +94,6 @@ public class Seal
         if (hunger > 100f) hunger = 100f;
         weight++;
         if (weight >= 70) weight = 70;
-
-        a_times_fed++;
     }
 
     public void LoseHungerSeal(float amount)
@@ -126,89 +119,94 @@ public class Seal
 
 
     //Prototype temp
-    void NameDaSeal()
+    public void NameDaSeal(string new_name = "")
     {
-        int ranName = Random.Range(0, 26);
-        switch (ranName)
+        if (new_name != "")
+            seal_name = new_name;
+        else
         {
-            case 0:
-                seal_name = "Alphonso";
-                break;
-            case 1:
-                seal_name = "5341";
-                break;
-            case 2:
-                seal_name = "Aaron";
-                break;
-            case 3:
-                seal_name = "Stiliyan";
-                break;
-            case 4:
-                seal_name = "Matthew";
-                break;
-            case 5:
-                seal_name = "Finnán";
-                break;
-            case 6:
-                seal_name = "Dec";
-                break;
-            case 7:
-                seal_name = "Darnell Simmons";
-                break;
-            case 8:
-                seal_name = "Michael Jackson";
-                break;
-            case 9:
-                seal_name = "Seaweed";
-                break;
-            case 10:
-                seal_name = "Dúllamán";
-                break;
-            case 11:
-                seal_name = "Rhiannon";
-                break;
-            case 12:
-                seal_name = "Saltwater";
-                break;
-            case 13:
-                seal_name = "Cookie Dough";
-                break;
-            case 14:
-                seal_name = "Blob";
-                break;
-            case 15:
-                seal_name = "Spots";
-                break;
-            case 16:
-                seal_name = "Honeysuckle";
-                break;
-            case 17:
-                seal_name = "Mossy";
-                break;
-            case 18:
-                seal_name = "Phil";
-                break;
-            case 19:
-                seal_name = "Oyster";
-                break;
-            case 20:
-                seal_name = "Clam";
-                break;
-            case 21:
-                seal_name = "Shelly";
-                break;
-            case 22:
-                seal_name = "Sandy";
-                break;
-            case 23:
-                seal_name = "Adeola";
-                break;
-            case 24:
-                seal_name = "Prawn";
-                break;
-            case 25:
-                seal_name = "Toad Crab";
-                break;
+            int ranName = Random.Range(0, 26);
+            switch (ranName)
+            {
+                case 0:
+                    seal_name = "Alphonso";
+                    break;
+                case 1:
+                    seal_name = "5341";
+                    break;
+                case 2:
+                    seal_name = "Aaron";
+                    break;
+                case 3:
+                    seal_name = "Stiliyan";
+                    break;
+                case 4:
+                    seal_name = "Matthew";
+                    break;
+                case 5:
+                    seal_name = "Finnán";
+                    break;
+                case 6:
+                    seal_name = "Dec";
+                    break;
+                case 7:
+                    seal_name = "Darnell Simmons";
+                    break;
+                case 8:
+                    seal_name = "Michael Jackson";
+                    break;
+                case 9:
+                    seal_name = "Seaweed";
+                    break;
+                case 10:
+                    seal_name = "Dúllamán";
+                    break;
+                case 11:
+                    seal_name = "Rhiannon";
+                    break;
+                case 12:
+                    seal_name = "Saltwater";
+                    break;
+                case 13:
+                    seal_name = "Cookie Dough";
+                    break;
+                case 14:
+                    seal_name = "Blob";
+                    break;
+                case 15:
+                    seal_name = "Spots";
+                    break;
+                case 16:
+                    seal_name = "Honeysuckle";
+                    break;
+                case 17:
+                    seal_name = "Mossy";
+                    break;
+                case 18:
+                    seal_name = "Phil";
+                    break;
+                case 19:
+                    seal_name = "Oyster";
+                    break;
+                case 20:
+                    seal_name = "Clam";
+                    break;
+                case 21:
+                    seal_name = "Shelly";
+                    break;
+                case 22:
+                    seal_name = "Sandy";
+                    break;
+                case 23:
+                    seal_name = "Adeola";
+                    break;
+                case 24:
+                    seal_name = "Prawn";
+                    break;
+                case 25:
+                    seal_name = "Toad Crab";
+                    break;
+            }
         }
     }
 }

@@ -63,7 +63,7 @@ public class AndroidService : MonoBehaviour
         AndroidNotificationCenter.SendNotification(notification, "channel_id");
     }
 
-    public void QueueNotification_Seal(Seal seal, notif_types notification_type, System.DateTime delay)
+    public void QueueNotification_Seal(Seal seal, notif_types notification_type, string delay)
     {
         var notification = new AndroidNotification();
 
@@ -74,7 +74,7 @@ public class AndroidService : MonoBehaviour
 
         notification.Text = ConvertNotification_Text(notification_type);
         notification.SmallIcon = ConvertNotification_Icon(notification_type);
-        notification.FireTime = delay;
+        notification.FireTime = System.DateTime.Parse(delay);
         notification.Color = ConvertNotification_Color(notification_type);
 
         AndroidNotificationCenter.SendNotification(notification, "channel_id");

@@ -21,19 +21,21 @@ public class SO_SealStuff : ScriptableObject
     public Sprite g_fishhook_injury;
     public Sprite g_cold_injury;
 
-    public Sprite GetInjuryGraphics(int injury_index) //0-Net entanglement, 1-flipper, 2-Fishhook, 3-Cold, 4-Orphaned.
+    public Sprite GetInjuryGraphics(int injury_index) //0-No injury, 1-Net entanglement, 2-flipper, 3-Fishhook, 4-Cold, 5-Orphaned
     {
         switch (injury_index)
         {
             case 0:
-                return g_net_injury;
+                return g_small_seal_normal;
             case 1:
-                return g_flipper_injury;
+                return g_net_injury;
             case 2:
-                return g_fishhook_injury;
+                return g_flipper_injury;
             case 3:
-                return g_cold_injury;
+                return g_fishhook_injury;
             case 4:
+                return g_cold_injury;
+            case 5:
                 return g_small_seal_sad;
             default:
                 return g_error;
