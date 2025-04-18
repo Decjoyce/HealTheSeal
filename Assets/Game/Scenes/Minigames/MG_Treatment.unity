@@ -888,13 +888,22 @@ MonoBehaviour:
   sealImage: {fileID: 0}
   tColour: {r: 0.21960784, g: 0.3764706, b: 0.6313726, a: 1}
   sprayable: 0
-  nettingPrefab: {fileID: 2601287590634904187, guid: 2a9b91af8f238b045af1977b1b1901e3, type: 3}
+  injuryPrefabs:
+  - {fileID: 2601287590634904187, guid: a45e67ab915b6f04187d6d18cca19cf6, type: 3}
+  - {fileID: 2601287590634904187, guid: b5959e4368b973c4585614f08fa1307c, type: 3}
+  - {fileID: 2601287590634904187, guid: 2a9b91af8f238b045af1977b1b1901e3, type: 3}
+  - {fileID: 7785053468274165732, guid: c4f8074139b836f47b7757e6f48da13d, type: 3}
   size: {x: 0, y: 0}
   spawnCount: 1
   seal: {fileID: 0}
   netting: []
+  injury: 0
+  injuryPos: []
   mg_minigame: {fileID: 1358321779}
-  no_net_seal: {fileID: -2495283399658682625, guid: e53e01516c8690a46acee4e47eefafee, type: 3}
+  no_net_seal:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &1358321778
 GameObject:
   m_ObjectHideFlags: 0

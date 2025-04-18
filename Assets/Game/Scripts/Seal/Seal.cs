@@ -92,16 +92,14 @@ public class Seal
 
         hunger += foodAmount;
         if (hunger > 100f) hunger = 100f;
-        weight++;
-        if (weight >= 70) weight = 70;
+        weight = Mathf.Clamp(ExtensionMethods.Map(hunger, 0f, 100f, 10, 40), 10, 40);
     }
 
     public void LoseHungerSeal(float amount)
     {
         hunger -= amount;
         if (hunger < 0f) hunger = 0; // Min cap
-        weight++;
-        if (weight >= 70) weight = 70;
+        weight = Mathf.Clamp(ExtensionMethods.Map(hunger, 0f, 100f, 10, 40), 10, 40);
     }
     ////////////////////////////////////////////////////////
     ///Mood///
