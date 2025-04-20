@@ -3,6 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class PostRescueMinigameController : MonoBehaviour
 {
+    private void Start()
+    {
+        SceneManager.LoadScene("SealDetailScene");
+    }
     // Call this method when the minigame is complete:
     public void OnMinigameCompleted()
     {
