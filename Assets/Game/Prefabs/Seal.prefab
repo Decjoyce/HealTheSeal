@@ -363,3 +363,6 @@ MonoBehaviour:
     injury: 0
     seal_name: 
     position: {x: 0, y: 0}
+  lowHPPosition: {x: 0, y: 2}
+  midHPPosition: {x: 0, y: -10}
+  highHPPosition: {x: 0, y: -20}
