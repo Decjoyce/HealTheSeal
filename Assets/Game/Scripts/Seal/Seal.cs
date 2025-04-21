@@ -40,9 +40,9 @@ public class Seal
     }
     public void RandomizeAttributes()
     {
-        health = Random.Range(80, 80); //TESTING
+        health = Random.Range(5, 25); //TESTING
         //mood = Random.Range(0, 50);
-        weight = Random.Range(40, 40); //TESTING
+        weight = Random.Range(10, 15); //TESTING
         hunger = Random.Range(0, 25);
         position = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
         healthTrait = Random.Range(1, 4);

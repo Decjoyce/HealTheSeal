@@ -369,3 +369,6 @@ MonoBehaviour:
     last_time_fed: 
     last_time_healed: 
     position: {x: 0, y: 0}
+  lowHPPosition: {x: 0, y: 2}
+  midHPPosition: {x: 0, y: -10}
+  highHPPosition: {x: 0, y: -20}
