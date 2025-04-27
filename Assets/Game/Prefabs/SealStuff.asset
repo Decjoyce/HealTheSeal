@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SealStuff
   m_EditorClassIdentifier: 
   g_error: {fileID: 21300000, guid: 26c69ebfc75254d2d85011964359be73, type: 3}
-  g_small_seal_normal: {fileID: -2495283399658682625, guid: e53e01516c8690a46acee4e47eefafee, type: 3}
-  g_small_seal_sad: {fileID: 606905183728365196, guid: 173be52b5afa78c4893f1edb9a8ba99f, type: 3}
-  g_medium_seal_normal: {fileID: 0}
-  g_medium_seal_sad: {fileID: 0}
-  g_big_seal_normal: {fileID: 0}
-  g_big_seal_sad: {fileID: 0}
+  g_small_seal_normal: {fileID: -5530438500920733864, guid: 59095693040261d418660e50238f1cc4, type: 3}
+  g_small_seal_sad: {fileID: -1663787686554203116, guid: b68b24bc879b75a4f88ae2afc0979ba2, type: 3}
+  g_medium_seal_normal: {fileID: -2495283399658682625, guid: e53e01516c8690a46acee4e47eefafee, type: 3}
+  g_medium_seal_sad: {fileID: 606905183728365196, guid: 173be52b5afa78c4893f1edb9a8ba99f, type: 3}
+  g_big_seal_normal: {fileID: -5218236087159413171, guid: 2444be065c4e3f84b9651fd217ef7d49, type: 3}
+  g_big_seal_sad: {fileID: 6963332935843921606, guid: 1a67a109ff191964ab225c804a1d1f6b, type: 3}
   g_net_injury: {fileID: -3232880620700291860, guid: 8304c678a20ef5042806ce541fba6e0a, type: 3}
   g_flipper_injury: {fileID: 4801077177041209951, guid: 74430700033de844f8176856be147b12, type: 3}
   g_fishhook_injury: {fileID: -6058216323320851003, guid: 36c1c1fb8931b984e8118b05845eb74a, type: 3}
