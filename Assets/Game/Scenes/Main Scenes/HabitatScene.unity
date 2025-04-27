@@ -573,11 +573,18 @@ MonoBehaviour:
     healthTrait: 0
     injury: 0
     seal_name: 
+    can_feed: 1
+    can_heal: 1
+    next_time_feed: 
+    next_time_heal: 
+    last_time_fed: 
+    last_time_healed: 
     position: {x: 0.5191498, y: -1.9907231}
   justRescuedSeal: 0
   isSealAvailableForRescue: 0
   currentSealNeedsRescue: 0
   currentSealInjury: 0
+  seal_stuff: {fileID: 0}
 --- !u!1 &276634505
 GameObject:
   m_ObjectHideFlags: 0
@@ -622,6 +629,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61433dca0995cf44a40d2a2c01c8e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  am: {fileID: 0}
+  sm: {fileID: 0}
+  gd: {fileID: 0}
+  dev_mode: 0
+  seal_feed_schedules: []
+  seal_heal_schedules: []
+  feed_delay: 4
+  heal_delay: 6
+  all_weekly_activities: []
 --- !u!1 &357361785
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,7 +1407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 813132950109438085, guid: eea0a3dd606c72f4fabbb1c30bb69f5c, type: 3}
+  m_Sprite: {fileID: -2589916833244604498, guid: 173836a86558df541bbe9f14f52ed4b2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

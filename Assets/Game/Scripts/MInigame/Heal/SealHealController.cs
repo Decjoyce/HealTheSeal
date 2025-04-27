@@ -30,13 +30,21 @@ public class SealHealController : MonoBehaviour
 
     [SerializeField] Sprite[] no_net_seal;
 
+    [SerializeField] GameObject tools, sealnamer;
+
+    [SerializeField] SO_SealStuff seal_stuff;
+
     void Start()
     {
         sealImage = GetComponent<Image>();
         cCount = transform.childCount;
         sprayed = false;
 
-        if(injury == 0)
+        injury = SealManager.Instance.currentSealInjury;
+
+        sealImage.sprite = seal_stuff.GetInjuryGraphics(injury);
+
+        if(injury == 1)
         {
             SpawnNet();
         }
@@ -119,7 +127,10 @@ public class SealHealController : MonoBehaviour
     {
         if (pettable && !seal_healed) //Prototype
         {
-            mg_minigame.IncreaseScore(1); //Prototype
+            //mg_minigame.IncreaseScore(3); //Prototype
+            //GameManagement.instance.LoadHabitatScene();
+            tools.SetActive(false);
+            sealnamer.SetActive(true);
             seal_healed = true; //Prototype
             //should probably be an animation here aswell
         }

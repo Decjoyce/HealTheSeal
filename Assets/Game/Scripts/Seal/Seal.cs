@@ -16,7 +16,7 @@ public class Seal
     //Health trait
     public int healthTrait;//1-Brittle, 2- normal, 3-resilient
 
-    public int injury;//1-Net entanglement,2- Hook in mouth, 3- Desinfect, 4- normal.
+    public int injury;//0 - normal, 1-Net entanglement, 2-flipper, 3-Hook in mouth, 3- cold, 4 - orphan.
 
     //public SealStats stats; //Prototype
 
