@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MinigameManager : MonoBehaviour
@@ -20,6 +21,11 @@ public class MinigameManager : MonoBehaviour
     void SetupMinigame()
     {
         //win_score =
+    }
+
+    public void ChangeWinScore(int new_score)
+    {
+        win_score = new_score;
     }
 
     public void IncreaseScore(int amount)

@@ -32,6 +32,8 @@ public class Seal
 
     public Vector2 position;
 
+    public ColourScheme_Seal colour_scheme;
+
     public Seal()
     {
         id = System.Guid.NewGuid().ToString();
@@ -40,10 +42,10 @@ public class Seal
     }
     public void RandomizeAttributes()
     {
-        health = Random.Range(5, 25); //TESTING
+        health = Random.Range(90, 100); //TESTING
         //mood = Random.Range(0, 50);
-        weight = Random.Range(10, 15); //TESTING
-        hunger = Random.Range(0, 25);
+        //weight = Random.Range(90, 100); //TESTING
+        hunger = Random.Range(90, 100);
         position = new Vector2(Random.Range(-2f, 2f), Random.Range(-2f, 2f));
         healthTrait = Random.Range(1, 4);
         moodTrait = Random.Range(1, 4);
@@ -53,7 +55,7 @@ public class Seal
         //injury= Random.Range(1, 5); // 
 
 
-        NameDaSeal(); //Prototype - temp
+       // NameDaSeal(); //Prototype - temp
     }
 
     //Prototype - Moved from SealStats script to here 
@@ -207,4 +209,14 @@ public class Seal
             }
         }
     }
+}
+
+[System.Serializable]
+public class ColourScheme_Seal
+{
+    public float chance;
+    public Color primary;
+    public Color secondary;
+    public Color tertiary;
+    public Color quatiary;
 }

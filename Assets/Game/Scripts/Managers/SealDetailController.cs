@@ -95,8 +95,38 @@ public class SealDetailController : MonoBehaviour
             healButton.interactable = true;
     }
 
-    public void LoadScene(string scenename)
+    public void LoadMinigameScene(int mg_type) // 0 - Hunger, 1 - Health
     {
-        SceneManager.LoadScene(scenename);
+        int ranNum = Random.Range(0, 3);
+        if(mg_type == 0)
+        {
+            switch (ranNum)
+            {
+                case 0:
+                    GameManagement.instance.LoadScene("MG_F_FlickFish");
+                    break;
+                case 1:
+                    GameManagement.instance.LoadScene("MG_F_Iceblock");
+                    break;
+                case 2:
+                    GameManagement.instance.LoadScene("MG_F_Snuffle");
+                    break;
+            }
+        }
+        else if(mg_type == 1)
+        {
+            switch (ranNum)
+            {
+                case 0:
+                    GameManagement.instance.LoadScene("MG_H_Medicine");
+                    break;
+                case 1:
+                    GameManagement.instance.LoadScene("MG_H_Spray");
+                    break;
+                case 2:
+                    GameManagement.instance.LoadScene("MG_H_Medicine"); // Change to new game
+                    break;
+            }
+        }
     }
 }

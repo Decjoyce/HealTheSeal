@@ -21,6 +21,8 @@ public class SO_SealStuff : ScriptableObject
     public Sprite g_fishhook_injury;
     public Sprite g_cold_injury;
 
+    public ColourScheme_Seal[] colour_schemes;
+
     public Sprite GetInjuryGraphics(int injury_index) //0-No injury, 1-Net entanglement, 2-flipper, 3-Fishhook, 4-Cold, 5-Orphaned
     {
         switch (injury_index)
@@ -41,4 +43,13 @@ public class SO_SealStuff : ScriptableObject
                 return g_error;
         }
     }
+
+    public ColourScheme_Seal GetRandomColourScheme()
+    {
+        ColourScheme_Seal ran_colourscheme = colour_schemes[0];
+
+
+        return colour_schemes[Random.Range(0, colour_schemes.Length)];
+    }
+
 }

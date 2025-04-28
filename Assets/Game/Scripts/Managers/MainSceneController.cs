@@ -52,6 +52,7 @@ public class MainSceneController : MonoBehaviour
     {
         GameObject sealObj = Instantiate(sealPrefab);
         SealBehaviour sb = sealObj.GetComponent<SealBehaviour>();
+        //sb.UpdateSealGraphics();
 
         if (sb != null)
         {

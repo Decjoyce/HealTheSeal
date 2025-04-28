@@ -20,7 +20,7 @@ public class SealBehaviour : MonoBehaviour
 
         previousHealth = (int)sealData.health;
         UpdateSealPosition();
-
+        UpdateSealGraphics();
     }
 
     public void SetSealData(Seal seal)
@@ -31,17 +31,17 @@ public class SealBehaviour : MonoBehaviour
 
     void OnMouseDown()
     {
-       if (sealData.health >= 90f && sealData.weight >= 40f)
+       if (sealData.health >= 100f && sealData.hunger >= 100f)
         {
             // Seal ready to release!
             SealManager.Instance.selectedSeal = sealData;
-            SceneManager.LoadScene("Release Scene");
+            GameManagement.instance.LoadScene("Release Scene");
         }
         else
         {
             // Normal flow to detailed view
             SealManager.Instance.selectedSeal = sealData;
-            SceneManager.LoadScene("SealDetailScene");
+            GameManagement.instance.LoadScene("SealDetailScene");
         }
     }
     void UpdateSealPosition()
@@ -52,6 +52,31 @@ public class SealBehaviour : MonoBehaviour
             transform.position = midHPPosition;
         else
             transform.position = highHPPosition;
+    }
+
+    public void UpdateSealGraphics()
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+
+        if (sealData.hunger <= 30)
+        {
+            sr.sprite = SealManager.Instance.seal_stuff.g_small_seal_normal;
+        }
+        else if(sealData.hunger > 30 && sealData.hunger <= 70)
+        {
+            sr.sprite = SealManager.Instance.seal_stuff.g_medium_seal_normal;
+        }
+        else
+        {
+            sr.sprite = SealManager.Instance.seal_stuff.g_big_seal_normal;
+        }
+        Material m = sr.material;
+        // m.mainTexture = sr.sprite.texture;
+        Debug.Log(sealData.colour_scheme.primary);
+        m.SetColor("_newPrimary", sealData.colour_scheme.primary);
+        m.SetColor("_newSecondary", sealData.colour_scheme.secondary);
+        m.SetColor("_newTertiary", sealData.colour_scheme.tertiary);
+        m.SetColor("_newQuatiary", sealData.colour_scheme.quatiary);
     }
 
     void Update()

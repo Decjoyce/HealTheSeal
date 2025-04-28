@@ -20,6 +20,22 @@ MonoBehaviour:
   g_big_seal_normal: {fileID: -5218236087159413171, guid: 2444be065c4e3f84b9651fd217ef7d49, type: 3}
   g_big_seal_sad: {fileID: 6963332935843921606, guid: 1a67a109ff191964ab225c804a1d1f6b, type: 3}
   g_net_injury: {fileID: -3232880620700291860, guid: 8304c678a20ef5042806ce541fba6e0a, type: 3}
-  g_flipper_injury: {fileID: 4801077177041209951, guid: 74430700033de844f8176856be147b12, type: 3}
-  g_fishhook_injury: {fileID: -6058216323320851003, guid: 36c1c1fb8931b984e8118b05845eb74a, type: 3}
-  g_cold_injury: {fileID: 2313914900696200940, guid: d51a20c53fe11c44ea4543543b28d2a2, type: 3}
+  g_flipper_injury: {fileID: 0}
+  g_fishhook_injury: {fileID: 0}
+  g_cold_injury: {fileID: -6202879244709776973, guid: 1a643236e3140f042a2052142aa90350, type: 3}
+  colour_schemes:
+  - chance: 0
+    primary: {r: 0.5137255, g: 0.53333336, b: 0.5921569, a: 1}
+    secondary: {r: 0.3372549, g: 0.34901962, b: 0.44705883, a: 1}
+    tertiary: {r: 0.22745098, g: 0.22745098, b: 0.3137255, a: 1}
+    quatiary: {r: 0.5137255, g: 0.2784314, b: 0.23921569, a: 1}
+  - chance: 0
+    primary: {r: 0.4392157, g: 0.4509804, b: 0.4862745, a: 1}
+    secondary: {r: 0.33333334, g: 0.34117648, b: 0.39607844, a: 1}
+    tertiary: {r: 0.21960784, g: 0.21960784, b: 0.26666668, a: 1}
+    quatiary: {r: 0.5137255, g: 0.2784314, b: 0.23921569, a: 1}
+  - chance: 0
+    primary: {r: 0, g: 0, b: 0, a: 1}
+    secondary: {r: 1, g: 0.12800463, b: 0, a: 1}
+    tertiary: {r: 0.087542415, g: 1, b: 0, a: 1}
+    quatiary: {r: 1, g: 0, b: 0.74067736, a: 1}

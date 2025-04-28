@@ -6,6 +6,7 @@ public class CameraScroll : MonoBehaviour
     public float minY, maxY; // set bounds clearly in inspector
 
     Vector3 touchStart;
+    Vector3 newPos;
 
     void Update()
     {
@@ -17,8 +18,12 @@ public class CameraScroll : MonoBehaviour
             Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3 newPosition = transform.position + new Vector3(0, direction.y, 0);
 
+            newPos = Vector3.Lerp(transform.position, newPosition, 0.01f * Time.deltaTime);
+
             newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
             transform.position = newPosition;
         }
+        //transform.position = newPos;
+
     }
 }

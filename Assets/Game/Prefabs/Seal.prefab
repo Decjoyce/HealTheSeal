@@ -235,7 +235,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 5595210b8a04aa549b5d5b32ee4e3f5e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -369,6 +369,12 @@ MonoBehaviour:
     last_time_fed: 
     last_time_healed: 
     position: {x: 0, y: 0}
+    colour_scheme:
+      chance: 0
+      primary: {r: 0, g: 0, b: 0, a: 0}
+      secondary: {r: 0, g: 0, b: 0, a: 0}
+      tertiary: {r: 0, g: 0, b: 0, a: 0}
+      quatiary: {r: 0, g: 0, b: 0, a: 0}
   lowHPPosition: {x: 0, y: 2}
   midHPPosition: {x: 0, y: -10}
   highHPPosition: {x: 0, y: -20}
