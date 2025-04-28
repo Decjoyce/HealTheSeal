@@ -23,6 +23,10 @@ public class Medicine : MonoBehaviour
 
     public float backAmount;
 
+    [SerializeField] MinigameManager mg_manager;
+
+    bool gameover;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -110,6 +114,12 @@ public class Medicine : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
-        Destroy(gameObject);
+        if (!gameover)
+        {
+            mg_manager.IncreaseScore(1);
+            gameover = true;
+            Destroy(gameObject);
+        }
+
     }
 }

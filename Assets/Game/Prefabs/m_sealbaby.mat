@@ -58,10 +58,10 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _newPrimary: {r: 0, g: 0, b: 0, a: 1}
-    - _newQuatiary: {r: 1, g: 0, b: 0.74067736, a: 1}
-    - _newSecondary: {r: 1, g: 0.12800463, b: 0, a: 1}
-    - _newTertiary: {r: 0.087542415, g: 1, b: 0, a: 1}
+    - _newPrimary: {r: 0.18707037, g: 1, b: 0, a: 1}
+    - _newQuatiary: {r: 1, g: 0.9057771, b: 0, a: 1}
+    - _newSecondary: {r: 0.690566, g: 0, b: 0.11555193, a: 1}
+    - _newTertiary: {r: 0, g: 0.9717002, b: 1, a: 1}
     - _originalPrimary: {r: 0.5137255, g: 0.53333336, b: 0.5921569, a: 1}
     - _originalQuatiary: {r: 0.5137255, g: 0.2784314, b: 0.2392157, a: 1}
     - _originalSecondary: {r: 0.3372549, g: 0.34901962, b: 0.44705886, a: 1}

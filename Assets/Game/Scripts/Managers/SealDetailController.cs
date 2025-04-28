@@ -8,6 +8,9 @@ public class SealDetailController : MonoBehaviour
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI moodText;
     public TextMeshProUGUI hungerText;
+    public TextMeshProUGUI weightText;
+    public TextMeshProUGUI injuryText;
+
     public Button backButton;
     public StatsBar healthSlider; //Prototype - Changed from slider to custom script
     public StatsBar moodSlider; //Prototype - Changed from slider to custom script

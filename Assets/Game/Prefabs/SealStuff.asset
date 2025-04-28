@@ -34,8 +34,3 @@ MonoBehaviour:
     secondary: {r: 0.33333334, g: 0.34117648, b: 0.39607844, a: 1}
     tertiary: {r: 0.21960784, g: 0.21960784, b: 0.26666668, a: 1}
     quatiary: {r: 0.5137255, g: 0.2784314, b: 0.23921569, a: 1}
-  - chance: 0
-    primary: {r: 0, g: 0, b: 0, a: 1}
-    secondary: {r: 1, g: 0.12800463, b: 0, a: 1}
-    tertiary: {r: 0.087542415, g: 1, b: 0, a: 1}
-    quatiary: {r: 1, g: 0, b: 0.74067736, a: 1}
