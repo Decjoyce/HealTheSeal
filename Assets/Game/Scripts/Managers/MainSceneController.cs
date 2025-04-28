@@ -11,6 +11,8 @@ public class MainSceneController : MonoBehaviour
     public Sprite normalSprite;
     public Sprite alertSprite;
 
+    public Transform main_canvas;
+
     void Start()
     {
         spawnButton.onClick.AddListener(() => SceneManager.LoadScene("Beach_Scene")); //Prototype - changed from just spawning to moving to beach sceneM
@@ -50,13 +52,13 @@ public class MainSceneController : MonoBehaviour
 
     void SpawnSealVisual(Seal sealData)
     {
-        GameObject sealObj = Instantiate(sealPrefab);
+        GameObject sealObj = Instantiate(sealPrefab, main_canvas);
         SealBehaviour sb = sealObj.GetComponent<SealBehaviour>();
-        //sb.UpdateSealGraphics();
 
         if (sb != null)
         {
             sb.SetSealData(sealData);
+            sb.UpdateSealGraphics();
         }
         else
         {

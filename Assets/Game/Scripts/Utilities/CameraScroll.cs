@@ -16,7 +16,7 @@ public class CameraScroll : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 newPosition = transform.position + new Vector3(0, direction.y, 0);
+            Vector3 newPosition = transform.position + new Vector3(0, -direction.y * scrollSpeed * Time.deltaTime, 0);
 
             newPos = Vector3.Lerp(transform.position, newPosition, 0.01f * Time.deltaTime);
 
