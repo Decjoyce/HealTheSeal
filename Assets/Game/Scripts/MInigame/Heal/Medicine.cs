@@ -27,6 +27,7 @@ public class Medicine : MonoBehaviour
     void Start()
     {
         lastMousePos = Input.mousePosition;
+        
         StartCoroutine(Look(lookTime));
     }
 
@@ -45,6 +46,20 @@ public class Medicine : MonoBehaviour
         }
     }
 
+    private IEnumerator Return()
+    {
+        while (transform.localPosition.y < resetPos.localPosition.y)
+        {
+            canMove = false;
+            var step = 200 * Time.deltaTime; 
+            transform.localPosition = Vector3.MoveTowards(transform.localPosition, resetPos.localPosition, step);
+            yield return new WaitForFixedUpdate();
+        }
+        canMove = true;
+        Debug.Log("h");
+        StartCoroutine(Look(lookTime));
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -60,8 +75,8 @@ public class Medicine : MonoBehaviour
 
         if(!shouldMove && mouseDir.y != 0)
         {
-            canMove = false;
-            transform.localPosition = resetPos.localPosition;
+            StopAllCoroutines();
+            StartCoroutine(Return());
         }
 
         if(mouseDir.y > 5 || mouseDir.y < -5)

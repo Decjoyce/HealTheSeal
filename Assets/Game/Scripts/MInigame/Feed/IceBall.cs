@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using TMPro;
 
 public class IceBall : MonoBehaviour
 {
@@ -15,10 +17,14 @@ public class IceBall : MonoBehaviour
 
     public GameObject ice;
 
+    Vector3 dir;
+    //public TextMeshProUGUI test2;
+
     Rigidbody2D rb2D;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Input.gyro.enabled = true;
         c = ice.GetComponent<Image>().color;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
@@ -28,8 +34,13 @@ public class IceBall : MonoBehaviour
     void Update()
     {
 
-        float dirH = Input.GetAxis("Horizontal");
-        float dirV = Input.GetAxis("Vertical");
+        dir = Input.gyro.gravity;
+        //test2.text = new string("" + dir);
+
+        // float dirH = Input.GetAxis("Horizontal");
+         //float dirV = Input.GetAxis("Vertical");
+        float dirH = dir.x;
+        float dirV = dir.y;
 
         Vector3 thrustDir = new Vector3(dirH, dirV);
 
