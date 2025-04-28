@@ -449,7 +449,6 @@ GameObject:
   - component: {fileID: 118975831}
   - component: {fileID: 118975834}
   - component: {fileID: 118975833}
-  - component: {fileID: 118975832}
   - component: {fileID: 118975835}
   - component: {fileID: 118975836}
   - component: {fileID: 118975837}
@@ -476,55 +475,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -420}
+  m_AnchoredPosition: {x: 0, y: -400}
   m_SizeDelta: {x: 75, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!61 &118975832
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 118975830}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 56}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 90, y: 10}
-  m_EdgeRadius: 0
 --- !u!114 &118975833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,8 +533,9 @@ MonoBehaviour:
   mouseDir2: {x: 0, y: 0, z: 0}
   lastMousePos: {x: 0, y: 0, z: 0}
   canMove: 1
-  col: {fileID: 118975832}
+  col: {fileID: 0}
   check: 0
+  test: 0
 --- !u!61 &118975836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -795,7 +749,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &182792254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1184,13 +1138,12 @@ GameObject:
   - component: {fileID: 316506267}
   - component: {fileID: 316506273}
   - component: {fileID: 316506272}
-  - component: {fileID: 316506271}
   - component: {fileID: 316506270}
   - component: {fileID: 316506269}
   - component: {fileID: 316506268}
   m_Layer: 5
   m_Name: Fish Block (3)
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1304,54 +1257,9 @@ MonoBehaviour:
   mouseDir2: {x: 0, y: 0, z: 0}
   lastMousePos: {x: 0, y: 0, z: 0}
   canMove: 1
-  col: {fileID: 316506271}
+  col: {fileID: 0}
   check: 0
---- !u!61 &316506271
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316506266}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 56}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 90, y: 10}
-  m_EdgeRadius: 0
+  test: 0
 --- !u!114 &316506272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3363,6 +3271,7 @@ MonoBehaviour:
   resetPos: {fileID: 2035547838}
   lookTime: 2
   backAmount: 150
+  mg_manager: {fileID: 0}
 --- !u!1 &710992519
 GameObject:
   m_ObjectHideFlags: 0
@@ -5371,7 +5280,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1188619960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5618,6 +5527,9 @@ MonoBehaviour:
   - {fileID: 2080182553743823387, guid: efc53390e03c5514d8cc5aa3214baeb3, type: 3}
   - {fileID: 2080182553743823387, guid: efc53390e03c5514d8cc5aa3214baeb3, type: 3}
   - {fileID: 2080182553743823387, guid: efc53390e03c5514d8cc5aa3214baeb3, type: 3}
+  tools: {fileID: 0}
+  sealnamer: {fileID: 0}
+  seal_stuff: {fileID: 0}
 --- !u!1 &1304756335
 GameObject:
   m_ObjectHideFlags: 0
@@ -6085,13 +5997,12 @@ GameObject:
   - component: {fileID: 1410005919}
   - component: {fileID: 1410005925}
   - component: {fileID: 1410005924}
-  - component: {fileID: 1410005923}
   - component: {fileID: 1410005922}
   - component: {fileID: 1410005921}
   - component: {fileID: 1410005920}
   m_Layer: 5
   m_Name: Fish Block (2)
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6205,54 +6116,9 @@ MonoBehaviour:
   mouseDir2: {x: 0, y: 0, z: 0}
   lastMousePos: {x: 0, y: 0, z: 0}
   canMove: 1
-  col: {fileID: 1410005923}
+  col: {fileID: 0}
   check: 0
---- !u!61 &1410005923
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1410005918}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 56}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 90, y: 10}
-  m_EdgeRadius: 0
+  test: 0
 --- !u!114 &1410005924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7100,13 +6966,13 @@ GameObject:
   - component: {fileID: 1692198776}
   - component: {fileID: 1692198775}
   - component: {fileID: 1692198778}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Seal
   m_TagString: Seal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1692198774
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7425,13 +7291,12 @@ GameObject:
   - component: {fileID: 1768619196}
   - component: {fileID: 1768619202}
   - component: {fileID: 1768619201}
-  - component: {fileID: 1768619200}
   - component: {fileID: 1768619199}
   - component: {fileID: 1768619198}
   - component: {fileID: 1768619197}
   m_Layer: 5
   m_Name: Fish Block (1)
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7545,54 +7410,9 @@ MonoBehaviour:
   mouseDir2: {x: 0, y: 0, z: 0}
   lastMousePos: {x: 0, y: 0, z: 0}
   canMove: 1
-  col: {fileID: 1768619200}
+  col: {fileID: 0}
   check: 0
---- !u!61 &1768619200
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1768619195}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 56}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 90, y: 10}
-  m_EdgeRadius: 0
+  test: 0
 --- !u!114 &1768619201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8680,13 +8500,12 @@ GameObject:
   - component: {fileID: 2084293827}
   - component: {fileID: 2084293833}
   - component: {fileID: 2084293832}
-  - component: {fileID: 2084293831}
   - component: {fileID: 2084293830}
   - component: {fileID: 2084293829}
   - component: {fileID: 2084293828}
   m_Layer: 5
   m_Name: Fish Block
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8800,54 +8619,9 @@ MonoBehaviour:
   mouseDir2: {x: 0, y: 0, z: 0}
   lastMousePos: {x: 0, y: 0, z: 0}
   canMove: 1
-  col: {fileID: 2084293831}
+  col: {fileID: 0}
   check: 0
---- !u!61 &2084293831
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084293826}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 56}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 90, y: 10}
-  m_EdgeRadius: 0
+  test: 0
 --- !u!114 &2084293832
 MonoBehaviour:
   m_ObjectHideFlags: 0

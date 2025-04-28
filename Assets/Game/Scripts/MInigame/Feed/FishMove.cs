@@ -15,6 +15,10 @@ public class FishMove : MonoBehaviour
 
     public BoxCollider2D col;
     public bool check;
+
+    float turn = 90f;
+
+    public bool test;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,6 +28,7 @@ public class FishMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         /*RaycastHit2D hit = Physics2D.Raycast(transform.position + (Vector3.up * 0.55f), Vector2.up, 0.1f);
         // Does the ray intersect any objects excluding the player layer
         if (hit)
@@ -43,18 +48,24 @@ public class FishMove : MonoBehaviour
         
     }
 
+
+
     void OnMouseDrag()
     {
         mouseDir = Input.mousePosition - lastMousePos;
         mouseDir2 = Input.mousePosition - lastMousePos;
-        if (canMove)
+        if (canMove && mouseDir != Vector3.zero)
         {
             if (direction)
             {
                 
                 mouseDir = new Vector3(Input.mousePosition.x - lastMousePos.x, 0, 0);
                 mouseDir.Normalize();
-                col.offset = new Vector2(col.offset.x, Mathf.Abs(col.offset.y) * mouseDir.x);
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + (mouseDir * 0.55f), mouseDir, 0.1f);
+                if (!hit)
+                {
+                    transform.localPosition = new Vector3(mousePos2.x, transform.localPosition.y, transform.localPosition.z);
+                }
             }
             else
             {
@@ -96,7 +107,30 @@ public class FishMove : MonoBehaviour
 
     void OnMouseDown()
     {
+        transform.hasChanged = false;
         canMove = true;
+    }
+
+    void OnMouseUp()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + (transform.TransformDirection(Vector3.right) * 0.30f), transform.TransformDirection(Vector3.right), 0.4f);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position + (transform.TransformDirection(Vector3.left) * 0.30f), transform.TransformDirection(Vector3.left), 0.4f);
+
+        if (hit)
+        {
+            Debug.DrawRay(transform.position + (transform.TransformDirection(Vector3.right) * 0.30f), transform.TransformDirection(Vector3.right) * hit.distance, Color.red);
+        }
+        else if (hit2)
+        {
+            Debug.DrawRay(transform.position + (transform.TransformDirection(Vector3.left) * 0.30f), transform.TransformDirection(Vector3.left) * hit2.distance, Color.green);
+        }
+        if (!transform.hasChanged && !hit && !hit2)
+        {
+            transform.Rotate(0f, 0f, turn, Space.Self);
+            turn = -turn;
+            direction = !direction;
+        }
+        canMove = false;
     }
 
     void OnMouseExit()
