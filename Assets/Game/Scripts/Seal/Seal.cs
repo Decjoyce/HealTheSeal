@@ -52,10 +52,11 @@ public class Seal
         hungerTrait = Random.Range(1, 4);
         can_heal = true;
         can_feed = true;
+        weight = Mathf.Clamp(ExtensionMethods.Map(hunger, 0f, 100f, 10, 40), 10, 40);
         //injury= Random.Range(1, 5); // 
 
 
-       // NameDaSeal(); //Prototype - temp
+        // NameDaSeal(); //Prototype - temp
     }
 
     //Prototype - Moved from SealStats script to here 

@@ -17,7 +17,9 @@ public class SealDetailController : MonoBehaviour
     public StatsBar hungerSlider;//Prototype - Changed from slider to custom script
     public TextMeshProUGUI moodTrait;
     public TextMeshProUGUI hungerTrait;
-    public TextMeshProUGUI healthTrait;
+    public TextMeshProUGUI healthTrait; 
+    public Image icon_hungerTrait;
+    public Image icon_healthTrait;
 
     public Button feedButton, healButton;
 
@@ -34,6 +36,22 @@ public class SealDetailController : MonoBehaviour
         //moodSlider.SetValue(seal.mood);
         hungerSlider.SetValue(seal.hunger);
 
+        weightText.text = seal.weight + "KG";
+
+
+
+        if (seal.injury == 1)
+            injuryText.text = "Net Entanglement";
+        else if (seal.injury == 2)
+            injuryText.text = "Flipper";
+        else if (seal.injury == 3)
+            injuryText.text = "Fish Hook";
+        else if (seal.injury == 4)
+            injuryText.text = "Flu";
+        else if (seal.injury == 5)
+            injuryText.text = "Orphaned";
+
+
         if (!seal.can_feed)
             feedButton.interactable = false;
         else
@@ -44,42 +62,36 @@ public class SealDetailController : MonoBehaviour
         else
             healButton.interactable = true;
 
-        if (seal.moodTrait == 1)
-        {
-            moodTrait.text = "Lazy";
-        }
-        else if (seal.moodTrait == 2)
-        {
-            moodTrait.text = "Normal";
-        }
-        else if (seal.moodTrait == 3)
-        {
-            moodTrait.text = "Energetic";
-        }
-
         if (seal.hungerTrait == 1)
         {
             hungerTrait.text = "Fussy";
+            icon_hungerTrait.color = Color.red;
         }
         else if (seal.hungerTrait == 2)
         {
             hungerTrait.text = "Normal";
+            icon_hungerTrait.color = Color.white;
         }
         else if (seal.hungerTrait == 3)
         {
             hungerTrait.text = "Foodie";
+            icon_hungerTrait.color = Color.green;
         }
 
         if (seal.healthTrait == 1)
         {
             healthTrait.text = "Brittle";
+            icon_healthTrait.color = Color.red;
         }
         else if (seal.healthTrait == 2)
         {
             healthTrait.text = "Normal";
-        }else if (seal.healthTrait == 3)
+            icon_healthTrait.color = Color.white;
+        }
+        else if (seal.healthTrait == 3)
         {
             healthTrait.text="Robust";
+            icon_healthTrait.color = Color.green;
         }
 
         backButton.onClick.AddListener(() => GameManagement.instance.LoadScene("HabitatScene")); //Prototype - 

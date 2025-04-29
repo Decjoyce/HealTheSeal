@@ -1188,10 +1188,6 @@ MonoBehaviour:
       secondary: {r: 0, g: 0, b: 0, a: 0}
       tertiary: {r: 0, g: 0, b: 0, a: 0}
       quatiary: {r: 0, g: 0, b: 0, a: 0}
-    primary: {r: 0, g: 0, b: 0, a: 0}
-    secondary: {r: 0, g: 0, b: 0, a: 0}
-    tertiary: {r: 0, g: 0, b: 0, a: 0}
-    quatiary: {r: 0, g: 0, b: 0, a: 0}
   justRescuedSeal: 0
   isSealAvailableForRescue: 0
   currentSealNeedsRescue: 0

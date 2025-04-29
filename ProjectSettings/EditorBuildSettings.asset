@@ -42,7 +42,7 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/Minigames/Feed/MG_F_Iceblock.unity
     guid: 2d6ba4c8e7219554e87600c6d148b1ae
   - enabled: 1
-    path: Assets/Game/Scenes/Minigames/Feed/MG_F_Snuffle.unity
+    path: Assets/Game/Scenes/Minigames/Feed/OBSOLETE_MG_F_Snuffle.unity
     guid: d1a56ff2eb05910438c889d31135608c
   - enabled: 1
     path: Assets/Game/Scenes/Minigames/Heal/MG_H_Medicine.unity

@@ -1035,7 +1035,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBackButton: 1
-  needsRescue: 0
   netSprite: {fileID: 0}
   hookSprite: {fileID: 0}
   antibioticsSprite: {fileID: 0}
@@ -1095,14 +1094,11 @@ MonoBehaviour:
   cl: {fileID: 1023103506}
   clean: 0
   randomRubbishSprites:
-  - {fileID: 4801077177041209951, guid: 74430700033de844f8176856be147b12, type: 3}
-  - {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  - {fileID: 21300000, guid: 5b7f664b515582d458717c354f6be292, type: 3}
-  - {fileID: 21300000, guid: 603d01d730be24147adda7897e463598, type: 3}
-  - {fileID: 21300000, guid: 00b8ce4a201871b498992f536279acf7, type: 3}
-  - {fileID: 21300000, guid: 3cf8ae89579fd29479f4269d09600e16, type: 3}
-  - {fileID: 21300000, guid: c34cd61ed96ff9a40a54e159467c5155, type: 3}
-  - {fileID: 21300000, guid: ffdf80dc342e69344b2dccafe04c30ee, type: 3}
+  - {fileID: 8987149794586111159, guid: 705193b44a2fb0d499a62d02286094e0, type: 3}
+  - {fileID: -5275162558541809008, guid: 5b4b14d553d2b094193e81760f5a3844, type: 3}
+  - {fileID: 2731001722924673131, guid: 9c1fbc21d3d060c49a9dfe4ba76bb6cb, type: 3}
+  - {fileID: -1667369994665506814, guid: 2865551d92831434d86a9e35ed08b778, type: 3}
+  - {fileID: -1809038083436486903, guid: e8712d36c44ba6741b1c4286d2d187ef, type: 3}
 --- !u!1 &2047247591
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,7 +1234,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBackButton: 0
-  needsRescue: 1
   netSprite: {fileID: -3232880620700291860, guid: 8304c678a20ef5042806ce541fba6e0a, type: 3}
   hookSprite: {fileID: -4002123447470237854, guid: 53767862ca2c16d438291f2b72785745, type: 3}
   antibioticsSprite: {fileID: 606905183728365196, guid: 173be52b5afa78c4893f1edb9a8ba99f, type: 3}
