@@ -4,6 +4,7 @@ public class CameraScroll : MonoBehaviour
 {
     public float scrollSpeed = 0.01f;
     public float minY, maxY; // set bounds clearly in inspector
+    public float pc_minY, pc_maxY; // set bounds clearly in inspector
 
     Vector3 touchStart;
     Vector3 newPos;
@@ -20,7 +21,11 @@ public class CameraScroll : MonoBehaviour
 
             newPos = Vector3.Lerp(transform.position, newPosition, 0.01f * Time.deltaTime);
 
+            if(!GameManagement.instance.is_pc)
             newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+            else
+                newPosition.y = Mathf.Clamp(newPosition.y, pc_minY, pc_maxY);
+
             transform.position = newPosition;
         }
         //transform.position = newPos;

@@ -47,7 +47,7 @@ public class SealManager : MonoBehaviour
         if (currentSealNeedsRescue)
         {
             // assing injury clearly (1-net, 2-hook, 3-antibiotics)
-            currentSealInjury = Random.Range(1, 4);
+            currentSealInjury = Random.Range(1, 6);
         }
         else
         {

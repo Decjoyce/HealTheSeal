@@ -45,7 +45,7 @@ public class MinigameTreatment : MonoBehaviour
     void Start()
     {
         current_seal = SealManager.Instance.selectedSeal;
-        current_injury = current_seal.injury;
+        current_injury = SealManager.Instance.currentSealInjury;
         //current_injury = Random.Range(1, 6); //TEMP
         InitInjury();
     }

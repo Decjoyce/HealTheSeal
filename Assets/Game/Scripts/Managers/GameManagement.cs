@@ -4,12 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManagement : MonoBehaviour
 {
+    public delegate void Event_OnLoadScene(string scene_name, int index = -1);
+    public static event Event_OnLoadScene OnLoadScene;
 
     public static GameManagement instance;
 
     [SerializeField] AndroidService am;
     [SerializeField] SealManager sm;
     [SerializeField] GameData gd;
+
+    public bool is_pc;
 
     public bool dev_mode; //{ get; private set; }
 
@@ -30,6 +34,12 @@ public class GameManagement : MonoBehaviour
             return;
         }
         instance = this;
+        is_pc = !Application.isMobilePlatform;
+    }
+
+    public void EnterDebugMode()
+    {
+        dev_mode = true;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -111,6 +121,7 @@ public class GameManagement : MonoBehaviour
     #region Scene Stuff
     public void LoadScene(string scene_name = "", int index = -1)
     {
+        OnLoadScene?.Invoke(scene_name, index);
         if (scene_name != "")
             SceneManager.LoadScene(scene_name);
         else if(index != -1)
@@ -125,13 +136,11 @@ public class GameManagement : MonoBehaviour
 
     public void LoadHabitatScene()
     {
+        OnLoadScene?.Invoke("HabitatScene");
         LoadScene("HabitatScene");
     }
 
-    public void EnterDebugMode()
-    {
-        dev_mode = true;
-    }
+    
     #endregion
 }
 

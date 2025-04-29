@@ -1347,7 +1347,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: -8583589311682705419, guid: f020d6a7934b79e4c91af217e54be15b, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: -547388380619949052, guid: 88cfdd628e967d0459e05cb36e326c9d, type: 3}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -3079,7 +3079,7 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: -547388380619949052, guid: 88cfdd628e967d0459e05cb36e326c9d, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: -547388380619949052, guid: 88cfdd628e967d0459e05cb36e326c9d, type: 3}
+    m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -3876,6 +3876,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bc59a0f6de326540b1118f535187c7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  seal_rect: {fileID: 1341579121}
+  seal_sprite: {fileID: 1341579122}
   healthText: {fileID: 0}
   moodText: {fileID: 0}
   hungerText: {fileID: 0}

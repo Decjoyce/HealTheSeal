@@ -9,10 +9,12 @@ public class TEMPSealButton : MonoBehaviour
     public bool isBackButton = false;
     //public bool needsRescue = true; //indicate rescuable seals clearly
 
-    public Sprite netSprite;
+    /*public Sprite netSprite;
     public Sprite hookSprite;
     public Sprite antibioticsSprite;
-    public Sprite healthySprite;
+    public Sprite healthySprite;*/
+
+    [SerializeField] GameObject[] injuries;
 
     void Start()
     {
@@ -34,9 +36,8 @@ public class TEMPSealButton : MonoBehaviour
     }
     void SetCorrectSprite()
     {
-        Image img = GetComponent<Image>();
-
-        img.sprite = SealManager.Instance.GetSealInjuryGraphics();
+        if(SealManager.Instance.currentSealInjury != 0)
+        injuries[SealManager.Instance.currentSealInjury - 1].SetActive(true);
     }
 
     void GiveMeDaSeal()

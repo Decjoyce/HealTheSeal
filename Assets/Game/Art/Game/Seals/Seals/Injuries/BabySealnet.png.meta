@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 59095693040261d418660e50238f1cc4
+guid: b55f5bbb229aaf44db0bdbd6f1bae49a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5530438500920733864
-    second: BabySeal_0
+      213: -5777047543831595506
+    second: BabySealnet_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -139,13 +139,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BabySeal_0
+      name: BabySealnet_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 14
         y: 6
-        width: 27
-        height: 14
+        width: 17
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85fc9742c7fef33b0800000000000000
-      internalID: -5530438500920733864
+      spriteID: e06ff53fdddc3dfa0800000000000000
+      internalID: -5777047543831595506
       vertices: []
       indices: 
       edges: []
@@ -174,7 +174,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      BabySeal_0: -5530438500920733864
+      BabySealnet_0: -5777047543831595506
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

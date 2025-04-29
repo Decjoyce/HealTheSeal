@@ -5,6 +5,9 @@ using TMPro;
 
 public class SealDetailController : MonoBehaviour
 {
+    [SerializeField] RectTransform seal_rect; // TEMP
+    [SerializeField] Image seal_sprite;
+
     public TextMeshProUGUI healthText;
     public TextMeshProUGUI moodText;
     public TextMeshProUGUI hungerText;
@@ -28,6 +31,25 @@ public class SealDetailController : MonoBehaviour
     void Start()
     {
         seal = SealManager.Instance.selectedSeal;
+
+        if (seal.hunger <= 30)
+        {
+            seal_sprite.sprite = SealManager.Instance.seal_stuff.g_small_seal_normal;
+            seal_rect.sizeDelta = new Vector2(32, 32);
+            seal_sprite.transform.localScale = Vector3.one * 13f;
+        }
+        else if (seal.hunger > 30 && seal.hunger <= 70)
+        {
+            seal_sprite.sprite = SealManager.Instance.seal_stuff.g_medium_seal_normal;
+            seal_rect.sizeDelta = new Vector2(320, 180);
+            seal_sprite.transform.localScale = Vector3.one;
+        }
+        else
+        {
+            seal_sprite.sprite = SealManager.Instance.seal_stuff.g_big_seal_normal;
+            seal_rect.sizeDelta = new Vector2(320, 180);
+            seal_sprite.transform.localScale = Vector3.one * 1.5f;
+        }
 
         //healthText.text = $"Health: {seal.health}";
         //moodText.text = $"Mood: {seal.mood}";
@@ -90,12 +112,13 @@ public class SealDetailController : MonoBehaviour
         }
         else if (seal.healthTrait == 3)
         {
-            healthTrait.text="Robust";
+            healthTrait.text = "Robust";
             icon_healthTrait.color = Color.green;
         }
 
         backButton.onClick.AddListener(() => GameManagement.instance.LoadScene("HabitatScene")); //Prototype - 
     }
+    
 
     private void Update()
     {

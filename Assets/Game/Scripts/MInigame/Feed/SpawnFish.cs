@@ -4,6 +4,8 @@ public class SpawnFish : MonoBehaviour
 {
     public GameObject fishPrefab;
     public float thrust = 1f;
+    public float thrustt = 1f;
+    public float pc_mult = 1f;
 
     public Vector3 thrustDir;
 
@@ -15,6 +17,9 @@ public class SpawnFish : MonoBehaviour
     void Start()
     {
         lastMousePos = Input.mousePosition;
+        if (GameManagement.instance.is_pc)
+            thrust *= pc_mult;
+        thrustt = thrust;
     }
 
     // Update is called once per frame
@@ -25,7 +30,10 @@ public class SpawnFish : MonoBehaviour
             lastMousePos = Input.mousePosition;
         }
 
-        if(Input.GetMouseButton(0))
+        if (GameManagement.instance.is_pc)
+            thrust = thrustt * pc_mult;
+
+        if (Input.GetMouseButton(0))
         {
             t++;
         }

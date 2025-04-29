@@ -557,7 +557,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishPrefab: {fileID: 1071401902528431036, guid: 09cd7210c4e754648888ddf3b6af709a, type: 3}
-  thrust: 0.2
+  thrust: 0.04
+  thrustt: 1
+  pc_mult: 0.5
   thrustDir: {x: 0, y: 1, z: 0}
   mouseDir: {x: 0, y: 0, z: 0}
   lastMousePos: {x: 0, y: 0, z: 0}

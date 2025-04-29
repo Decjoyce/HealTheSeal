@@ -20,7 +20,7 @@ public class SealBehaviour : MonoBehaviour
         text_name.text = sealData.seal_name; //Prototype
 
         previousHealth = (int)sealData.health;
-        UpdateSealPosition();
+        //UpdateSealPosition();
         UpdateSealGraphics();
     }
 
@@ -66,12 +66,7 @@ public class SealBehaviour : MonoBehaviour
 
     void UpdateSealPosition()
     {
-        if (sealData.health <= 30)
-            transform.position = lowHPPosition;
-        else if (sealData.health <= 60)
-            transform.position = midHPPosition;
-        else
-            transform.position = highHPPosition;
+
     }
 
     public void UpdateSealGraphics()
@@ -81,14 +76,18 @@ public class SealBehaviour : MonoBehaviour
         if (sealData.hunger <= 30)
         {
             sr.sprite = SealManager.Instance.seal_stuff.g_small_seal_normal;
+            GetComponent<RectTransform>().sizeDelta = new Vector2(32, 32);
+            transform.localScale = Vector3.one * 4f;
         }
         else if(sealData.hunger > 30 && sealData.hunger <= 70)
         {
             sr.sprite = SealManager.Instance.seal_stuff.g_medium_seal_normal;
+            transform.localScale = Vector3.one * 4.75f;
         }
         else
         {
             sr.sprite = SealManager.Instance.seal_stuff.g_big_seal_normal;
+            transform.localScale = Vector3.one * 5.5f;
         }
         Material m = sr.material;
         // m.mainTexture = sr.sprite.texture;
@@ -110,7 +109,7 @@ public class SealBehaviour : MonoBehaviour
 
 
         // Simple random movement
-        transform.position += new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) * Time.deltaTime;
+        //transform.position += new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0) * Time.deltaTime;
         sealData.position = transform.position;
     }
 }
