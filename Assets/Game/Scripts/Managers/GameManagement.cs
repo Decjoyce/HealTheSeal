@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,21 +10,28 @@ public class GameManagement : MonoBehaviour
 
     public static GameManagement instance;
 
+
+    public bool dev_mode; //{ get; private set; }
+    public bool is_pc;
+
     [SerializeField] AndroidService am;
     [SerializeField] SealManager sm;
     [SerializeField] GameData gd;
 
-    public bool is_pc;
-
-    public bool dev_mode; //{ get; private set; }
-
+    [Header("Schedules")]
     public List<SealScheduleItem> seal_feed_schedules = new List<SealScheduleItem>();
     public List<SealScheduleItem> seal_heal_schedules = new List<SealScheduleItem>();
 
     public float feed_delay = 4, heal_delay = 6;
 
+    [Header("Weekly Activities")]
     [SerializeField] SO_WeeklyActivity[] all_weekly_activities;
     public SO_WeeklyActivity current_weekly_activity { get; private set; }
+
+    [Header("Scene Transitions")]
+    public bool is_transitioning { get; private set; }
+    [SerializeField] Animator[] transition_animators;
+    Coroutine current_loadscene_coroutine;
 
     private void Awake()
     {
@@ -119,25 +127,43 @@ public class GameManagement : MonoBehaviour
     #endregion
 
     #region Scene Stuff
-    public void LoadScene(string scene_name = "", int index = -1)
+    public void LoadScene(string scene_name = "", int index = -1, int transition_index = 0)
     {
+        if (is_transitioning)
+            return;
+        //StopCoroutine(current_loadscene_coroutine);
+        current_loadscene_coroutine = StartCoroutine(LoadSceneCoroutine(scene_name, index, transition_index));
+    }
+
+    public void LoadHabitatScene(int transition_index = 0)
+    {
+        if (is_transitioning)
+            return;
+        //StopCoroutine(current_loadscene_coroutine);
+        current_loadscene_coroutine = StartCoroutine(LoadSceneCoroutine("HabitatScene"));
+    }
+
+    public IEnumerator LoadSceneCoroutine(string scene_name = "", int index = -1, int transition_index = 0)
+    {
+        Animator tran_anim = SceneTransitioner.instance.transition_anims[transition_index];
+        tran_anim.SetTrigger("START");
+        AnimatorClipInfo anim_info = tran_anim.GetCurrentAnimatorClipInfo(0)[0];
+
+        Debug.Log(anim_info.clip.name + " " + anim_info.clip.length);
+        yield return new WaitForSecondsRealtime(anim_info.clip.length);
+
         OnLoadScene?.Invoke(scene_name, index);
         if (scene_name != "")
             SceneManager.LoadScene(scene_name);
-        else if(index != -1)
+        else if (index != -1)
             SceneManager.LoadScene(index);
         else
         {
             Debug.LogWarning("Scene Name: " + scene_name + " | Scene Index: " + index + " does not exist");
-            return;
+            yield break;
         }
         GameData.instance.SaveAllData();
-    }
 
-    public void LoadHabitatScene()
-    {
-        OnLoadScene?.Invoke("HabitatScene");
-        LoadScene("HabitatScene");
     }
 
     

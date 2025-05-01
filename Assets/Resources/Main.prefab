@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 7823089556922033437}
   - component: {fileID: 6934178995000446394}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PauseCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1649,17 +1649,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d61433dca0995cf44a40d2a2c01c8e67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dev_mode: 1
+  is_pc: 0
   am: {fileID: 4436437306106976123}
   sm: {fileID: 1793158629754009710}
   gd: {fileID: 8929445321135946657}
-  is_pc: 0
-  dev_mode: 1
   seal_feed_schedules: []
   seal_heal_schedules: []
   feed_delay: 0.06
   heal_delay: 0.06
   all_weekly_activities:
   - {fileID: 11400000, guid: a854c9d30997ef441b99dc48836b8430, type: 2}
+  transition_animators: []
 --- !u!1 &6815157966977140900
 GameObject:
   m_ObjectHideFlags: 0

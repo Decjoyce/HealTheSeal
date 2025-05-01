@@ -83,7 +83,7 @@ public class MainSceneController : MonoBehaviour
         {
             sealObj.transform.position = icu_zones[num_in_icu].position;
             num_in_icu++;
-            Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_icu].position);
+            //Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_icu].position);
         }
         else if (sb.sealData.hunger > 30 && sb.sealData.hunger <= 70)
         {
@@ -94,7 +94,7 @@ public class MainSceneController : MonoBehaviour
         {
             sealObj.transform.position = pool_zones[num_in_pool].position;
             num_in_pool++;
-            Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_pool].position);
+            //Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_pool].position);
         }
     }
 }
