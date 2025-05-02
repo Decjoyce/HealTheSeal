@@ -76,18 +76,19 @@ public class SealBehaviour : MonoBehaviour
         if (sealData.hunger <= 30)
         {
             sr.sprite = SealManager.Instance.seal_stuff.g_small_seal_normal;
-            GetComponent<RectTransform>().sizeDelta = new Vector2(32, 32);
-            transform.localScale = Vector3.one * 4f;
+            //GetComponent<RectTransform>().sizeDelta = new Vector2(32, 32);
+            //transform.localScale = Vector3.one * 4f;
         }
         else if(sealData.hunger > 30 && sealData.hunger <= 70)
         {
             sr.sprite = SealManager.Instance.seal_stuff.g_medium_seal_normal;
-            transform.localScale = Vector3.one * 4.75f;
+            //transform.localScale = Vector3.one * 4.75f;
         }
         else
         {
             sr.sprite = SealManager.Instance.seal_stuff.g_big_seal_normal;
-            transform.localScale = Vector3.one * 5.5f;
+            GetComponent<RectTransform>().sizeDelta = new Vector2(48, 32);
+            //transform.localScale = Vector3.one * 5.5f;
         }
         Material m = sr.material;
         // m.mainTexture = sr.sprite.texture;

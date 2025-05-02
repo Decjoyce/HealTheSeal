@@ -464,15 +464,15 @@ RectTransform:
   m_GameObject: {fileID: 676268554}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 6}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 662411590}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -461.4}
-  m_SizeDelta: {x: 160, y: 250}
+  m_AnchoredPosition: {x: 0, y: -440.44}
+  m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &676268558
 MonoBehaviour:
@@ -494,7 +494,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 8061819414894329640, guid: 6ae50db954571ef4b9de42727d6b8ad7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6ae50db954571ef4b9de42727d6b8ad7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -546,8 +546,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -19.31, y: -221.75}
-  m_SizeDelta: {x: 160, y: 150}
+  m_AnchoredPosition: {x: -3.52, y: -23.8}
+  m_SizeDelta: {x: 16, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1107258465
 MonoBehaviour:
@@ -881,7 +881,7 @@ RectTransform:
   m_GameObject: {fileID: 1932839828}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1107258464}
@@ -889,8 +889,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12, y: 250}
-  m_SizeDelta: {x: 320, y: 180}
+  m_AnchoredPosition: {x: 39.4, y: 50}
+  m_SizeDelta: {x: 32, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!70 &1932839830
 CapsuleCollider2D:
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2495283399658682625, guid: e53e01516c8690a46acee4e47eefafee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e53e01516c8690a46acee4e47eefafee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -989,7 +989,7 @@ MonoBehaviour:
   lookTime_min: 0.5
   backAmount: 2
   speed: 50
-  scale_change: 0.1
+  scale_change: 1
   anim: {fileID: 182792258}
   mg_manager: {fileID: 182792259}
 --- !u!82 &1932839834
@@ -1180,6 +1180,10 @@ PrefabInstance:
     - target: {fileID: 4411130429586030010, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
       propertyPath: m_Name
       value: SceneTransitioner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4411130429586030010, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

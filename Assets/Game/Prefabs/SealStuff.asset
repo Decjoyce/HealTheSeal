@@ -15,13 +15,13 @@ MonoBehaviour:
   g_error: {fileID: 21300000, guid: 26c69ebfc75254d2d85011964359be73, type: 3}
   g_small_seal_normal: {fileID: 21300000, guid: 59095693040261d418660e50238f1cc4, type: 3}
   g_small_seal_sad: {fileID: 21300000, guid: b68b24bc879b75a4f88ae2afc0979ba2, type: 3}
-  g_medium_seal_normal: {fileID: -2495283399658682625, guid: e53e01516c8690a46acee4e47eefafee, type: 3}
-  g_medium_seal_sad: {fileID: 606905183728365196, guid: 173be52b5afa78c4893f1edb9a8ba99f, type: 3}
-  g_big_seal_normal: {fileID: -5218236087159413171, guid: 2444be065c4e3f84b9651fd217ef7d49, type: 3}
-  g_big_seal_sad: {fileID: 6963332935843921606, guid: 1a67a109ff191964ab225c804a1d1f6b, type: 3}
-  g_net_injury: {fileID: -3232880620700291860, guid: 8304c678a20ef5042806ce541fba6e0a, type: 3}
-  g_flipper_injury: {fileID: 0}
-  g_fishhook_injury: {fileID: 0}
+  g_medium_seal_normal: {fileID: 21300000, guid: e53e01516c8690a46acee4e47eefafee, type: 3}
+  g_medium_seal_sad: {fileID: 21300000, guid: 173be52b5afa78c4893f1edb9a8ba99f, type: 3}
+  g_big_seal_normal: {fileID: 21300000, guid: 2444be065c4e3f84b9651fd217ef7d49, type: 3}
+  g_big_seal_sad: {fileID: 21300000, guid: 1a67a109ff191964ab225c804a1d1f6b, type: 3}
+  g_net_injury: {fileID: 21300000, guid: b55f5bbb229aaf44db0bdbd6f1bae49a, type: 3}
+  g_flipper_injury: {fileID: 21300000, guid: 79f805ccae5c06540856b7a64540ad3e, type: 3}
+  g_fishhook_injury: {fileID: 21300000, guid: 1c7eb31ce8f686d4f8dc605da11974bf, type: 3}
   g_cold_injury: {fileID: 21300000, guid: 1a643236e3140f042a2052142aa90350, type: 3}
   colour_schemes:
   - chance: 0

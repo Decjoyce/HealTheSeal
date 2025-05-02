@@ -36,19 +36,16 @@ public class SealDetailController : MonoBehaviour
         {
             seal_sprite.sprite = SealManager.Instance.seal_stuff.g_small_seal_normal;
             seal_rect.sizeDelta = new Vector2(32, 32);
-            seal_sprite.transform.localScale = Vector3.one * 13f;
         }
         else if (seal.hunger > 30 && seal.hunger <= 70)
         {
             seal_sprite.sprite = SealManager.Instance.seal_stuff.g_medium_seal_normal;
-            seal_rect.sizeDelta = new Vector2(320, 180);
-            seal_sprite.transform.localScale = Vector3.one;
+            seal_rect.sizeDelta = new Vector2(32, 32);
         }
         else
         {
             seal_sprite.sprite = SealManager.Instance.seal_stuff.g_big_seal_normal;
-            seal_rect.sizeDelta = new Vector2(320, 180);
-            seal_sprite.transform.localScale = Vector3.one * 1.5f;
+            seal_rect.sizeDelta = new Vector2(48, 32);
         }
 
         //healthText.text = $"Health: {seal.health}";

@@ -28,11 +28,14 @@ public class MedicineTwo : MonoBehaviour
 
     bool reached_fish;
 
+    Vector3 og_scale;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         StartCoroutine(Look());
+        og_scale = sealImage.transform.localScale;
     }
 
     private IEnumerator Look()
@@ -53,7 +56,7 @@ public class MedicineTwo : MonoBehaviour
         {
             can_move = false;
             transform.position = resetPos.position;
-            sealImage.transform.localScale = Vector3.one * 0.7f;
+            sealImage.transform.localScale = og_scale;
         }
         yield return new WaitForSecondsRealtime(Random.Range(lookTime_min, lookTime_max));
         //No more looking

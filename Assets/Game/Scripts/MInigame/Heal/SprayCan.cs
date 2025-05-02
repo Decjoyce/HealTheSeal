@@ -21,11 +21,6 @@ public class SprayCan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = Input.mousePosition;
-        mousePos.x = mousePos.x - Screen.width / 2;
-        mousePos.y = mousePos.y - Screen.height / 2;
-        mousePos2 = mousePos / GetComponentInParent<Canvas>().scaleFactor;
-        transform.localPosition = mousePos2;
         if (sprayTime <= Time.time && spray)
         {
             if (Input.GetMouseButton(0))

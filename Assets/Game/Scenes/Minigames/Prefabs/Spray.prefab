@@ -62,7 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.21764861, g: 0.37608582, b: 0.6320754, a: 0.41960785}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -126,8 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46ce48c990abe814eb32bba17ec11189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sprayPrefab: {fileID: 0}
-  sprayRate: 0
+  res: 0
 --- !u!50 &8149809111865698840
 Rigidbody2D:
   serializedVersion: 5
