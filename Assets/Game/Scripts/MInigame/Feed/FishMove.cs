@@ -22,6 +22,11 @@ public class FishMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (direction)
+        {
+            transform.Rotate(0f, 0f, turn, Space.Self);
+            turn = -turn;
+        }
         lastMousePos = Input.mousePosition;
     }
 
