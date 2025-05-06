@@ -14,11 +14,15 @@ public class MainSceneController : MonoBehaviour
     public Sprite normalSprite;
     public Sprite alertSprite;
 
-    public Transform main_canvas;
+    public Transform main_canvas, other_canvas;
 
     [SerializeField] Transform[] icu_zones, kennel_zones, pool_zones;
 
     int num_in_icu, num_in_kennels, num_in_pool;
+
+    [SerializeField] GameObject zones, zone_icu, zone_kennel;
+
+    [SerializeField] CameraScroll camera_scroll;
 
     void Start()
     {
@@ -28,6 +32,7 @@ public class MainSceneController : MonoBehaviour
         num_in_kennels = 0;
         num_in_pool = 0;
 
+        StartCoroutine(SealAvailabilityTimer());
 
         // Recreate previously existing seals
         foreach (Seal seal in SealManager.Instance.seals)
@@ -67,13 +72,17 @@ public class MainSceneController : MonoBehaviour
 
         if (sb.sealData.hunger <= 30)
         {
-            sealObj.transform.position = icu_zones[num_in_icu].position;
+            sealObj.transform.parent = icu_zones[num_in_icu];
+            sealObj.transform.localPosition = Vector2.zero;
+            sealObj.transform.localScale = Vector3.one * 4f;
             num_in_icu++;
             //Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_icu].position);
         }
         else if (sb.sealData.hunger > 30 && sb.sealData.hunger <= 70)
         {
-            sealObj.transform.position = kennel_zones[num_in_kennels].position;
+            sealObj.transform.parent = kennel_zones[num_in_kennels];
+            sealObj.transform.localPosition = Vector2.zero;
+            sealObj.transform.localScale = Vector3.one * 4f;
             num_in_kennels++;
         }
         else
@@ -82,5 +91,34 @@ public class MainSceneController : MonoBehaviour
             num_in_pool++;
             //Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_pool].position);
         }
+    }
+
+    IEnumerator SealAvailabilityTimer()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(5f, 20f));
+            SealManager.Instance.SetSealAvailable(true);
+            //spawnButton.GetComponent<Image>().sprite = alertSprite;
+
+            rescue_text.SetActive(true);
+
+            // Optionally make button flash or animate here
+        }
+    }
+
+    public void OpenEnclosure(bool kennels)
+    {
+        zones.SetActive(true);
+        zone_kennel.SetActive(kennels);
+        zone_icu.SetActive(!kennels);
+        camera_scroll.enabled = false;
+    }
+    public void CloseEnclosure()
+    {
+        zones.SetActive(false);
+        zone_kennel.SetActive(false);
+        zone_icu.SetActive(false);
+        camera_scroll.enabled = true;
     }
 }

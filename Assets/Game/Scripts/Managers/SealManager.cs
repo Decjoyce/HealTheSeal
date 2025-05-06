@@ -34,7 +34,7 @@ public class SealManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(SealAvailabilityTimer());
+        //StartCoroutine(SealAvailabilityTimer());
     }
 
     public void SetSealAvailable(bool status)
