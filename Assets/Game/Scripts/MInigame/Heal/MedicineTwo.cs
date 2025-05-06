@@ -15,6 +15,7 @@ public class MedicineTwo : MonoBehaviour
     public float backAmount;
 
     bool can_move = true;
+    bool isLooking;
     bool is_moving;
     [SerializeField] float speed, scale_change;
 
@@ -45,13 +46,15 @@ public class MedicineTwo : MonoBehaviour
 
         // Not Looking
         sealImage.color = tColour[2];
+        isLooking = false;
         yield return new WaitForSecondsRealtime(Random.Range(lookTime_min, lookTime_max));
         //Telegraph
         sealImage.color = tColour[1];
 
-        yield return new WaitForSecondsRealtime(Random.Range(lookTime_min, lookTime_max));
+        yield return new WaitForSecondsRealtime(lookTime_min);
         //Looking
         sealImage.color = tColour[0];
+        isLooking = true;
         if (is_moving)
         {
             can_move = false;
@@ -78,10 +81,18 @@ public class MedicineTwo : MonoBehaviour
         {
             is_moving = false;
         }
+        if(isLooking && is_moving)
+        {
+            can_move = false;
+            transform.position = resetPos.position;
+            sealImage.transform.localScale = og_scale;
+        }
 
 
         if(rectTransform.anchoredPosition.y <= 50 && !reached_fish)
         {
+            StopAllCoroutines();
+            sealImage.color = tColour[2];
             is_moving = false;
             reached_fish = true;
             anim.SetBool("FeedPill", true);

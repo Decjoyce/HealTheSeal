@@ -985,7 +985,7 @@ MonoBehaviour:
   - {r: 1, g: 0.8225037, b: 0, a: 1}
   - {r: 1, g: 1, b: 1, a: 1}
   resetPos: {fileID: 1561666953}
-  lookTime_max: 5
+  lookTime_max: 3.5
   lookTime_min: 0.5
   backAmount: 2
   speed: 50

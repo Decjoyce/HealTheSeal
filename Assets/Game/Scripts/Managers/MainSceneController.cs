@@ -73,15 +73,15 @@ public class MainSceneController : MonoBehaviour
         if (sb.sealData.hunger <= 30)
         {
             sealObj.transform.parent = icu_zones[num_in_icu];
-            sealObj.transform.localPosition = Vector2.zero;
-            sealObj.transform.localScale = Vector3.one * 4f;
+            sealObj.transform.localPosition = Vector2.zero + (Vector2.up * -42f);
+            sealObj.transform.localScale = Vector3.one * 4.25f;
             num_in_icu++;
             //Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_icu].position);
         }
         else if (sb.sealData.hunger > 30 && sb.sealData.hunger <= 70)
         {
             sealObj.transform.parent = kennel_zones[num_in_kennels];
-            sealObj.transform.localPosition = Vector2.zero;
+            sealObj.transform.localPosition = Vector2.zero + (Vector2.up * -42f);
             sealObj.transform.localScale = Vector3.one * 4f;
             num_in_kennels++;
         }

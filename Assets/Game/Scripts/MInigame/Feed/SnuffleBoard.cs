@@ -4,10 +4,14 @@ public class SnuffleBoard : MonoBehaviour
 {
     //public Vector3[] pos; 
     public GameObject fishPrefab;
+
+    [SerializeField] MinigameManager mg_manager;
+
     void Start()
     {
         int max = Random.Range(2, 8);
         Debug.Log(max);
+        mg_manager.ChangeWinScore(max);
         int count = 0;
         for (int x = 0; x < 3; x++)
         {
@@ -36,4 +40,14 @@ public class SnuffleBoard : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Fish"))
+        {
+            Destroy(collision.gameObject);
+            mg_manager.IncreaseScore(1);
+        }
+    }
+
 }
