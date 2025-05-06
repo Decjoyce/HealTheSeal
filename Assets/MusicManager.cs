@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +7,10 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip main_music, minigame_music, release_music;
+
+    float fade_speed;
+
+    Coroutine coroutine_fade_in, coroutine_fade_out;
 
     private void Start()
     {
@@ -21,6 +26,12 @@ public class MusicManager : MonoBehaviour
     private void OnDisable()
     {
         GameManagement.OnLoadScene -= ChangeMusic;
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        StopCoroutine(coroutine_fade_out);
+        FadeMusicIn(0.75f);
     }
 
     void ChangeMusic(string scene_name, int index = -1)
@@ -46,5 +57,41 @@ public class MusicManager : MonoBehaviour
             source.clip = release_music;
             source.Play();
         }
+    }
+
+    public void FadeMusicOut(float delay)
+    {
+        coroutine_fade_out = StartCoroutine(FadeMusicOutCoroutine(delay));
+    }
+
+    private IEnumerator FadeMusicOutCoroutine(float delay)
+    {
+        float timedelay = delay;
+        fade_speed = -0.75f / delay;
+        while (timedelay > 0)
+        {
+            source.volume -= Time.deltaTime;
+            timedelay -= Time.deltaTime;
+            yield return null;
+        }
+        Mathf.Clamp(source.volume, 0, 0.75f);
+    }
+
+    public void FadeMusicIn(float delay)
+    {
+        coroutine_fade_in = StartCoroutine(FadeMusicInCoroutine(delay));
+    }
+
+    private IEnumerator FadeMusicInCoroutine(float delay)
+    {
+        float timedelay = delay;
+        fade_speed = 0.75f / delay;
+        while (timedelay > 0)
+        {
+            source.volume += Time.deltaTime;
+            timedelay -= Time.deltaTime;
+            yield return null;
+        }
+        Mathf.Clamp(source.volume, 0, 0.75f);
     }
 }

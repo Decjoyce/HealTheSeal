@@ -16,6 +16,7 @@ public class GameManagement : MonoBehaviour
 
     [SerializeField] AndroidService am;
     [SerializeField] SealManager sm;
+    [SerializeField] MusicManager mm;
     [SerializeField] GameData gd;
 
     [Header("Schedules")]
@@ -147,10 +148,13 @@ public class GameManagement : MonoBehaviour
     {
         Animator tran_anim = SceneTransitioner.instance.transition_anims[transition_index];
         tran_anim.SetTrigger("START");
-        AnimatorClipInfo anim_info = tran_anim.GetCurrentAnimatorClipInfo(0)[0];
 
-        Debug.Log(anim_info.clip.name + " " + anim_info.clip.length);
-        yield return new WaitForSecondsRealtime(anim_info.clip.length);
+        AnimatorClipInfo anim_info = tran_anim.GetCurrentAnimatorClipInfo(0)[0];
+        float delay = anim_info.clip.length;
+
+        mm.FadeMusicOut(delay);
+
+        yield return new WaitForSecondsRealtime(delay);
 
         OnLoadScene?.Invoke(scene_name, index);
         if (scene_name != "")

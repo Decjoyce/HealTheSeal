@@ -824,6 +824,7 @@ MonoBehaviour:
   _sprayPrefab: {fileID: 8157816303790320742, guid: 5eef28ef55b7aff4489fd04de7c4cac3, type: 3}
   sprayRate: 0.3
   spray: 0
+  for_mg: 1
 --- !u!58 &1856033052
 CircleCollider2D:
   m_ObjectHideFlags: 0

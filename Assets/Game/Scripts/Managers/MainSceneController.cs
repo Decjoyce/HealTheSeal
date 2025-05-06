@@ -22,9 +22,7 @@ public class MainSceneController : MonoBehaviour
 
     void Start()
     {
-        spawnButton.onClick.AddListener(() => SceneManager.LoadScene("Beach_Scene")); //Prototype - changed from just spawning to moving to beach sceneM
-
-        StartCoroutine(SealAvailabilityTimer());
+        spawnButton.onClick.AddListener(() => GameManagement.instance.LoadScene("Beach_Scene")); //Prototype - changed from just spawning to moving to beach sceneM
 
         num_in_icu = 0;
         num_in_kennels = 0;
@@ -44,19 +42,7 @@ public class MainSceneController : MonoBehaviour
             //spawnButton.GetComponent<Image>().sprite = normalSprite;
         }
     }
-    IEnumerator SealAvailabilityTimer()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(Random.Range(5f, 20f));
-            SealManager.Instance.SetSealAvailable(true);
-            //spawnButton.GetComponent<Image>().sprite = alertSprite;
-
-            rescue_text.SetActive(true);
-
-            // Optionally make button flash or animate here
-        }
-    }
+    
     void SpawnSeal()
     {
         SealManager.Instance.SpawnSeal();

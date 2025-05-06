@@ -12,6 +12,8 @@ public class SprayCan : MonoBehaviour
 
     public bool spray;
 
+    [SerializeField] bool for_mg;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +23,14 @@ public class SprayCan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (for_mg)
+        {
+            mousePos = Input.mousePosition;
+            mousePos.x = mousePos.x - Screen.width / 2;
+            mousePos.y = mousePos.y - Screen.height / 2;
+            mousePos2 = mousePos / GetComponentInParent<Canvas>().scaleFactor;
+            transform.localPosition = mousePos2;
+        }
         if (sprayTime <= Time.time && spray)
         {
             if (Input.GetMouseButton(0))

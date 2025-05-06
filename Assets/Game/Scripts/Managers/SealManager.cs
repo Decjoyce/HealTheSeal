@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +32,11 @@ public class SealManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        StartCoroutine(SealAvailabilityTimer());
+    }
+
     public void SetSealAvailable(bool status)
     {
         isSealAvailableForRescue = status;
@@ -59,6 +65,20 @@ public class SealManager : MonoBehaviour
         Seal newSeal = new Seal();
         newSeal.RandomizeAttributes();  // Call this after construction
         seals.Add(newSeal);
+    }
+
+    IEnumerator SealAvailabilityTimer()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(Random.Range(5f, 20f));
+            SetSealAvailable(true);
+            //spawnButton.GetComponent<Image>().sprite = alertSprite;
+
+            //rescue_text.SetActive(true);
+
+            // Optionally make button flash or animate here
+        }
     }
 
     public Seal GetSealById(string id)
