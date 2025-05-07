@@ -14,7 +14,10 @@ public class MinigameManager : MonoBehaviour
 
     public float gameover_delay = 5f;
 
-    [SerializeField] GameObject gameover_screen;
+    [SerializeField] MinigameGameOverScreen gameover_screen;
+
+    [SerializeField] string text_ending;
+    [SerializeField] float text_typespeed = 0.5f;
 
     private void Start()
     {
@@ -84,10 +87,25 @@ public class MinigameManager : MonoBehaviour
 
     IEnumerator EndMinigame()
     {
-        gameover_screen.SetActive(true);
+        gameover_screen.gameObject.SetActive(true);
         yield return new WaitForSecondsRealtime(0.75f);
-        gameover_screen.GetComponent<Animator>().Play("minigameover_start");
+        gameover_screen.anim.Play("minigameover_start");
+        yield return new WaitForSecondsRealtime(1.2f);
+        for (int i = 0; i < gameover_screen.text_gameover.text.Length; i++)
+        {
+            gameover_screen.text_gameover.text = gameover_screen.text_gameover.text[..(gameover_screen.text_gameover.text.Length - i)];
+            yield return new WaitForSecondsRealtime(text_typespeed * 1.2f);
+        }
+        string text = current_seal.seal_name += " " + text_ending;
+        Debug.Log("text length is = " + text.Length);
+        for (int i = 0; i < text.Length; i++)
+        {
+            gameover_screen.text_gameover.text = text[..(i + 1)];
+            yield return new WaitForSecondsRealtime(text_typespeed);
+        }
         yield return new WaitForSecondsRealtime(gameover_delay);
         GameManagement.instance.LoadScene("SealDetailScene");
     }
+
+
 }

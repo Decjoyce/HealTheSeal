@@ -129,13 +129,14 @@ GameObject:
   m_Component:
   - component: {fileID: 104670864}
   - component: {fileID: 104670865}
+  - component: {fileID: 104670866}
   m_Layer: 5
   m_Name: MinigameOverScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &104670864
 RectTransform:
   m_ObjectHideFlags: 0
@@ -178,6 +179,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &104670866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104670863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7568085ac67b284c945f699666b398c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 104670865}
+  text_gameover: {fileID: 2061731129}
 --- !u!1 &331014464
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,7 +218,7 @@ RectTransform:
   m_GameObject: {fileID: 331014464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2061731127}
@@ -586,8 +601,10 @@ MonoBehaviour:
   minigame_id: 0
   score: 0
   win_score: 8
-  gameover_delay: 5
-  gameover_screen: {fileID: 104670863}
+  gameover_delay: 3
+  gameover_screen: {fileID: 104670866}
+  text_ending: was Fed
+  text_typespeed: 0.5
 --- !u!1 &915504900
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,7 +1549,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 769.9, y: 50}
+  m_SizeDelta: {x: 33.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2061731128
 MonoBehaviour:
@@ -1578,7 +1595,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Great<size=90%>
+  m_text: 'Great
 
     job!'
   m_isRightToLeft: 0
