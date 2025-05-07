@@ -17,9 +17,9 @@ public class SpawnFish : MonoBehaviour
     void Start()
     {
         lastMousePos = Input.mousePosition;
+        thrustt = thrust;
         if (GameManagement.instance.is_pc)
             thrust *= pc_mult;
-        thrustt = thrust;
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class SpawnFish : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            t++;
+            t+= Time.deltaTime;
         }
 
 
