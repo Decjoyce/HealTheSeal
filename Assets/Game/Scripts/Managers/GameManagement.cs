@@ -34,6 +34,7 @@ public class GameManagement : MonoBehaviour
     [SerializeField] Animator[] transition_animators;
     Coroutine current_loadscene_coroutine;
 
+
     private void Awake()
     {
         if (instance != null)

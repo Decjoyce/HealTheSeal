@@ -12,12 +12,19 @@ public class SealEat : MonoBehaviour
     [SerializeField] TextMeshProUGUI score;
 
     Animator anim;
+    [SerializeField] Animator score_anim;
+
+    AudioSource source;
+    [SerializeField] AudioSource score_source;
+
+    [SerializeField] AudioClip seal_chomp, score_sound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score); //Prototype
+        score.text = ""; //Prototype
         anim = GetComponent<Animator>(); //Prototype
+        source = GetComponent<AudioSource>(); //Prototype
     }
 
     // Update is called once per frame
@@ -37,9 +44,19 @@ public class SealEat : MonoBehaviour
         {
             Destroy(collision.gameObject);
             mg_manager.IncreaseScore(1); //Prototype
-            score.text = new string("Fish Ate:\n" + mg_manager.score + " / " + mg_manager.win_score); //Prototype
+            score.text = mg_manager.score.ToString(); //Prototype
+            score.transform.localScale = Vector3.one * ExtensionMethods.Map(mg_manager.score, 0, mg_manager.win_score, 20, 60);
+            if(mg_manager.score >= mg_manager.win_score)
+                score_anim.Play("score_end");
+            else
+                score_anim.Play("score_tween"); //Prototype
+            score_source.pitch = ExtensionMethods.Map(mg_manager.score, 0, mg_manager.win_score, 0.6f, 1.5f);
+            score_source.PlayOneShot(score_sound);
+
+            // Seal Anim & Stuff
             anim.Play("animer"); //Prototype
-            // seal.GetComponent<SealStats>().FeedSeal(5);
+            source.pitch = Random.Range(0.8f, 1.25f);
+            source.PlayOneShot(seal_chomp);
         }
     }
 }

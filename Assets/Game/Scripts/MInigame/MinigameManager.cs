@@ -12,6 +12,10 @@ public class MinigameManager : MonoBehaviour
 
     bool gameover;
 
+    public float gameover_delay = 5f;
+
+    [SerializeField] GameObject gameover_screen;
+
     private void Start()
     {
         current_seal = SealManager.Instance.selectedSeal;
@@ -74,6 +78,16 @@ public class MinigameManager : MonoBehaviour
                 //current_seal.IncreaseMood(10);
                 break;
         }
+
+        StartCoroutine(EndMinigame());
+    }
+
+    IEnumerator EndMinigame()
+    {
+        gameover_screen.SetActive(true);
+        yield return new WaitForSecondsRealtime(0.75f);
+        gameover_screen.GetComponent<Animator>().Play("minigameover_start");
+        yield return new WaitForSecondsRealtime(gameover_delay);
         GameManagement.instance.LoadScene("SealDetailScene");
     }
 }

@@ -9,6 +9,15 @@ public class CameraScroll : MonoBehaviour
     Vector3 touchStart;
     Vector3 newPos;
 
+    static Vector3 saved_pos;
+
+    public bool is_scrolling;
+
+    private void Start()
+    {
+        transform.position = saved_pos;
+    }
+
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -27,6 +36,7 @@ public class CameraScroll : MonoBehaviour
                 newPosition.y = Mathf.Clamp(newPosition.y, pc_minY, pc_maxY);
 
             transform.position = newPosition;
+            saved_pos = newPosition;
         }
         //transform.position = newPos;
 

@@ -549,7 +549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seal_sprite: {fileID: 1261340278}
-  seal_spray_color: {r: 0.21960784, g: 0.3764706, b: 0.6313726, a: 1}
+  seal_spray_color: {r: 1, g: 0.44313726, b: 0.84705883, a: 1}
   spray_can: {fileID: 1856033050}
   mg_manager: {fileID: 1975047919}
 --- !u!1001 &1318046840

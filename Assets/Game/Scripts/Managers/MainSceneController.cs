@@ -21,6 +21,8 @@ public class MainSceneController : MonoBehaviour
     int num_in_icu, num_in_kennels, num_in_pool;
 
     [SerializeField] GameObject zones, zone_icu, zone_kennel;
+    static bool icu_open, kennels_open;
+
 
     [SerializeField] CameraScroll camera_scroll;
 
@@ -33,6 +35,13 @@ public class MainSceneController : MonoBehaviour
         num_in_pool = 0;
 
         StartCoroutine(SealAvailabilityTimer());
+
+        if(kennels_open || icu_open)
+        {
+            zones.SetActive(true);
+            zone_icu.SetActive(icu_open);
+            zone_kennel.SetActive(kennels_open);
+        }
 
         // Recreate previously existing seals
         foreach (Seal seal in SealManager.Instance.seals)
@@ -72,7 +81,7 @@ public class MainSceneController : MonoBehaviour
 
         if (sb.sealData.hunger <= 30)
         {
-            sealObj.transform.parent = icu_zones[num_in_icu];
+            sealObj.transform.SetParent(icu_zones[num_in_icu], false);
             sealObj.transform.localPosition = Vector2.zero + (Vector2.up * -42f);
             sealObj.transform.localScale = Vector3.one * 4.25f;
             num_in_icu++;
@@ -80,7 +89,7 @@ public class MainSceneController : MonoBehaviour
         }
         else if (sb.sealData.hunger > 30 && sb.sealData.hunger <= 70)
         {
-            sealObj.transform.parent = kennel_zones[num_in_kennels];
+            sealObj.transform.SetParent(kennel_zones[num_in_kennels]);
             sealObj.transform.localPosition = Vector2.zero + (Vector2.up * -42f);
             sealObj.transform.localScale = Vector3.one * 4f;
             num_in_kennels++;
@@ -113,6 +122,8 @@ public class MainSceneController : MonoBehaviour
         zone_kennel.SetActive(kennels);
         zone_icu.SetActive(!kennels);
         camera_scroll.enabled = false;
+        kennels_open = kennels;
+        icu_open = !kennels;
     }
     public void CloseEnclosure()
     {
@@ -120,5 +131,7 @@ public class MainSceneController : MonoBehaviour
         zone_kennel.SetActive(false);
         zone_icu.SetActive(false);
         camera_scroll.enabled = true;
+        kennels_open = false;
+        icu_open = false;
     }
 }

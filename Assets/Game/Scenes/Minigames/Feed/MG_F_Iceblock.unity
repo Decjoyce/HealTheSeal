@@ -1970,7 +1970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thrust: 100
   c: {r: 0, g: 0, b: 0, a: 0}
-  sChange: -0.05
+  sChange: -0.01
   ice: {fileID: 904919203}
   ice_sprite: {fileID: 904919205}
   g_iceblock:
