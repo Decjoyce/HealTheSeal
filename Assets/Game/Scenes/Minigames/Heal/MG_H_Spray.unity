@@ -206,6 +206,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MinigameOverScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 2921741228955250812, guid: cc676e5a90e506b44a405d0052683888, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4563516998884069470, guid: cc676e5a90e506b44a405d0052683888, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1021,7 +1025,7 @@ MonoBehaviour:
   minigame_id: 1
   score: 0
   win_score: 1
-  gameover_delay: 5
+  gameover_delay: 3
   gameover_screen: {fileID: 141550574}
   text_ending: was HEALED
   text_typespeed_01: 0.5

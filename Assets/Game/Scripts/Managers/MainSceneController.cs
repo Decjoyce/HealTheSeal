@@ -39,6 +39,7 @@ public class MainSceneController : MonoBehaviour
         if(kennels_open || icu_open)
         {
             zones.SetActive(true);
+            camera_scroll.enabled = false;
             zone_icu.SetActive(icu_open);
             zone_kennel.SetActive(kennels_open);
         }

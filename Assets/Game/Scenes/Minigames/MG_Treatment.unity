@@ -1109,7 +1109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 415}
+  m_AnchoredPosition: {x: 0, y: 59.799988}
   m_SizeDelta: {x: 0, y: 640}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!1 &482574576
@@ -1425,6 +1425,11 @@ MonoBehaviour:
   minigame_id: 1
   score: 0
   win_score: 3
+  gameover_delay: 5
+  gameover_screen: {fileID: 0}
+  text_ending: 
+  text_typespeed_01: 0.5
+  text_typespeed_02: 2
 --- !u!4 &514856934
 Transform:
   m_ObjectHideFlags: 0
@@ -1643,8 +1648,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 862823457}
-  - {fileID: 333688218}
   - {fileID: 1368611471}
+  - {fileID: 333688218}
   - {fileID: 1047320203}
   - {fileID: 1600795689}
   - {fileID: 1258045206}
@@ -3797,7 +3802,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4411130429586030010, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

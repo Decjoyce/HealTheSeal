@@ -23,6 +23,7 @@ public class MinigameManager : MonoBehaviour
     {
         current_seal = SealManager.Instance.selectedSeal;
         //SetupMinigame();
+        InitGameOverStings();
     }
 
     void SetupMinigame()
@@ -88,24 +89,21 @@ public class MinigameManager : MonoBehaviour
     IEnumerator EndMinigame()
     {
         gameover_screen.gameObject.SetActive(true);
+        gameover_screen.text_gameover.text = gameover_stings[Random.Range(0, gameover_stings.Length)];
         yield return new WaitForSecondsRealtime(0.75f);
         gameover_screen.anim.Play("minigameover_start");
-        yield return new WaitForSecondsRealtime(1.2f);
-        for (int i = 0; i < gameover_screen.text_gameover.text.Length; i++)
-        {
-            gameover_screen.text_gameover.text = gameover_screen.text_gameover.text.Substring(0, gameover_screen.text_gameover.text.Length - 1 - 1);
-            yield return new WaitForSecondsRealtime(text_typespeed_02);
-        }
-        string text = current_seal.seal_name + " " + text_ending;
-        Debug.Log("text length is = " + text.Length);
-        for (int i = 0; i < text.Length; i++)
-        {
-            gameover_screen.text_gameover.text = text[..(i + 1)];
-            yield return new WaitForSecondsRealtime(text_typespeed_01);
-        }
         yield return new WaitForSecondsRealtime(gameover_delay);
+        gameover_screen.anim.Play("minigameover_end");
         GameManagement.instance.LoadScene("SealDetailScene");
     }
 
-
+    string[] gameover_stings = new string[6];
+    void InitGameOverStings()
+    {
+        gameover_stings[0] = "GREAT<br>JOB!";
+        gameover_stings[1] = "Fantastic!";
+        gameover_stings[2] = "Amazing<br>Work!";
+        gameover_stings[4] = "Marvelous!";
+        gameover_stings[5] = "Sealtastic!";
+    }
 }

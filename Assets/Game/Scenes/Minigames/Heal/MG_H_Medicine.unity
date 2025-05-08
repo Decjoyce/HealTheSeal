@@ -264,7 +264,7 @@ MonoBehaviour:
   minigame_id: 1
   score: 0
   win_score: 1
-  gameover_delay: 5
+  gameover_delay: 3
   gameover_screen: {fileID: 191106110}
   text_ending: was HEALED
   text_typespeed_01: 0.5

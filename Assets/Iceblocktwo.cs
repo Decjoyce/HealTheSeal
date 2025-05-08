@@ -29,9 +29,16 @@ public class Iceblocktwo : MonoBehaviour
 
     [SerializeField] AudioSource audio_source;
 
+    [SerializeField] Transform graphics;
+
+    [SerializeField] float rot_speed = 0.5f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (!GameManagement.instance.is_pc)
+            Input.gyro.enabled = true;
+
         ice_sprite = ice.GetComponent<Image>();
         c = ice.GetComponent<Image>().color;
         rb2D = gameObject.GetComponent<Rigidbody2D>();
@@ -42,11 +49,18 @@ public class Iceblocktwo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManagement.instance.is_pc)
+        {
+            float dirH = Input.GetAxis("Horizontal");
+            float dirV = Input.GetAxis("Vertical");
 
-        float dirH = Input.GetAxis("Horizontal");
-        float dirV = Input.GetAxis("Vertical");
-
-        input_dir = new Vector2(dirH, dirV);
+            input_dir = new Vector2(dirH, dirV);
+        }
+        else
+        {
+            input_dir = Input.gyro.gravity;
+        }
+        
 
         float mapped_scale = ExtensionMethods.Map(ice.transform.localScale.x, 0.5f, 1f, 0, 1);
 
@@ -64,34 +78,52 @@ public class Iceblocktwo : MonoBehaviour
             ice_sprite.rectTransform.sizeDelta = new Vector2(310f, 160f);
             ice_sprite.sprite = g_iceblock[2];
         }
-        else if (mapped_scale < 0.25f && mapped_scale >= 0)
+        else if (mapped_scale < 0.25f && mapped_scale > 0)
         {
             ice_sprite.rectTransform.sizeDelta = new Vector2(330f, 160f);
             ice_sprite.sprite = g_iceblock[3];
+        }
+        else
+        {
+            ice_sprite.gameObject.SetActive(false);
+        }
+
+        if (rb2D.linearVelocity != Vector2.zero)
+        {
+            float rotation_angle = Mathf.Atan2(input_dir.normalized.x, -input_dir.normalized.y) * Mathf.Rad2Deg;
+            float lerped_angle = Mathf.LerpAngle(graphics.eulerAngles.z, rotation_angle, rot_speed * Time.deltaTime);
+            
+            //graphics.eulerAngles = Vector3.forward * lerped_angle;
         }
     }
 
     private void FixedUpdate()
     {
-        rb2D.AddForce(input_dir * thrust * Time.fixedDeltaTime, ForceMode2D.Force);
-
-        float sC = sChange * rb2D.linearVelocity.magnitude * Time.fixedDeltaTime;
-        Vector2 scaleChange2D = new Vector2(sC, sC);
-        scaleChange = new Vector3(sC, sC, sC);
-
-        if (rb2D.linearVelocity.magnitude > 0)
+        if (!gameover)
         {
-            ice.transform.localScale += scaleChange;
-            col.size += scaleChange2D * 100;
-            rb2D.linearDamping += sC;
-            c.a += sC / 5;
-            ice.GetComponent<Image>().color = c;
+            rb2D.AddForce(input_dir * thrust * Time.fixedDeltaTime, ForceMode2D.Force);
+
+            float sC = sChange * rb2D.linearVelocity.magnitude * Time.fixedDeltaTime;
+            Vector2 scaleChange2D = new Vector2(sC, sC);
+            scaleChange = new Vector3(sC, sC, sC);
+
+            if (rb2D.linearVelocity.magnitude > 0)
+            {
+                ice.transform.localScale += scaleChange;
+                col.size += scaleChange2D * 100;
+                rb2D.linearDamping += sC;
+                c.a += sC / 5;
+                ice.GetComponent<Image>().color = c;
+            }
+            if (ice.transform.localScale.x <= 0.5f)
+            {
+                mg_manager.IncreaseScore(1);
+                gameover = true;
+                rb2D.constraints = RigidbodyConstraints2D.FreezeAll;
+                Input.gyro.enabled = false;
+            }
         }
-        if (ice.transform.localScale.x <= 0.5f && !gameover)
-        {
-            mg_manager.IncreaseScore(1);
-            gameover = true;
-        }
+        
     }
 
     private void LateUpdate()

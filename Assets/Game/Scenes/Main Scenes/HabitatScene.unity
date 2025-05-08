@@ -3574,7 +3574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scrollSpeed: 2
   minY: 0
-  maxY: 8.75
+  maxY: 9.5
   pc_minY: -0.75
   pc_maxY: 13
   is_scrolling: 0
