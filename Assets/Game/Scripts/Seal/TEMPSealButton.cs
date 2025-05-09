@@ -55,6 +55,7 @@ public class TEMPSealButton : MonoBehaviour
             SealManager.Instance.selectedSeal = newSeal;
             newSeal.colour_scheme = SealManager.Instance.seal_stuff.GetRandomColourScheme();
             SealManager.Instance.justRescuedSeal = true;
+            SealManager.Instance.ScheduleSealToBeRescuedTime();
 
             gameObject.SetActive(false); // hide seal visually
         }

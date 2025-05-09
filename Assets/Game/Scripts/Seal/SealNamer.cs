@@ -6,15 +6,21 @@ public class SealNamer : MonoBehaviour
 {
     [SerializeField]
     string[] set_names;
+    [SerializeField]
+    string[] forbidden_names;
 
     [SerializeField] TextMeshProUGUI placeholder_text;
     [SerializeField] TMP_InputField input_field;
 
     SealManager sm;
 
+    [SerializeField] Button exit_button;
+
     private void Start()
     {
         sm = SealManager.Instance;
+        exit_button.onClick.AddListener(() => ExitedWithoutNamingFix());
+
     }
 
     public void NameSeal(string new_name)
@@ -25,9 +31,15 @@ public class SealNamer : MonoBehaviour
 
     }
 
+    public void ExitedWithoutNamingFix()
+    {
+        if(input_field.text == "")
+            BoxDeselected("");
+    }
+
     public void BoxDeselected(string new_name)
     {
-        if (new_name == "")
+        if (new_name == "" || CheckIfCensored(new_name))
         {
             int ranName = Random.Range(0, set_names.Length);
 
@@ -50,6 +62,16 @@ public class SealNamer : MonoBehaviour
             sm.selectedSeal.seal_name = name_variant;
             input_field.text = name_variant;
         }
+    }
+
+    bool CheckIfCensored(string nam)
+    {
+        foreach(string s in forbidden_names)
+        {
+            if (nam.ToLower() == s.ToLower())
+                return true;
+        }
+        return false;
     }
 }
 

@@ -34,8 +34,6 @@ public class MainSceneController : MonoBehaviour
         num_in_kennels = 0;
         num_in_pool = 0;
 
-        StartCoroutine(SealAvailabilityTimer());
-
         if(kennels_open || icu_open)
         {
             zones.SetActive(true);
@@ -50,6 +48,17 @@ public class MainSceneController : MonoBehaviour
             SpawnSealVisual(seal);
         }
     }
+
+    private void OnEnable()
+    {
+        SealManager.OnSealNeedsRescue += SealIsRescuable;
+    }
+
+    private void OnDisable()
+    {
+        SealManager.OnSealNeedsRescue -= SealIsRescuable;
+    }
+
     void Update()
     {
         if (!SealManager.Instance.isSealAvailableForRescue)
@@ -103,18 +112,9 @@ public class MainSceneController : MonoBehaviour
         }
     }
 
-    IEnumerator SealAvailabilityTimer()
+    public void SealIsRescuable()
     {
-        while (true)
-        {
-            yield return new WaitForSeconds(Random.Range(5f, 20f));
-            SealManager.Instance.SetSealAvailable(true);
-            //spawnButton.GetComponent<Image>().sprite = alertSprite;
-
-            rescue_text.SetActive(true);
-
-            // Optionally make button flash or animate here
-        }
+        rescue_text.SetActive(true);
     }
 
     public void OpenEnclosure(bool kennels)

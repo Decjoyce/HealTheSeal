@@ -6,6 +6,8 @@ public class CameraScroll : MonoBehaviour
     public float minY, maxY; // set bounds clearly in inspector
     public float pc_minY, pc_maxY; // set bounds clearly in inspector
 
+    Vector3 newPosition;
+    Vector3 direction;
     Vector3 touchStart;
     Vector3 newPos;
 
@@ -25,19 +27,24 @@ public class CameraScroll : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 newPosition = transform.position + new Vector3(0, -direction.y * scrollSpeed * Time.deltaTime, 0);
-
-            newPos = Vector3.Lerp(transform.position, newPosition, 0.01f * Time.deltaTime);
-
-            if(!GameManagement.instance.is_pc)
-            newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
-            else
-                newPosition.y = Mathf.Clamp(newPosition.y, pc_minY, pc_maxY);
-
-            transform.position = newPosition;
-            saved_pos = newPosition;
+            direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            newPosition = transform.position + new Vector3(0, -direction.y, 0);
         }
+
+        if(newPosition.y != 0f)
+        {
+
+            newPos = Vector3.Lerp(transform.position, newPosition, scrollSpeed * Time.deltaTime);
+
+            if (!GameManagement.instance.is_pc)
+                newPos.y = Mathf.Clamp(newPos.y, minY, maxY);
+            else
+                newPos.y = Mathf.Clamp(newPos.y, pc_minY, pc_maxY);
+
+            transform.position = newPos;
+            saved_pos = newPos;
+        }
+
         //transform.position = newPos;
 
     }

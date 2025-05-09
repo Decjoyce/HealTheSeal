@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class SealManager : MonoBehaviour
 {
+    public delegate void Event_OnSealNeedsRescue();
+    public static event Event_OnSealNeedsRescue OnSealNeedsRescue;
+
     public static SealManager Instance;
 
     public List<Seal> seals = new List<Seal>();
     public Seal selectedSeal;
+
+    public int seal_limit { get; private set; } = 9;
 
     public bool justRescuedSeal = false;
     public bool isSealAvailableForRescue = false;
@@ -15,9 +20,13 @@ public class SealManager : MonoBehaviour
     public bool currentSealNeedsRescue = false;
     public int currentSealInjury = 0; // 0 - no injury (healthy), 1 - net, 2 - hook, 3 - antibiotics
 
+    [SerializeField] float rescue_delay_min = 0.1f, rescue_delay_max = 0.5f;
+
     [Header("Seal Stuff")]
     // Contains all graphics relating to seals
     public SO_SealStuff seal_stuff;
+
+    public System.DateTime next_time_to_rescue_seal;
 
     void Awake()
     {
@@ -34,7 +43,12 @@ public class SealManager : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(SealAvailabilityTimer());
+        CheckSealAvailability();
+    }
+
+    private void Update()
+    {
+        CheckSealAvailability();
     }
 
     public void SetSealAvailable(bool status)
@@ -44,7 +58,24 @@ public class SealManager : MonoBehaviour
         {
             DetermineSealCondition(); // randomize condition when timer reaches 0
         }
+        OnSealNeedsRescue?.Invoke();
     }
+
+    public void ScheduleSealToBeRescuedTime()
+    {
+        if (seals.Count < seal_limit)
+        {
+            float ran_delay = Random.Range(rescue_delay_min, rescue_delay_max);
+            next_time_to_rescue_seal = System.DateTime.Now.AddHours(ran_delay);
+            GameData.instance.gd_sealdata.next_time_for_rescue = next_time_to_rescue_seal.ToString();
+            Debug.LogWarning("Seal Scheduled For Rescue = " + System.DateTime.Now.AddHours(ran_delay).ToString());
+        }
+        else
+        {
+            Debug.LogWarning("REACHED LIMIT");
+        }
+    }
+
     void DetermineSealCondition()//determines if the seal is healthy and if it need rescuing
     {
         // 30% chance the seal is healthy (no rescue needed)
@@ -67,17 +98,12 @@ public class SealManager : MonoBehaviour
         seals.Add(newSeal);
     }
 
-    IEnumerator SealAvailabilityTimer()
+    void CheckSealAvailability()
     {
-        while (true)
+        if(seals.Count < seal_limit && System.DateTime.Now >= next_time_to_rescue_seal && !isSealAvailableForRescue)
         {
-            yield return new WaitForSeconds(Random.Range(5f, 20f));
             SetSealAvailable(true);
-            //spawnButton.GetComponent<Image>().sprite = alertSprite;
-
-            //rescue_text.SetActive(true);
-
-            // Optionally make button flash or animate here
+            Debug.LogWarning("Seal is Ready to be rescued: " + System.DateTime.Now.ToString());
         }
     }
 
@@ -96,7 +122,7 @@ public class SealManager : MonoBehaviour
         int i = 0;
         string parsed_name = _name.Trim('I');
         parsed_name = parsed_name.Trim();
-        Debug.LogWarning(parsed_name);
+
         foreach (Seal s in seals)
         {
             string parsed_seal_name = s.seal_name;

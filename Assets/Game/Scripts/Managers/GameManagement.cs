@@ -14,6 +14,8 @@ public class GameManagement : MonoBehaviour
     public bool dev_mode; //{ get; private set; }
     public bool is_pc;
 
+    public bool first_time;
+
     [SerializeField] AndroidService am;
     [SerializeField] SealManager sm;
     [SerializeField] MusicManager mm;

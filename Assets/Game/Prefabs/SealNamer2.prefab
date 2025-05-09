@@ -212,8 +212,40 @@ MonoBehaviour:
   - Kelpie
   - Lugh
   - Nuada
+  forbidden_names:
+  - Cunt
+  - Shit
+  - Bitch
+  - Fuck
+  - Shite
+  - Whore
+  - Ass
+  - Dick
+  - Vagina
+  - Penis
+  - Bastard
+  - Asshole
+  - Wanker
+  - Wank
+  - WankStain
+  - Queer
+  - Quare
+  - Faggot
+  - Nigger
+  - Nigga
+  - Retard
+  - Spook
+  - Chink
+  - Coon
+  - Paki
+  - Pikey
+  - Wop
+  - Slut
+  - Cock
+  - Cuck
   placeholder_text: {fileID: 5978873594363993121}
   input_field: {fileID: 4081325800299674425}
+  exit_button: {fileID: 1654992190797963984}
 --- !u!1 &2958178103495069829
 GameObject:
   m_ObjectHideFlags: 0
@@ -706,7 +738,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5410145909606955861}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8326211812729342430}
+        m_TargetAssemblyTypeName: SealNamer, Assembly-CSharp
+        m_MethodName: BoxDeselected
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7560573904977755827
 MonoBehaviour:
   m_ObjectHideFlags: 0

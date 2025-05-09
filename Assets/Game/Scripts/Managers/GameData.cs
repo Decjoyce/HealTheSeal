@@ -32,6 +32,10 @@ public struct GameData_SealData
 
     public Seal[] player_seals;
 
+    public bool done_tutorial;
+
+    public string next_time_for_rescue;
+
     public void save_seal_data(Seal[] seals_to_save)
     {
         player_seals = seals_to_save;
