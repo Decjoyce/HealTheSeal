@@ -26,6 +26,10 @@ public class MainSceneController : MonoBehaviour
 
     [SerializeField] CameraScroll camera_scroll;
 
+
+    bool seal_is_rescuable;
+    [SerializeField] Animator alarm_system;
+
     void Start()
     {
         spawnButton.onClick.AddListener(() => GameManagement.instance.LoadScene("Beach_Scene")); //Prototype - changed from just spawning to moving to beach sceneM
@@ -49,22 +53,9 @@ public class MainSceneController : MonoBehaviour
         }
     }
 
-    private void OnEnable()
-    {
-        SealManager.OnSealNeedsRescue += SealIsRescuable;
-    }
-
-    private void OnDisable()
-    {
-        SealManager.OnSealNeedsRescue -= SealIsRescuable;
-    }
-
     void Update()
     {
-        if (!SealManager.Instance.isSealAvailableForRescue)
-        {
-            //spawnButton.GetComponent<Image>().sprite = normalSprite;
-        }
+        alarm_system.SetBool("alarm", SealManager.Instance.isSealAvailableForRescue);
     }
     
     void SpawnSeal()
@@ -110,11 +101,6 @@ public class MainSceneController : MonoBehaviour
             num_in_pool++;
             //Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_pool].position);
         }
-    }
-
-    public void SealIsRescuable()
-    {
-        rescue_text.SetActive(true);
     }
 
     public void OpenEnclosure(bool kennels)
