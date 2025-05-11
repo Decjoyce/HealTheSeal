@@ -19,9 +19,24 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] string text_ending;
     [SerializeField] float text_typespeed_01 = 0.5f, text_typespeed_02 = 2f;
 
+    public int current_difficulty;
+
+    [SerializeField] AudioSource quick_fix_for_audio;
+
+    public void PlaySource()
+    {
+        quick_fix_for_audio.Play();
+    }
+
     private void Start()
     {
         current_seal = SealManager.Instance.selectedSeal;
+
+        if (minigame_id == 0)
+            current_difficulty = current_seal.hungerTrait;
+        else
+            current_difficulty = current_seal.healthTrait;
+
         //SetupMinigame();
         InitGameOverStings();
     }
@@ -94,7 +109,10 @@ public class MinigameManager : MonoBehaviour
         gameover_screen.anim.Play("minigameover_start");
         yield return new WaitForSecondsRealtime(gameover_delay);
         gameover_screen.anim.Play("minigameover_end");
-        GameManagement.instance.LoadScene("SealDetailScene");
+        if(minigame_id == 1)
+            GameManagement.instance.LoadScene("SealDetailScene", transition_index: 3);
+        else
+            GameManagement.instance.LoadScene("SealDetailScene", transition_index: 4);
     }
 
     string[] gameover_stings = new string[6];

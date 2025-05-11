@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class SealDetailController : MonoBehaviour
 {
@@ -27,6 +28,10 @@ public class SealDetailController : MonoBehaviour
     public Button feedButton, healButton;
 
     Seal seal;
+
+    [SerializeField] Sprite[] timeout_heart, timeout_feed;
+
+    float total_time_dif_heal, total_time_dif_feed;
 
     void Start()
     {
@@ -114,6 +119,17 @@ public class SealDetailController : MonoBehaviour
         }
 
         backButton.onClick.AddListener(() => GameManagement.instance.LoadScene("HabitatScene")); //Prototype - 
+
+        if(!seal.can_feed)
+            total_time_dif_feed = (float) (System.DateTime.Parse(seal.next_time_feed) - System.DateTime.Parse(seal.last_time_fed)).TotalDays;
+
+        if (!seal.can_heal)
+            total_time_dif_heal = (float)(System.DateTime.Parse(seal.next_time_heal) - System.DateTime.Parse(seal.last_time_healed)).TotalDays;
+
+        if (!seal.can_feed)
+            StartCoroutine(CheckingHunger());
+        if (!seal.can_heal)
+            StartCoroutine(CheckingHealth());
     }
     
 
@@ -130,6 +146,113 @@ public class SealDetailController : MonoBehaviour
             healButton.interactable = true;
     }
 
+    IEnumerator CheckingHunger()
+    {
+        while (!seal.can_feed)
+        {
+            float time_diff_feed = (float)(System.DateTime.Parse(seal.next_time_feed) - System.DateTime.Now).TotalDays;
+            float time_dif_percent = (total_time_dif_feed - time_diff_feed) / total_time_dif_feed;
+
+            if (time_dif_percent > 0 && time_dif_percent <= 0.1)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[0];
+            }
+            else if (time_dif_percent > 0.1 && time_dif_percent <= 0.2)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[1];
+            }
+            else if (time_dif_percent > 0.2 && time_dif_percent <= 0.3)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[2];
+            }
+            else if (time_dif_percent > 0.3 && time_dif_percent <= 0.4)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[3];
+            }
+            else if (time_dif_percent > 0.4 && time_dif_percent <= 0.5)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[4];
+            }
+            else if (time_dif_percent > 0.5 && time_dif_percent <= 0.6)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[5];
+            }
+            else if (time_dif_percent > 0.6 && time_dif_percent <= 0.7)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[6];
+            }
+            else if (time_dif_percent > 0.7 && time_dif_percent <= 0.8)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[7];
+            }
+            else if (time_dif_percent > 0.8 && time_dif_percent <= 0.9)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[8];
+            }
+            else if (time_dif_percent > 0.9 && time_dif_percent <= 1)
+            {
+                feedButton.GetComponent<Image>().sprite = timeout_feed[9];
+            }
+
+            yield return new WaitForSeconds(1);
+        }
+        feedButton.GetComponent<Image>().sprite = timeout_feed[10];
+    }
+
+    IEnumerator CheckingHealth()
+    {
+        while (!seal.can_heal)
+        {
+            float time_diff_heal = (float) (System.DateTime.Parse(seal.next_time_heal) - System.DateTime.Now).TotalDays;
+            float time_dif_percent = (total_time_dif_heal - time_diff_heal) / total_time_dif_heal;
+
+            if (time_dif_percent > 0 && time_dif_percent <= 0.1)
+            {
+                Debug.Log("he");
+                healButton.GetComponent<Image>().sprite = timeout_heart[0];
+            }
+            else if (time_dif_percent > 0.1 && time_dif_percent <= 0.2)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[1];
+            }
+            else if (time_dif_percent > 0.2 && time_dif_percent <= 0.3)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[2];
+            }
+            else if (time_dif_percent > 0.3 && time_dif_percent <= 0.4)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[3];
+            }
+            else if (time_dif_percent > 0.4 && time_dif_percent <= 0.5)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[4];
+            }
+            else if (time_dif_percent > 0.5 && time_dif_percent <= 0.6)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[5];
+            }
+            else if (time_dif_percent > 0.6 && time_dif_percent <= 0.7)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[6];
+            }
+            else if (time_dif_percent > 0.7 && time_dif_percent <= 0.8)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[7];
+            }
+            else if (time_dif_percent > 0.8 && time_dif_percent <= 0.9)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[8];
+            }
+            else if (time_dif_percent > 0.9 && time_dif_percent <= 1)
+            {
+                healButton.GetComponent<Image>().sprite = timeout_heart[9];
+            }
+
+            yield return new WaitForSeconds(1);
+        }
+        healButton.GetComponent<Image>().sprite = timeout_heart[10];
+    }
+
     public void LoadMinigameScene(int mg_type) // 0 - Hunger, 1 - Health
     {
         int ranNum = Random.Range(0, 3);
@@ -138,13 +261,13 @@ public class SealDetailController : MonoBehaviour
             switch (ranNum)
             {
                 case 0:
-                    GameManagement.instance.LoadScene("MG_F_FlickFish");
+                    GameManagement.instance.LoadScene("MG_F_FlickFish", transition_index: 4);
                     break;
                 case 1:
-                    GameManagement.instance.LoadScene("MG_F_Iceblock");
+                    GameManagement.instance.LoadScene("MG_F_Iceblock", transition_index: 4);
                     break;
                 case 2:
-                    GameManagement.instance.LoadScene("MG_F_Snuffle");
+                    GameManagement.instance.LoadScene("MG_F_Snuffle", transition_index: 4);
                     break;
             }
         }
@@ -153,13 +276,13 @@ public class SealDetailController : MonoBehaviour
             switch (ranNum)
             {
                 case 0:
-                    GameManagement.instance.LoadScene("MG_H_Medicine");
+                    GameManagement.instance.LoadScene("MG_H_Medicine", transition_index: 3);
                     break;
                 case 1:
-                    GameManagement.instance.LoadScene("MG_H_Spray");
+                    GameManagement.instance.LoadScene("MG_H_Spray", transition_index: 3);
                     break;
                 case 2:
-                    GameManagement.instance.LoadScene("MG_H_Medicine"); // Change to new game
+                    GameManagement.instance.LoadScene("MG_H_Medicine", transition_index: 3); // Change to new game
                     break;
             }
         }

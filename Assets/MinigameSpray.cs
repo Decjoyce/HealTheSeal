@@ -14,10 +14,27 @@ public class MinigameSpray : MonoBehaviour
 
     [SerializeField] MinigameManager mg_manager;
 
+    [SerializeField] Transform point_01, point_02;
+
+    [SerializeField] float move_speed;
+
+    bool reverse_dir;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        switch (mg_manager.current_difficulty)
+        {
+            case 1:
+                move_speed = 4;
+                break;
+            case 2:
+                move_speed = 2;
+                break;
+            case 3:
+                move_speed = 1;
+                break;
+        }
     }
 
     // Update is called once per frame
@@ -30,6 +47,20 @@ public class MinigameSpray : MonoBehaviour
             Debug.Log("YO");
             seal_sprite.color = seal_spray_color;
             mg_manager.IncreaseScore(1);
+            gameover = true;
+        }
+
+        transform.position -= Vector3.up * move_speed * Time.deltaTime;
+
+            if (transform.position.y >= point_01.position.y && reverse_dir)
+        {
+            reverse_dir = false;
+            move_speed = -move_speed;
+        }
+        if (transform.position.y <= point_02.position.y && !reverse_dir)
+        {
+            reverse_dir = true;
+            move_speed = -move_speed;
         }
     }
 }

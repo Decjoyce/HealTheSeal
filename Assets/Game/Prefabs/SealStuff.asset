@@ -19,6 +19,7 @@ MonoBehaviour:
   g_medium_seal_sad: {fileID: 21300000, guid: 173be52b5afa78c4893f1edb9a8ba99f, type: 3}
   g_big_seal_normal: {fileID: 21300000, guid: 2444be065c4e3f84b9651fd217ef7d49, type: 3}
   g_big_seal_sad: {fileID: 21300000, guid: 1a67a109ff191964ab225c804a1d1f6b, type: 3}
+  g_big_seal_water: {fileID: 21300000, guid: bd49c6b404d0dac42808c88aa82f532c, type: 3}
   g_net_injury: {fileID: 21300000, guid: b55f5bbb229aaf44db0bdbd6f1bae49a, type: 3}
   g_flipper_injury: {fileID: 21300000, guid: 79f805ccae5c06540856b7a64540ad3e, type: 3}
   g_fishhook_injury: {fileID: 21300000, guid: 1c7eb31ce8f686d4f8dc605da11974bf, type: 3}

@@ -269,6 +269,8 @@ MonoBehaviour:
   text_ending: was HEALED
   text_typespeed_01: 0.5
   text_typespeed_02: 2
+  current_difficulty: 0
+  quick_fix_for_audio: {fileID: 1932839834}
 --- !u!1001 &191106108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1106,6 +1108,7 @@ MonoBehaviour:
   resetPos: {fileID: 1561666953}
   lookTime_max: 3.5
   lookTime_min: 0.5
+  telegraph: 0.5
   backAmount: 2
   speed: 50
   scale_change: 1
@@ -1296,19 +1299,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: transition_anims.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: 'transition_anims.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2074110055}
     - target: {fileID: 4411130429586030010, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
       propertyPath: m_Name
       value: SceneTransitioner
-      objectReference: {fileID: 0}
-    - target: {fileID: 4411130429586030010, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+--- !u!95 &2074110055 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6432851420486160724, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+  m_PrefabInstance: {fileID: 2074110053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

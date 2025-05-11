@@ -405,6 +405,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: start_transition
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: transition_anims.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: 'transition_anims.Array.data[3]'
+      value: 
+      objectReference: {fileID: 345554508}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: 'transition_anims.Array.data[4]'
+      value: 
+      objectReference: {fileID: 345554507}
     - target: {fileID: 4411130429586030010, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
       propertyPath: m_Name
       value: SceneTransitioner
@@ -414,6 +430,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+--- !u!95 &345554507 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4766285540434827090, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+  m_PrefabInstance: {fileID: 345554506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &345554508 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6432851420486160724, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+  m_PrefabInstance: {fileID: 345554506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &449869188
 GameObject:
   m_ObjectHideFlags: 0

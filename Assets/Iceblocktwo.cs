@@ -44,6 +44,19 @@ public class Iceblocktwo : MonoBehaviour
         rb2D = gameObject.GetComponent<Rigidbody2D>();
         col = gameObject.GetComponent<BoxCollider2D>();
 
+        switch (mg_manager.current_difficulty)
+        {
+            case 1:
+                sChange = -0.01f;
+                break;
+            case 2:
+                sChange = -0.025f;
+                break;
+            case 3:
+                sChange = -0.05f;
+                break;
+        }
+
     }
 
     // Update is called once per frame

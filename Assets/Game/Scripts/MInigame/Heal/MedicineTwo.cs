@@ -12,6 +12,8 @@ public class MedicineTwo : MonoBehaviour
     public float lookTime_max;
     public float lookTime_min;
 
+    public float telegraph = 0.5f;
+
     public float backAmount;
 
     bool can_move = true;
@@ -31,12 +33,29 @@ public class MedicineTwo : MonoBehaviour
 
     Vector3 og_scale;
 
+    AudioSource source;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
         StartCoroutine(Look());
         og_scale = sealImage.transform.localScale;
+
+        source = GetComponent<AudioSource>();
+
+        switch (mg_manager.current_difficulty)
+        {
+            case 1:
+                telegraph = 0.3f;
+                break;
+            case 2:
+                lookTime_min = 0.5f;
+                break;
+            case 3:
+                lookTime_min = 1f;
+                break;
+        }
     }
 
     private IEnumerator Look()
@@ -65,6 +84,11 @@ public class MedicineTwo : MonoBehaviour
         //No more looking
         can_move = true;
         StartCoroutine(Look());
+    }
+
+    public void MakeNoise()
+    {
+        source.Play();
     }
 
     // Update is called once per frame

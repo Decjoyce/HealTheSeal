@@ -15,4 +15,9 @@ public class SceneTransitioner : MonoBehaviour
         }
         instance = this;
     }
+
+    public void ActivateTran(int index)
+    {
+        transition_anims[index].transform.SetAsLastSibling();
+    }
 }

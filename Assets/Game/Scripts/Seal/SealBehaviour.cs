@@ -86,7 +86,7 @@ public class SealBehaviour : MonoBehaviour
         }
         else
         {
-            sr.sprite = SealManager.Instance.seal_stuff.g_big_seal_normal;
+            sr.sprite = SealManager.Instance.seal_stuff.g_big_seal_water;
             GetComponent<RectTransform>().sizeDelta = new Vector2(48, 32);
             //transform.localScale = Vector3.one * 5.5f;
         }

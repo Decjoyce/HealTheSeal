@@ -15,6 +15,7 @@ public class SO_SealStuff : ScriptableObject
 
     public Sprite g_big_seal_normal;
     public Sprite g_big_seal_sad;
+    public Sprite g_big_seal_water;
 
     public Sprite g_net_injury;
     public Sprite g_flipper_injury;

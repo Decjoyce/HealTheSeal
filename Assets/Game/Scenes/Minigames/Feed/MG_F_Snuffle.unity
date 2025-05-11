@@ -329,9 +329,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: start_transition
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: transition_anims.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: 'transition_anims.Array.data[3]'
+      value: 
+      objectReference: {fileID: 19270453}
+    - target: {fileID: 2407747494738879814, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: 'transition_anims.Array.data[4]'
+      value: 
+      objectReference: {fileID: 19270452}
     - target: {fileID: 4411130429586030010, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
       propertyPath: m_Name
       value: SceneTransitioner
+      objectReference: {fileID: 0}
+    - target: {fileID: 4411130429586030010, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5919703416666153474, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
       propertyPath: m_IsActive
@@ -342,6 +362,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+--- !u!95 &19270452 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4766285540434827090, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+  m_PrefabInstance: {fileID: 19270451}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &19270453 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6432851420486160724, guid: 6d06aead5bc01fe4a8ce9db07634b0a4, type: 3}
+  m_PrefabInstance: {fileID: 19270451}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &82245927
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,7 +772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: -269}
+  m_AnchoredPosition: {x: -150, y: -147.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258235888
@@ -1598,8 +1628,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -119}
-  m_SizeDelta: {x: 600, y: 600}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655678385
 MonoBehaviour:
@@ -3128,6 +3158,7 @@ MonoBehaviour:
   text_ending: was FED
   text_typespeed_01: 0.5
   text_typespeed_02: 2
+  current_difficulty: 0
 --- !u!4 &1796931741
 Transform:
   m_ObjectHideFlags: 0

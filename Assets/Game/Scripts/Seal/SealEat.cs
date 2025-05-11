@@ -25,6 +25,18 @@ public class SealEat : MonoBehaviour
         score.text = ""; //Prototype
         anim = GetComponent<Animator>(); //Prototype
         source = GetComponent<AudioSource>(); //Prototype
+        switch (mg_manager.current_difficulty)
+        {
+            case 1:
+                mg_manager.win_score = 8;
+                break;
+            case 2:
+                mg_manager.win_score = 6;
+                break;
+            case 3:
+                mg_manager.win_score = 4;
+                break;
+        }
     }
 
     // Update is called once per frame

@@ -9,10 +9,25 @@ public class SnuffleBoard : MonoBehaviour
 
     void Start()
     {
-        int max = Random.Range(2, 8);
-        Debug.Log(max);
+        int max = Random.Range(4, 8);
+        switch (mg_manager.current_difficulty)
+        {
+            case 1:
+                max = Random.Range(6, 9);
+                Debug.LogWarning("HighDifficulty");
+                break;
+            case 2:
+                Debug.LogWarning("MEDDIFFICAULY");
+                max = Random.Range(2, 6);
+                break;
+            case 3:
+                Debug.LogWarning("LowDifficulty");
+                max = Random.Range(1, 3);
+                break;
+        }
+
         mg_manager.ChangeWinScore(max);
-        int count = 0;
+        Debug.LogWarning(max);
         for (int x = 0; x < 3; x++)
         {
             for (int y = 0; y < 3; y++)
@@ -21,7 +36,7 @@ public class SnuffleBoard : MonoBehaviour
                 int i = (x * 3) + y;
                 if ((spawn == 0 && max >0)|| (max+i) >=9)
                 {
-                    
+                    Debug.LogWarning("POP");
                     Vector3 pos = new Vector3(150 * x, 150 * y, 0);
                     pos = transform.localPosition + pos;
                     GameObject fish = Instantiate(fishPrefab, transform.position, transform.rotation, transform.parent);

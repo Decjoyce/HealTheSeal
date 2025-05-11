@@ -16,6 +16,8 @@ public class TEMPSealButton : MonoBehaviour
 
     [SerializeField] GameObject[] injuries;
 
+    [SerializeField] GameObject info_box;
+
     void Start()
     {
         if (!isBackButton)
@@ -64,6 +66,7 @@ public class TEMPSealButton : MonoBehaviour
             // Seal is healthy; animate off-screen or hide clearly
             StartCoroutine(MoveSealOffScreen());
             SealManager.Instance.isSealAvailableForRescue = false; // no longer available
+            info_box.SetActive(true);
         }
     }
 

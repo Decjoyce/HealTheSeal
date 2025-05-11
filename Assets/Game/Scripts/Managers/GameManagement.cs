@@ -35,6 +35,7 @@ public class GameManagement : MonoBehaviour
     public bool is_transitioning { get; private set; }
     [SerializeField] Animator[] transition_animators;
     Coroutine current_loadscene_coroutine;
+    public int current_trans = 0;
 
 
     private void Awake()
@@ -150,6 +151,7 @@ public class GameManagement : MonoBehaviour
     public IEnumerator LoadSceneCoroutine(string scene_name = "", int index = -1, int transition_index = 0)
     {
         Animator tran_anim = SceneTransitioner.instance.transition_anims[transition_index];
+        current_trans = transition_index;
         tran_anim.SetTrigger("START");
 
         AnimatorClipInfo anim_info = tran_anim.GetCurrentAnimatorClipInfo(0)[0];
@@ -170,6 +172,10 @@ public class GameManagement : MonoBehaviour
             yield break;
         }
         GameData.instance.SaveAllData();
+
+        yield return null;
+
+        SceneTransitioner.instance.ActivateTran(transition_index);
 
     }
 
