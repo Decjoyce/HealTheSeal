@@ -970,7 +970,7 @@ MonoBehaviour:
     minigame_play_amount: 0
     minigame_feed_amount: 0
     minigame_heal_amount: 0
-  rest_data_on_load: 0
+  rest_data_on_load: 1
 --- !u!1 &3481499531958077733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1667,7 @@ MonoBehaviour:
   all_weekly_activities:
   - {fileID: 11400000, guid: a854c9d30997ef441b99dc48836b8430, type: 2}
   transition_animators: []
+  current_trans: 0
 --- !u!1 &6815157966977140900
 GameObject:
   m_ObjectHideFlags: 0

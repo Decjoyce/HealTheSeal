@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SealBehaviour : MonoBehaviour
 {
     public Seal sealData;
-    TextMeshProUGUI text_name; //Prototype
+    public TextMeshProUGUI text_name; //Prototype
 
     public Vector2 lowHPPosition;    // for HP: 0–30
     public Vector2 midHPPosition;    // for HP: 31–60
@@ -16,7 +16,7 @@ public class SealBehaviour : MonoBehaviour
 
     private void Start()
     {
-        text_name = GetComponentInChildren<TextMeshProUGUI>(); //Prototype
+        //text_name = GetComponentInChildren<TextMeshProUGUI>(); //Prototype
         text_name.text = sealData.seal_name; //Prototype
 
         previousHealth = (int)sealData.health;

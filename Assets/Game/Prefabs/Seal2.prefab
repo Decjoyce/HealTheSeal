@@ -113,6 +113,7 @@ MonoBehaviour:
       secondary: {r: 0, g: 0, b: 0, a: 0}
       tertiary: {r: 0, g: 0, b: 0, a: 0}
       quatiary: {r: 0, g: 0, b: 0, a: 0}
+  text_name: {fileID: 1346062385277726717}
   lowHPPosition: {x: 0, y: 2}
   midHPPosition: {x: 0, y: -8}
   highHPPosition: {x: 0, y: -15}

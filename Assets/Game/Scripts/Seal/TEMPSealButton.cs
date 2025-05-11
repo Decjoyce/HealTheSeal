@@ -84,6 +84,7 @@ public class TEMPSealButton : MonoBehaviour
         }
 
         gameObject.SetActive(false); // finally hide button
+        SealManager.Instance.ScheduleSealToBeRescuedTime();
     }
 
     void GoBack()

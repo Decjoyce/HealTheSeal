@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class MainSceneController : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class MainSceneController : MonoBehaviour
     public Transform main_canvas, other_canvas;
 
     [SerializeField] Transform[] icu_zones, kennel_zones, pool_zones;
+    [SerializeField] TextMeshProUGUI[] icu_nametags, kennel_nametags;
 
     int num_in_icu, num_in_kennels, num_in_pool;
 
@@ -83,22 +85,28 @@ public class MainSceneController : MonoBehaviour
         if (sb.sealData.hunger <= 30)
         {
             sealObj.transform.SetParent(icu_zones[num_in_icu], false);
-            sealObj.transform.localPosition = Vector2.zero + (Vector2.up * -42f);
-            sealObj.transform.localScale = Vector3.one * 4.25f;
+            icu_nametags[num_in_icu].text = sb.sealData.seal_name;
+            sealObj.transform.localPosition = Vector2.zero + (Vector2.up * -85f);
+            sealObj.transform.localScale = Vector3.one * 8.25f;
+            sb.text_name.gameObject.SetActive(false);
             num_in_icu++;
             //Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_icu].position);
         }
         else if (sb.sealData.hunger > 30 && sb.sealData.hunger <= 70)
         {
             sealObj.transform.SetParent(kennel_zones[num_in_kennels]);
-            sealObj.transform.localPosition = Vector2.zero + (Vector2.up * -42f);
-            sealObj.transform.localScale = Vector3.one * 4f;
+            kennel_nametags[num_in_kennels].text = sb.sealData.seal_name;
+            sealObj.transform.localPosition = Vector2.zero + (Vector2.up * -120f);
+            sealObj.transform.localScale = Vector3.one * 6f;
             num_in_kennels++;
+            sb.text_name.gameObject.SetActive(false);
         }
         else
         {
             sealObj.transform.position = pool_zones[num_in_pool].position;
             num_in_pool++;
+            sb.text_name.gameObject.SetActive(true);
+
             //Debug.Log(sealObj.transform.position + " / " + icu_zones[num_in_pool].position);
         }
     }

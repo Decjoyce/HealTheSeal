@@ -14,6 +14,8 @@ public class SprayCan : MonoBehaviour
 
     [SerializeField] bool for_mg;
 
+    [SerializeField] float height_cutoff = 250f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,14 +39,15 @@ public class SprayCan : MonoBehaviour
             {
                 Quaternion spawnRotation = Quaternion.Euler(0, 0, (Random.Range(0, 359f)));
                 GameObject _spray = Instantiate(_sprayPrefab, transform.position, spawnRotation, transform.parent);
+                _spray.transform.SetSiblingIndex(transform.GetSiblingIndex() -1);
                 sprayTime = Time.time + sprayRate;
             }
         }
-        if(mousePos2.y >= 250f)
+        if(mousePos2.y >= height_cutoff)
         {
             spray = false;
         }
-        else if (mousePos2.y <= 250f)
+        else if (mousePos2.y <= height_cutoff)
         {
             spray = true;
         }

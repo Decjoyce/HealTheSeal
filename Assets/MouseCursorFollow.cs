@@ -5,6 +5,8 @@ public class MouseCursorFollow : MonoBehaviour
     Vector3 mousePos;
     Vector3 mousePos2;
 
+    [SerializeField] float offset;
+
     // Update is called once per frame
     void Update()
     {
@@ -12,6 +14,6 @@ public class MouseCursorFollow : MonoBehaviour
         mousePos.x = mousePos.x - Screen.width / 2;
         mousePos.y = mousePos.y - Screen.height / 2;
         mousePos2 = mousePos / GetComponentInParent<Canvas>().scaleFactor;
-        transform.localPosition = mousePos2;
+        transform.localPosition = mousePos2 - Vector3.up * -offset;
     }
 }

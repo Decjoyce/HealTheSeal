@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7705088474025333066, guid: ad6cb124f15d50640be1861ef57ea9d0, type: 3}
+  m_Sprite: {fileID: -4019669660652048789, guid: 04a9ec37f3a69c94bb261796433678f6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1113,6 +1113,7 @@ MonoBehaviour:
   sprayRate: 0.2
   spray: 0
   for_mg: 1
+  height_cutoff: 50000
 --- !u!58 &1856033052
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1202,6 +1203,7 @@ MonoBehaviour:
   text_typespeed_01: 0.5
   text_typespeed_02: 2
   current_difficulty: 0
+  quick_fix_for_audio: {fileID: 0}
 --- !u!1 &2081837277
 GameObject:
   m_ObjectHideFlags: 0
