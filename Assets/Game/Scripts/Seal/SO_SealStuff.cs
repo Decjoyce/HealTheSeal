@@ -24,6 +24,8 @@ public class SO_SealStuff : ScriptableObject
 
     public ColourScheme_Seal[] colour_schemes;
 
+    public AudioClip[] clips;
+
     public Sprite GetInjuryGraphics(int injury_index) //0-No injury, 1-Net entanglement, 2-flipper, 3-Fishhook, 4-Cold, 5-Orphaned
     {
         switch (injury_index)
@@ -51,6 +53,11 @@ public class SO_SealStuff : ScriptableObject
 
 
         return colour_schemes[Random.Range(0, colour_schemes.Length)];
+    }
+
+    public AudioClip GetRandomSealSound()
+    {
+        return clips[Random.Range(0, clips.Length)];
     }
 
 }

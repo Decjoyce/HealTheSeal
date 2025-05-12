@@ -45,6 +45,10 @@ public class TutorialHabitat : MonoBehaviour
         GameManagement.instance.tutorial = false;
         scrol.can_scroll = true;
         Destroy(gameObject);
+        GameManagement.instance.tutorial = false;
+        GameManagement.instance.first_time = false;
+        GameData.instance.gd_sealdata.done_tutorial = true;
+        GameData.instance.SaveAllData();
     }
 
     private void Update()

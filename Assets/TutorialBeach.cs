@@ -10,7 +10,7 @@ public class TutorialBeach : MonoBehaviour
 
     private void Start()
     {
-        if (!GameManagement.instance.first_time)
+        if (!GameManagement.instance.first_time || !GameManagement.instance.tutorial || GameData.instance.gd_sealdata.done_tutorial)
             Destroy(gameObject);
         else
             back_button.gameObject.SetActive(false);

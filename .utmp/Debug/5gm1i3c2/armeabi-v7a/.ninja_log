@@ -1,12 +1,23 @@
 # ninja log v5
 360	674	7687028436043388	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	b8ddbd8695e96784
+287	2829	7687028456990967	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	853ca6c4f2eebd9
 676	1803	7687028446180437	D:/UnityProjects/College/Year3/GroupProject/HealTheSeal/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/5gm1i3c2/obj/armeabi-v7a/libswappywrapper.so	ad7963fdd1f67848
 296	2338	7687028452626268	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4a0711b6145b64fe
-1	2390	7687028453245494	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	790ce5f84df57b43
-277	2445	7687028453811963	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e25d1705945159c6
 343	2479	7687028454178452	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	659244fd0e9b8b4c
+1	2390	7687028453245494	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	790ce5f84df57b43
 330	2515	7687028454409785	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	742eb4321e5e7d56
+277	2445	7687028453811963	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e25d1705945159c6
 306	2542	7687028454563794	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ad0aeeb5dfccc9a9
-287	2829	7687028456990967	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	853ca6c4f2eebd9
 317	2904	7687028457741782	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	6e58a28c08bc4133
 2904	3945	7687028468537191	D:/UnityProjects/College/Year3/GroupProject/HealTheSeal/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/5gm1i3c2/obj/armeabi-v7a/libgame.so	51033b2f49ec1ab6
+258	383	7687762108105628	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	b8ddbd8695e96784
+383	712	7687762111365431	D:/UnityProjects/College/Year3/GroupProject/HealTheSeal/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/5gm1i3c2/obj/armeabi-v7a/libswappywrapper.so	ad7963fdd1f67848
+4	851	7687762112753637	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	4a0711b6145b64fe
+212	871	7687762112936630	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	790ce5f84df57b43
+230	878	7687762113031271	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	ad0aeeb5dfccc9a9
+243	916	7687762113450075	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	742eb4321e5e7d56
+251	918	7687762113435034	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	659244fd0e9b8b4c
+224	943	7687762113698118	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	e25d1705945159c6
+237	984	7687762114099636	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	6e58a28c08bc4133
+218	1027	7687762114519168	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	853ca6c4f2eebd9
+1027	1479	7687762119041495	D:/UnityProjects/College/Year3/GroupProject/HealTheSeal/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/Debug/5gm1i3c2/obj/armeabi-v7a/libgame.so	51033b2f49ec1ab6

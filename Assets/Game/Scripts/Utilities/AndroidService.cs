@@ -1,5 +1,5 @@
 using System.Collections;
-//using Unity.Notifications.Android;
+using Unity.Notifications.Android;
 using UnityEngine;
 
 public class AndroidService : MonoBehaviour
@@ -18,7 +18,7 @@ public class AndroidService : MonoBehaviour
         }
         instance = this;
     }
-/*
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -65,19 +65,36 @@ public class AndroidService : MonoBehaviour
 
     public void QueueNotification_Seal(Seal seal, notif_types notification_type, string delay)
     {
-        var notification = new AndroidNotification();
+        if (AndroidNotificationCenter.GetNotificationChannel("channel_id").Group.Length <= 4)
+        {
+            var notification = new AndroidNotification();
 
-        if (notification_type == notif_types.heal)
-            notification.Title = ConvertNotification_Title(notification_type);
+            if (notification_type == notif_types.rescue)
+                notification.Title = ConvertNotification_Title(notification_type);
+            else
+                notification.Title = seal.seal_name + ":";
+
+            notification.Text = ConvertNotification_Text(notification_type);
+            notification.SmallIcon = ConvertNotification_Icon(notification_type);
+            notification.FireTime = System.DateTime.Parse(delay);
+            notification.Color = ConvertNotification_Color(notification_type);
+
+            AndroidNotificationCenter.SendNotification(notification, "channel_id");
+        }
         else
-            notification.Title = seal.seal_name + ":";
+        {
+            var notification = new AndroidNotification();
 
-        notification.Text = ConvertNotification_Text(notification_type);
-        notification.SmallIcon = ConvertNotification_Icon(notification_type);
-        notification.FireTime = System.DateTime.Parse(delay);
-        notification.Color = ConvertNotification_Color(notification_type);
+            notification.Title = "Heal The Seal";
 
-        AndroidNotificationCenter.SendNotification(notification, "channel_id");
+            notification.Text = "The seals require your attention!";
+            notification.SmallIcon = ConvertNotification_Icon(notification_type);
+            notification.FireTime = System.DateTime.Parse(delay);
+            notification.Color = ConvertNotification_Color(notification_type);
+
+            AndroidNotificationCenter.SendNotification(notification, "channel_id");
+        }
+
     }
 
     public void QueueNotification_BigPicture(Seal seal, notif_types notification_type, float delay)
@@ -117,11 +134,11 @@ public class AndroidService : MonoBehaviour
         switch (notification_type)
         {
             case notif_types.feed:
-                return "I'm hungry!";
+                return feed_stuff[Random.Range(0, feed_stuff.Length)];
             case notif_types.heal:
-                return "I'm ready for my medicine!";
+                return heal_stuff[Random.Range(0, heal_stuff.Length)];
             case notif_types.rescue:
-                return "A seal needs rescuing!!";
+                return rescue_stuff[Random.Range(0, heal_stuff.Length)];
             case notif_types.release:
                 return "I'm ready to go home.";
             default:
@@ -179,7 +196,11 @@ public class AndroidService : MonoBehaviour
             default:
                 return notif_types.release;
         }
-    }*/
+    }
+
+    string[] feed_stuff = { "I'm Hungry!", "Mmmmmm... Fish", "I could sure go for some fish right about now.", "Feeding Time!" };
+    string[] heal_stuff = { "Time for my bubble bath appointment!", "I'm ready for my medicine.", "I'm ready for my check up."};
+    string[] rescue_stuff = { "Quick! A seal is in trouble!!", "A seal needs rescuing!", "A seal needs your help!" };
 }
 
 public enum notif_types

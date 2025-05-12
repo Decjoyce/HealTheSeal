@@ -14,12 +14,20 @@ public class TEMPSealButton : MonoBehaviour
     public Sprite antibioticsSprite;
     public Sprite healthySprite;*/
 
+    Button me2;
+
     [SerializeField] GameObject[] injuries;
 
     [SerializeField] GameObject info_box;
 
+    [SerializeField] GameObject friends;
+
+    Image me;
+
     void Start()
     {
+        me = GetComponent<Image>();
+        me2 = GetComponent<Button>();
         if (!isBackButton)
         {
             bool available = SealManager.Instance.isSealAvailableForRescue;
@@ -38,8 +46,22 @@ public class TEMPSealButton : MonoBehaviour
     }
     void SetCorrectSprite()
     {
-        if(SealManager.Instance.currentSealInjury != 0)
-        injuries[SealManager.Instance.currentSealInjury - 1].SetActive(true);
+        if (SealManager.Instance.currentSealInjury != 0)
+            injuries[SealManager.Instance.currentSealInjury - 1].SetActive(true);
+        else
+        {
+            friends.SetActive(true);
+            int ri = Random.Range(0, 3);
+            if (ri == 0)
+                me.sprite = SealManager.Instance.seal_stuff.g_small_seal_normal;
+            if (ri == 1)
+                me.sprite = SealManager.Instance.seal_stuff.g_medium_seal_normal;
+            if (ri == 2)
+            {
+                me.sprite = SealManager.Instance.seal_stuff.g_big_seal_normal;
+                GetComponent<RectTransform>().sizeDelta = new Vector2(48, 32);
+            }
+        }
     }
 
     void GiveMeDaSeal()
@@ -64,8 +86,10 @@ public class TEMPSealButton : MonoBehaviour
         else
         {
             // Seal is healthy; animate off-screen or hide clearly
-            StartCoroutine(MoveSealOffScreen());
+            //StartCoroutine(MoveSealOffScreen());
             SealManager.Instance.isSealAvailableForRescue = false; // no longer available
+            SealManager.Instance.ScheduleSealToBeRescuedTime();
+            me2.interactable = false;
             info_box.SetActive(true);
         }
 

@@ -84,9 +84,16 @@ public class MainSceneController : MonoBehaviour
         }
     }
 
+    bool yomomma;
+    [SerializeField] AudioSource alarm_sound;
     void Update()
     {
         alarm_system.SetBool("alarm", SealManager.Instance.isSealAvailableForRescue);
+        if (SealManager.Instance.isSealAvailableForRescue && !yomomma)
+        {
+            alarm_sound.Play();
+            yomomma = true;
+        }
     }
     
     void SpawnSeal()

@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,14 +15,22 @@ public class SealBehaviour : MonoBehaviour
 
     private int previousHealth;
 
+    AudioSource source;
+
+
+    [SerializeField]SO_SealStuff sealstuff;
+
     private void Start()
     {
         //text_name = GetComponentInChildren<TextMeshProUGUI>(); //Prototype
         text_name.text = sealData.seal_name; //Prototype
 
+        source = GetComponent<AudioSource>();
+
         previousHealth = (int)sealData.health;
         //UpdateSealPosition();
         UpdateSealGraphics();
+        PlaySealSound();
     }
 
     public void SetSealData(Seal seal)
@@ -47,9 +56,22 @@ public class SealBehaviour : MonoBehaviour
         }
     }
 
+    void PlaySealSound()
+    {
+        StartCoroutine(PlaySealSoundReal());
+    }
+
+    IEnumerator PlaySealSoundReal()
+    {
+        yield return new WaitForSecondsRealtime(Random.Range(0, 3f));
+        source.pitch = Random.Range(0.8f, 1.2f);
+        source.PlayOneShot(sealstuff.GetRandomSealSound());
+    }
+
     public void SealClicked()
     {
         Debug.Log("Hey2");
+        PlaySealSound();
         if (sealData.health >= 100f && sealData.hunger >= 100f)
         {
             // Seal ready to release!

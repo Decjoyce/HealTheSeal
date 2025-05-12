@@ -71,6 +71,7 @@ public class SealManager : MonoBehaviour
         {
             float ran_delay = Random.Range(rescue_delay_min, rescue_delay_max);
             next_time_to_rescue_seal = System.DateTime.Now.AddMinutes(ran_delay);
+            AndroidService.instance.QueueNotification_Seal(null, notif_types.rescue, System.DateTime.Now.AddMinutes(ran_delay).ToString());
             GameData.instance.gd_sealdata.next_time_for_rescue = next_time_to_rescue_seal.ToString();
             Debug.LogWarning("Seal Scheduled For Rescue = " + System.DateTime.Now.AddMinutes(ran_delay).ToString());
         }
