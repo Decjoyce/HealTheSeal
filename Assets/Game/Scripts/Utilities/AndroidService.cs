@@ -1,5 +1,5 @@
 using System.Collections;
-using Unity.Notifications.Android;
+//using Unity.Notifications.Android;
 using UnityEngine;
 
 public class AndroidService : MonoBehaviour
@@ -18,7 +18,7 @@ public class AndroidService : MonoBehaviour
         }
         instance = this;
     }
-
+/*
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -179,7 +179,7 @@ public class AndroidService : MonoBehaviour
             default:
                 return notif_types.release;
         }
-    }
+    }*/
 }
 
 public enum notif_types
