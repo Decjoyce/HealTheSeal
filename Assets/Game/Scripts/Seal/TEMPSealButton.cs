@@ -68,6 +68,7 @@ public class TEMPSealButton : MonoBehaviour
             SealManager.Instance.isSealAvailableForRescue = false; // no longer available
             info_box.SetActive(true);
         }
+
     }
 
     IEnumerator MoveSealOffScreen()

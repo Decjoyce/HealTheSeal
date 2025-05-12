@@ -32,9 +32,13 @@ public class MainSceneController : MonoBehaviour
     bool seal_is_rescuable;
     [SerializeField] Animator alarm_system;
 
+    [SerializeField] GameObject info_icu, info_kennel, info_habitat;
+
+    [SerializeField] TutorialHabitat tutsy;
+
     void Start()
     {
-        spawnButton.onClick.AddListener(() => GameManagement.instance.LoadScene("Beach_Scene")); //Prototype - changed from just spawning to moving to beach sceneM
+        spawnButton.onClick.AddListener(() => BeachButtonActivate()); //Prototype - changed from just spawning to moving to beach sceneM
 
         num_in_icu = 0;
         num_in_kennels = 0;
@@ -48,11 +52,25 @@ public class MainSceneController : MonoBehaviour
             zone_kennel.SetActive(kennels_open);
         }
 
+        if (kennels_open)
+            GameManagement.instance.current_info = info_kennel;
+        if (icu_open)
+            GameManagement.instance.current_info = info_icu;
+        if (!icu_open && !kennels_open)
+            GameManagement.instance.current_info = info_habitat;
+
         // Recreate previously existing seals
         foreach (Seal seal in SealManager.Instance.seals)
         {
             SpawnSealVisual(seal);
         }
+    }
+
+    public void BeachButtonActivate()
+    {
+        GameManagement.instance.LoadScene("Beach_Scene");
+        if (GameManagement.instance.tutorial)
+            GameManagement.instance.tutorial_index++;
     }
 
     void Update()
@@ -119,6 +137,8 @@ public class MainSceneController : MonoBehaviour
         camera_scroll.enabled = false;
         kennels_open = kennels;
         icu_open = !kennels;
+        if (GameManagement.instance.tutorial && !kennels)
+            tutsy.ClickedOnICU();
     }
     public void CloseEnclosure()
     {
@@ -128,5 +148,10 @@ public class MainSceneController : MonoBehaviour
         camera_scroll.enabled = true;
         kennels_open = false;
         icu_open = false;
+    }
+
+    public void OpenLinkToWebsite()
+    {
+        Application.OpenURL("https://www.sealrescueireland.org/");
     }
 }

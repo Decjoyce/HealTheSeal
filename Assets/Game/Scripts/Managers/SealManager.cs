@@ -43,12 +43,16 @@ public class SealManager : MonoBehaviour
 
     private void Start()
     {
-        CheckSealAvailability();
+        if(GameData.instance.gd_sealdata.done_tutorial)
+            CheckSealAvailability();
     }
 
     private void Update()
     {
-        CheckSealAvailability();
+        if (!GameManagement.instance.tutorial)
+            CheckSealAvailability();
+        else
+            Tutorial_CheckSealAvailability();
     }
 
     public void SetSealAvailable(bool status)
@@ -69,6 +73,20 @@ public class SealManager : MonoBehaviour
             next_time_to_rescue_seal = System.DateTime.Now.AddHours(ran_delay);
             GameData.instance.gd_sealdata.next_time_for_rescue = next_time_to_rescue_seal.ToString();
             Debug.LogWarning("Seal Scheduled For Rescue = " + System.DateTime.Now.AddHours(ran_delay).ToString());
+        }
+        else
+        {
+            Debug.LogWarning("REACHED LIMIT");
+        }
+    }
+
+    public void Tutorial_ScheduleSealToBeRescuedTime()
+    {
+        if (seals.Count < seal_limit)
+        {
+            next_time_to_rescue_seal = System.DateTime.Now.AddSeconds(2f);
+            GameData.instance.gd_sealdata.next_time_for_rescue = next_time_to_rescue_seal.ToString();
+            Debug.LogWarning("Seal Scheduled For Rescue = " + System.DateTime.Now.AddSeconds(2f).ToString());
         }
         else
         {
@@ -103,6 +121,17 @@ public class SealManager : MonoBehaviour
         if(seals.Count < seal_limit && System.DateTime.Now >= next_time_to_rescue_seal && !isSealAvailableForRescue)
         {
             SetSealAvailable(true);
+            Debug.LogWarning("Seal is Ready to be rescued: " + System.DateTime.Now.ToString());
+        }
+    }
+
+    void Tutorial_CheckSealAvailability()
+    {
+        if (GameManagement.instance.tutorial_index == 8 && !isSealAvailableForRescue)
+        {
+            isSealAvailableForRescue = true;
+            currentSealInjury = 2;
+            currentSealNeedsRescue = true;
             Debug.LogWarning("Seal is Ready to be rescued: " + System.DateTime.Now.ToString());
         }
     }

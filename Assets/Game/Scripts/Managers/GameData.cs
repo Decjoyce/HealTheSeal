@@ -282,6 +282,7 @@ public class GameData : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        SaveAllData();
+        if (!GameManagement.instance.tutorial)
+            SaveAllData();
     }
 }

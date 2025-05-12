@@ -14,7 +14,11 @@ public class GameManagement : MonoBehaviour
     public bool dev_mode; //{ get; private set; }
     public bool is_pc;
 
-    public bool first_time;
+    public bool first_time = true;
+
+    public bool tutorial;
+
+    public int tutorial_index = 1;
 
     [SerializeField] AndroidService am;
     [SerializeField] SealManager sm;
@@ -37,6 +41,22 @@ public class GameManagement : MonoBehaviour
     Coroutine current_loadscene_coroutine;
     public int current_trans = 0;
 
+    public GameObject current_info;
+
+    public void OpenCurrentInfoBox()
+    {
+        current_info.SetActive(true);
+        for(int i = 0; i < current_info.transform.parent.childCount; i++)
+        {
+            if (i != 1)
+                current_info.transform.parent.GetChild(i).gameObject.SetActive(false);
+        }
+    }
+
+    public void BeginTutorial()
+    {
+        tutorial = true;
+    }
 
     private void Awake()
     {
@@ -48,6 +68,11 @@ public class GameManagement : MonoBehaviour
         }
         instance = this;
         is_pc = !Application.isMobilePlatform;
+        if (gd.gd_sealdata.done_tutorial)
+        {
+            tutorial = false;
+            first_time = false;
+        }
     }
 
     public void EnterDebugMode()
@@ -171,7 +196,9 @@ public class GameManagement : MonoBehaviour
             Debug.LogWarning("Scene Name: " + scene_name + " | Scene Index: " + index + " does not exist");
             yield break;
         }
-        GameData.instance.SaveAllData();
+
+        if(!tutorial)
+            GameData.instance.SaveAllData();
 
         yield return null;
 

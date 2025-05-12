@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Stiliyan stuff/SealDetailScene.unity
     guid: 5ebf20a3fb93ee94bbe62c5601bca0da
-  - enabled: 1
+  - enabled: 0
     path: Assets/Game/StartScene.unity
     guid: d238a07d70151014292f67d1f95be115
   - enabled: 1
