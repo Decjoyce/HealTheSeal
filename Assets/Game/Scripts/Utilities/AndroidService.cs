@@ -117,9 +117,9 @@ public class AndroidService : MonoBehaviour
         switch (notification_type)
         {
             case notif_types.feed:
-                return "I'm hungry! :<{";
+                return "I'm hungry!";
             case notif_types.heal:
-                return "I'm ready for my treatment! :<{";
+                return "I'm ready for my medicine!";
             case notif_types.rescue:
                 return "A seal needs rescuing!!";
             case notif_types.release:

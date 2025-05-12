@@ -124,6 +124,11 @@ public class GameData : MonoBehaviour
             {
                 SealManager.Instance.seals = gd_sealdata.player_seals.ToList();
                 GameManagement.instance.SetupSchedule();
+                if (gd_sealdata.done_tutorial)
+                {
+                    GameManagement.instance.first_time = false;
+                    GameManagement.instance.tutorial = false;
+                }
             }
              
 

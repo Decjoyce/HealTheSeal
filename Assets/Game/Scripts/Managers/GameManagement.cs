@@ -68,11 +68,6 @@ public class GameManagement : MonoBehaviour
         }
         instance = this;
         is_pc = !Application.isMobilePlatform;
-        if (gd.gd_sealdata.done_tutorial)
-        {
-            tutorial = false;
-            first_time = false;
-        }
     }
 
     public void EnterDebugMode()
@@ -84,7 +79,11 @@ public class GameManagement : MonoBehaviour
     void Start()
     {
         PickWeeklyActivity();
-
+        if (gd.gd_sealdata.done_tutorial)
+        {
+            tutorial = false;
+            first_time = false;
+        }
     }
 
     // Update is called once per frame

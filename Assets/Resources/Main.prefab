@@ -1179,7 +1179,7 @@ MonoBehaviour:
     minigame_play_amount: 0
     minigame_feed_amount: 0
     minigame_heal_amount: 0
-  rest_data_on_load: 1
+  rest_data_on_load: 0
 --- !u!1 &3481499531958077733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1404,8 +1404,8 @@ MonoBehaviour:
   isSealAvailableForRescue: 0
   currentSealNeedsRescue: 0
   currentSealInjury: 0
-  rescue_delay_min: 0.005
-  rescue_delay_max: 0.005
+  rescue_delay_min: 0.5
+  rescue_delay_max: 2
   seal_stuff: {fileID: 11400000, guid: 2f09d7f2f4bff9b45ac642c6529b9a31, type: 2}
 --- !u!1 &5037744298081834650
 GameObject:
@@ -1873,8 +1873,8 @@ MonoBehaviour:
   gd: {fileID: 8929445321135946657}
   seal_feed_schedules: []
   seal_heal_schedules: []
-  feed_delay: 0.01
-  heal_delay: 0.01
+  feed_delay: 1
+  heal_delay: 1
   all_weekly_activities:
   - {fileID: 11400000, guid: a854c9d30997ef441b99dc48836b8430, type: 2}
   transition_animators: []

@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Playstation0030_0: 291200470631100650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

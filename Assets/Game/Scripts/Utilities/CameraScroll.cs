@@ -24,16 +24,29 @@ public class CameraScroll : MonoBehaviour
 
     [SerializeField] Camera cma;
 
+    [SerializeField] Canvas ca;
+
     private void Start()
     {
         transform.position = saved_pos;
-        can_scroll = !GameManagement.instance.first_time;
+        if (GameManagement.instance.first_time)
+            can_scroll = false;
+        else
+            can_scroll = true;
     }
 
     void Update()
     {
         if (!can_scroll)
             return;
+
+        if (ca.pixelRect.width / ca.pixelRect.height <= 0.51)
+        {
+            is_189 = true;
+        }
+        else if (ca.pixelRect.width / ca.pixelRect.height >= 0.55)
+            is_189 = false;
+        //Debug.Log();
 
         if (Input.GetMouseButtonDown(0))
             touchStart = Camera.main.ScreenToWorldPoint(Input.mousePosition);

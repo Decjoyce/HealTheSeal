@@ -11,20 +11,22 @@ public class TutorialHabitat : MonoBehaviour
 
     [SerializeField] GameObject[] sections;
 
-    [SerializeField] Button beach_button, icu_button, kennels_button;
+    [SerializeField] Button beach_button, icu_button, kennels_button, icu_back2;
 
     [SerializeField] CameraScroll scrol;
 
     private void Start()
     {
-        if (!GameManagement.instance.first_time)
+        if (!GameManagement.instance.first_time || !GameManagement.instance.tutorial || GameData.instance.gd_sealdata.done_tutorial)
             Destroy(gameObject);
 
-        if(GameManagement.instance.tutorial_index > 20)
+        if(GameManagement.instance.tutorial_index > 20 && GameManagement.instance.tutorial)
         {
             sections[0].SetActive(false);
             sections[8].SetActive(true);
             scrol.can_scroll = false;
+            beach_button.interactable = false;
+            kennels_button.interactable = false;
         }
     }
 
@@ -77,6 +79,7 @@ public class TutorialHabitat : MonoBehaviour
     {
         sections[10].SetActive(false);
         sections[11].SetActive(true);
+        icu_back2.interactable = false;
     }
 
 }

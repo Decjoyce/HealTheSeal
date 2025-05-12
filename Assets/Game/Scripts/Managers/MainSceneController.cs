@@ -64,6 +64,9 @@ public class MainSceneController : MonoBehaviour
         {
             SpawnSealVisual(seal);
         }
+
+        if (!GameManagement.instance.tutorial)
+            spawnButton.interactable = true;
     }
 
     public void BeachButtonActivate()
@@ -71,6 +74,14 @@ public class MainSceneController : MonoBehaviour
         GameManagement.instance.LoadScene("Beach_Scene");
         if (GameManagement.instance.tutorial)
             GameManagement.instance.tutorial_index++;
+    }
+
+    public void fixyo()
+    {
+        if (tutsy != null)
+        {
+            tutsy.ClickedOnICU();
+        }
     }
 
     void Update()
@@ -137,7 +148,7 @@ public class MainSceneController : MonoBehaviour
         camera_scroll.enabled = false;
         kennels_open = kennels;
         icu_open = !kennels;
-        if (GameManagement.instance.tutorial && !kennels)
+        if (GameManagement.instance.tutorial && !kennels && tutsy != null)
             tutsy.ClickedOnICU();
     }
     public void CloseEnclosure()

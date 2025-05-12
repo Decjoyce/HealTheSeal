@@ -173,7 +173,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      KeyLight0127_0: -7398924922254644315
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

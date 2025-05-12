@@ -70,9 +70,9 @@ public class SealManager : MonoBehaviour
         if (seals.Count < seal_limit)
         {
             float ran_delay = Random.Range(rescue_delay_min, rescue_delay_max);
-            next_time_to_rescue_seal = System.DateTime.Now.AddHours(ran_delay);
+            next_time_to_rescue_seal = System.DateTime.Now.AddMinutes(ran_delay);
             GameData.instance.gd_sealdata.next_time_for_rescue = next_time_to_rescue_seal.ToString();
-            Debug.LogWarning("Seal Scheduled For Rescue = " + System.DateTime.Now.AddHours(ran_delay).ToString());
+            Debug.LogWarning("Seal Scheduled For Rescue = " + System.DateTime.Now.AddMinutes(ran_delay).ToString());
         }
         else
         {

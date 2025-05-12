@@ -78,7 +78,7 @@ public class MinigameManager : MonoBehaviour
                 current_seal.can_feed = false;
                 GameManagement.instance.AddItemToSchedule_Feed(System.DateTime.Now.AddHours(delay).ToString(), current_seal);
                 current_seal.last_time_fed = System.DateTime.Now.ToString();
-                current_seal.next_time_feed = System.DateTime.Now.AddHours(delay).ToString();
+                current_seal.next_time_feed = System.DateTime.Now.AddMinutes(delay).ToString();
 
                 AndroidService.instance.QueueNotification_Seal(current_seal, notif_types.feed, System.DateTime.Now.AddHours(delay).ToString());
                 break;
@@ -89,7 +89,7 @@ public class MinigameManager : MonoBehaviour
                 current_seal.can_heal = false;
                 GameManagement.instance.AddItemToSchedule_Heal(System.DateTime.Now.AddHours(delay).ToString(), current_seal);
                 current_seal.last_time_healed = System.DateTime.Now.ToString();
-                current_seal.next_time_heal = System.DateTime.Now.AddHours(delay).ToString();
+                current_seal.next_time_heal = System.DateTime.Now.AddMinutes(delay).ToString();
 
                 AndroidService.instance.QueueNotification_Seal(current_seal, notif_types.heal, System.DateTime.Now.AddHours(delay).ToString());
                 break;
